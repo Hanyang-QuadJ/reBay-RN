@@ -10,7 +10,7 @@ class sellScreen extends Component {
     }
 
     static navigationOptions = () => ({
-        title: 'Default',
+        title: '판매하기',
         headerStyle: {
             height: Platform.OS === 'android' ? 54 + STATUS_BAR_HEIGHT : 54,
             backgroundColor: '#2196F3'

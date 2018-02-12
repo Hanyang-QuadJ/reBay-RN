@@ -9,18 +9,16 @@ class introScreen extends Component {
         header: null
 
     });
-
     constructor(props) {
         super(props);
         this.state = {count: 0}
 
     }
-
     onPress = () => {
         this.setState({
             count: this.state.count + 1
         })
-    }
+    };
 
     render() {
         return (
@@ -69,12 +67,8 @@ class introScreen extends Component {
                             }}/>
                 </View>
             </View>
-
-
         )
-
     }
-
 }
 
 const styles = StyleSheet.create({

@@ -5,7 +5,6 @@ import { STATUS_BAR_HEIGHT } from '../constants';
 class _defaultScreen extends Component {
     constructor(props){
         super(props)
-        
 
     }
 

@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import {StyleSheet, Text, View, Platform} from 'react-native';
 import { STATUS_BAR_HEIGHT } from '../constants';
-import { Ionicons } from '@expo/vector-icons';
 
-
-class mainScreen extends Component {
+class buyScreen extends Component {
     constructor(props){
         super(props)
 
     }
 
     static navigationOptions = () => ({
-        title: 'reBay',
+        title: '구매하기',
         headerStyle: {
             height: Platform.OS === 'android' ? 54 + STATUS_BAR_HEIGHT : 54,
             backgroundColor: '#2196F3'
@@ -26,12 +24,11 @@ class mainScreen extends Component {
     render() {
         return (
             <View style={{flex: 1, backgroundColor: '#ddd'}}>
-                <Text>Main Screen</Text>
-                <Ionicons name={`ios-information-circle`}/>
+                <Text>Buy Screen</Text>
             </View>
-        )
+            )
 
     }
 
 }
-export default mainScreen;
+export default buyScreen;

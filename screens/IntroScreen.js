@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import {StyleSheet, Text, View, Platform} from 'react-native';
 import { STATUS_BAR_HEIGHT } from '../constants';
 
-class _DefaultScreen extends Component {
+class IntroScreen extends Component {
     static navigationOptions = () => ({
-        title: 'Default',
+        title: 'reBay',
         headerStyle: {
+
             height: Platform.OS === 'android' ? 54 + STATUS_BAR_HEIGHT : 54,
             backgroundColor: '#2196F3'
         },
@@ -19,11 +20,12 @@ class _DefaultScreen extends Component {
     render() {
         return (
             <View style={{flex: 1, backgroundColor: '#ddd'}}>
-                <Text>Default Screen</Text>
+                <Text>Intro Screen</Text>
+                <Text>다음에하기</Text>
             </View>
-            )
+        )
 
     }
 
 }
-export default _DefaultScreen;
+export default IntroScreen;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {StyleSheet, Text, View, Platform} from 'react-native';
 import { STATUS_BAR_HEIGHT } from '../constants';
 
-class MainScreen extends Component {
+class mainScreen extends Component {
     static navigationOptions = () => ({
         title: 'reBay',
         headerStyle: {
@@ -26,4 +26,4 @@ class MainScreen extends Component {
     }
 
 }
-export default MainScreen;
+export default mainScreen;

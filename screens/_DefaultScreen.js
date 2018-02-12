@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import {StyleSheet, Text, View, Platform} from 'react-native';
 import { STATUS_BAR_HEIGHT } from '../constants';
 
-class _DefaultScreen extends Component {
+class _defaultScreen extends Component {
+    constructor(props){
+        super(props)
+        
+
+    }
+
     static navigationOptions = () => ({
         title: 'Default',
         headerStyle: {
@@ -26,4 +32,4 @@ class _DefaultScreen extends Component {
     }
 
 }
-export default _DefaultScreen;
+export default _defaultScreen;

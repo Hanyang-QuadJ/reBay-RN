@@ -3,12 +3,17 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Provider} from 'react-redux';
 import { StackNavigator } from 'react-navigation';
 import store from './store';
-import IntroScreen from './screens/IntroScreen';
+import introScreen from './screens/introScreen';
 
 export default class App extends Component {
+
   render() {
+
       const MainNavigator = StackNavigator({
-          Main : { screen: IntroScreen}
+          Main : { screen: introScreen},
+
+      },{
+          headerMode:'none'
       });
     return (
         <Provider store={store}>

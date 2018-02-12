@@ -1,31 +1,66 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View, Platform} from 'react-native';
+import {StyleSheet, Text, View, Platform, TouchableHighlight} from 'react-native';
 import { STATUS_BAR_HEIGHT } from '../constants';
+import Swiper from 'react-native-swiper';
 
-class IntroScreen extends Component {
+class introScreen extends Component {
     static navigationOptions = () => ({
-        title: 'reBay',
-        headerStyle: {
-
-            height: Platform.OS === 'android' ? 54 + STATUS_BAR_HEIGHT : 54,
-            backgroundColor: '#2196F3'
-        },
-        headerTitleStyle: {
-            marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 0,
-            color: 'white'
-        },
-        headerLeft: <View><Text>I</Text></View>
 
     });
+    constructor(props){
+        super(props)
+        this.state = { count: 0}
+
+    }
+    onPress= () =>{
+        this.setState({
+            count:this.state.count + 1
+        })
+    }
+
     render() {
         return (
-            <View style={{flex: 1, backgroundColor: '#ddd'}}>
-                <Text>Intro Screen</Text>
-                <Text>다음에하기</Text>
-            </View>
+            <Swiper style={styles.wrapper} showsButtons={false}>
+                <View style={styles.slide1}>
+                    <Text style={styles.text}>Hello Swiper</Text>
+                </View>
+                <View style={styles.slide2}>
+                    <Text style={styles.text}>Beautiful</Text>
+                </View>
+                <View style={styles.slide3}>
+                    <Text style={styles.text}>And simple</Text>
+                </View>
+            </Swiper>
         )
 
     }
 
 }
-export default IntroScreen;
+const styles = StyleSheet.create({
+    wrapper: {
+    },
+    slide1: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#9DD6EB',
+    },
+    slide2: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#97CAE5',
+    },
+    slide3: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#92BBD9',
+    },
+    text: {
+        color: '#fff',
+        fontSize: 30,
+        fontWeight: 'bold',
+    }
+})
+export default introScreen;

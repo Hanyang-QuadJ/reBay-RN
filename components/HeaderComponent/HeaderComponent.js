@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
 import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
+import  styles  from './Style';
 export default class HeaderComponent extends Component {
 
     constructor(props){
         super(props);
-        console.log(this.props);
-
     }
     render() {
         return (
             <Container>
-                <Header>
+                <Header style={styles.headerContainer}>
                     <Left>
                         <Button transparent>
-                            <Icon name={this.props.left}/>
+                            {this.props.left === "" ? null : <Icon type="Ionicons" name={this.props.left}/>}
                         </Button>
                     </Left>
                     <Body>
-                    <Title> {this.props.title} </Title>
+                    <Title style={styles.headerText}> {this.props.title} </Title>
                     </Body>
                     <Right>
                         <Button transparent>
-                            <Icon name={this.props.right} ios={this.props.right} />
+                            {this.props.right === "" ? null : <Icon type="Ionicons" name={this.props.right}/>}
                         </Button>
                     </Right>
                 </Header>

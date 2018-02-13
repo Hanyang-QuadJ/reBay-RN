@@ -115,5 +115,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     button: {}
-})
+});
 export default TutorialScreen;

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import * as ShuttleActionCreater from '../../../actionCreaters/ShuttleActionCreater';
 import { connect } from 'react-redux';
-import { Container, Text, Content } from 'native-base';
-import HeaderComponent from '../../../components/HeaderComponent'
+import { Container, Text, Content, Header, Button } from 'native-base';
+import Style from './Style';
+import HeaderComponent from '../../../components/HeaderComponent/HeaderComponent'
 
 const mapStateToProps = state => {
     return {
@@ -22,9 +23,9 @@ class HomeScreen extends Component {
     render() {
         return (
             <Container style={{flex: 1, backgroundColor: '#ddd'}}>
+                <HeaderComponent title="rebay" left="" right="ios-basket" />
                 <Content>
-                    <HeaderComponent title="rebay" left="" right="ios-basket" />
-                    <Text>Home Screen</Text>
+                    <Text>HaHa</Text>
                 </Content>
             </Container>
         )

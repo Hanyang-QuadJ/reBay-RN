@@ -1,4 +1,4 @@
-import { combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import {
     START_TO_GET_SHUTTLE_TIMETABLE,
     FAILED_TO_GET_SHUTTLE_TIMETABLE,

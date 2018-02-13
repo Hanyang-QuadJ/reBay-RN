@@ -3,23 +3,19 @@ import {StyleSheet, Text, View} from 'react-native';
 import {Provider} from 'react-redux';
 import {StackNavigator, TabNavigator, TabBarBottom} from 'react-navigation';
 import store from './store';
-import {Ionicons} from '@expo/vector-icons';
-import introScreen from './screens/introScreen';
-import mainScreen from './screens/mainScreen';
-import sellScreen from './screens/sellScreen';
-import buyScreen from './screens/buyScreen';
-import noticeScreen from './screens/noticeScreen';
-import profileScreen from './screens/profileScreen';
+import { Ionicons } from '@expo/vector-icons';
+import TutorialScreen from './screens/IntroScreen/TutorialScreen';
+import HomeScreen from './screens/TabScreens/HomeScreen/HomeScreen';
+import BuyScreen from './screens/TabScreens/BuyScreen/BuyScreen';
+
 
 export default class App extends Component {
 
     render() {
         const TabNavigation = TabNavigator({
-                Home: {screen: mainScreen},
-                Buy: {screen: buyScreen},
-                Sell: {screen: sellScreen},
-                Notice: {screen: noticeScreen},
-                Profile: {screen: profileScreen},
+                Home: {screen: HomeScreen},
+                Buy: {screen: BuyScreen},
+
             },
             {
                 navigationOptions: ({navigation}) => ({
@@ -47,7 +43,6 @@ export default class App extends Component {
                     inactiveTintColor: 'gray',
                     iconStyle:{marginTop:1}
                 },
-
                 tabBarComponent: TabBarBottom,
                 tabBarPosition: 'bottom',
                 animationEnabled: false,
@@ -56,8 +51,10 @@ export default class App extends Component {
 
 
         const MainNavigator = StackNavigator({
-            Intro: {screen: introScreen},
+            Intro: {screen: TutorialScreen},
             Home: {screen: TabNavigation}
+        },{
+            headerMode:'none',
         });
 
 

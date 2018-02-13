@@ -1,25 +1,20 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Platform, TouchableHighlight} from 'react-native';
-import {Button} from 'react-native-elements';
-import {STATUS_BAR_HEIGHT} from '../constants';
+import {StatusBar, View, TouchableHighlight, StyleSheet} from 'react-native';
+import {Button, Container, Content, Text} from 'native-base';
+
+import {STATUS_BAR_HEIGHT} from '../../constants/index';
 import Swiper from 'react-native-swiper';
 
-class introScreen extends Component {
+class TutorialScreen extends Component {
     static navigationOptions = () => ({
         header: null
 
     });
+
     constructor(props) {
-        super(props);
-        this.state = {count: 0}
+        super(props);   
 
     }
-    onPress = () => {
-        this.setState({
-            count: this.state.count + 1
-        })
-    };
-
     render() {
         return (
             <View style={{flex: 1}}>
@@ -43,28 +38,34 @@ class introScreen extends Component {
                     </View>
                 </Swiper>
                 <View style={styles.staticJump}>
-                    <TouchableHighlight  onPress={() => this.props.navigation.navigate('Home')}>
+                    <TouchableHighlight onPress={() => this.props.navigation.navigate('Home')}>
                         <Text style={styles.staticJumpText}>건너뛰기</Text>
                     </TouchableHighlight>
                 </View>
                 <View style={styles.staticAuth}>
-                    <Button title='로그인' onPress={() => this.props.navigation.navigate('Home')}
-                            buttonStyle={{
+                    <Button full rounded onPress={() => this.props.navigation.navigate('Home')}
+                            style={{
                                 backgroundColor: "rgba(92, 99,216, 1)",
-                                height:45,
+                                height: 45,
                                 borderColor: "transparent",
                                 borderWidth: 0,
                                 borderRadius: 5,
-                            }}/>
-                    <Button title='회원가입' onPress={() => this.props.navigation.navigate('Home')}
-                            buttonStyle={{
-                                marginTop:10,
+                            }}>
+                        <Text>로그인</Text>
+                    </Button>
+
+                    <Button full rounded onPress={() => this.props.navigation.navigate('Home')}
+                            style={{
                                 backgroundColor: "rgba(92, 99,216, 0.5)",
-                                height:45,
+                                height: 45,
+                                marginTop:10,
+                                marginBottom:5,
                                 borderColor: "transparent",
                                 borderWidth: 0,
                                 borderRadius: 5,
-                            }}/>
+                            }}>
+                        <Text>회원가입</Text>
+                    </Button>
                 </View>
             </View>
         )
@@ -79,14 +80,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    staticJump:{
+    staticJump: {
         position: 'absolute',
         zIndex: 100,
         right: 10,
         top: 30,
     },
-    staticJumpText:{
-        fontSize:16,
+    staticJumpText: {
+        fontSize: 16,
 
     },
     staticAuth: {
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
         zIndex: 100,
         left: 20,
         right: 20,
-        bottom: 30,
+        bottom: 10,
     },
     slide2: {
         flex: 1,
@@ -115,4 +116,4 @@ const styles = StyleSheet.create({
     },
     button: {}
 })
-export default introScreen;
+export default TutorialScreen;

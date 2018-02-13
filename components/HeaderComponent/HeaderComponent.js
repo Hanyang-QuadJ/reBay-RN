@@ -8,7 +8,6 @@ export default class HeaderComponent extends Component {
     }
     render() {
         return (
-            <Container>
                 <Header style={styles.headerContainer}>
                     <Left>
                         <Button transparent>
@@ -24,7 +23,6 @@ export default class HeaderComponent extends Component {
                         </Button>
                     </Right>
                 </Header>
-            </Container>
         );
     }
 }

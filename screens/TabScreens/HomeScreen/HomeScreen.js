@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import { FlatList } from 'react-native'
+import { FlatList,View } from 'react-native'
 import * as ShuttleActionCreator from '../../../ActionCreators/ShuttleActionCreator';
 import {connect} from 'react-redux';
-import {Container, Text, Content, Header, Button, Spinner, List, ListItem,Body} from 'native-base';
+import {Container, Text, Content, Header, Button, Spinner, List, ListItem, Body} from 'native-base';
 import Style from './Style';
 import HeaderComponent from '../../../components/HeaderComponent/HeaderComponent'
 
@@ -13,10 +13,14 @@ const mapStateToProps = state => {
     };
 };
 
+
 class HomeScreen extends Component {
     constructor(props) {
         super(props);
         console.log(props);
+        this.state = {
+            refreshing:false,
+        }
 
     }
 
@@ -32,22 +36,36 @@ class HomeScreen extends Component {
             </ListItem>
             )
     }
+    renderHeader = () => {
+        return (
+            <Text>Header</Text>
+
+        )
+
+    };
+    pullToRefresh = () => {
+        console.log("refreshed");
+        this.setState({refreshing:true})
+        // this.props.dispatch(ShuttleActionCreator.dispatchShuttleTimetable())
+    };
 
     render() {
-        console.log(this.props.shuttleTimetable);
         return (
             <Container>
                 <HeaderComponent title="rebay" left="" right="ios-basket"/>
-                <Content>
+                <View>
                     {this.props.loading === true ?
                         <Spinner /> :
                         <FlatList
                             data={this.props.shuttleTimetable}
                             renderItem={this.renderItem}
                             keyExtractor={item => item.time}
+                            ListHeaderComponent={this.renderHeader}
+                            refreshing={this.state.refreshing}
+                            onRefresh={this.pullToRefresh}
                         />
                     }
-                </Content>
+                </View>
             </Container>
         )
 

@@ -1,4 +1,4 @@
-import * as HttpRequest from '../utils/HttpRequest';
+import * as HttpRequest from '../Utils/HttpRequest';
 
 
 async function getData() {

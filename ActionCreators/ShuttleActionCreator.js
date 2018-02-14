@@ -2,7 +2,7 @@ export const START_TO_GET_SHUTTLE_TIMETABLE = "START_TO_GET_SHUTTLE_TIMETABLE";
 export const FAILED_TO_GET_SHUTTLE_TIMETABLE = "FAILED_TO_GET_SHUTTLE_TIMETABLE";
 export const SUCCEED_TO_GET_SHUTTLE_TIMETABLE = "SUCCEED_TO_GET_SHUTTLE_TIMETABLE";
 
-import * as HttpRequest from '../utils/HttpRequest';
+import * as HttpRequest from '../Utils/HttpRequest';
 
 async function getShuttleTimeTable () {
     return await HttpRequest.get({ url: "shuttle/vacation/week" });

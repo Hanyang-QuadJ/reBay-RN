@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Text, Content } from 'native-base';
-import HeaderComponent from '../../../components/HeaderComponent/HeaderComponent'
+import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 
 const mapStateToProps = state => {
     return {
@@ -13,8 +13,13 @@ class BuyScreen extends Component {
         super(props)
 
     }
+    componentDidMount(){
+        console.log("BuyScreen")
+    }
 
     render() {
+        console.log("BuyScreen2");
+
         return (
             <Container style={{flex: 1, backgroundColor: '#ddd'}}>
                 <Content>

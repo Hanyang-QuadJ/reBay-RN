@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StatusBar, View, TouchableHighlight, StyleSheet} from 'react-native';
 import {Button, Container, Content, Text} from 'native-base';
 
-import {STATUS_BAR_HEIGHT} from '../../constants/index';
+import {STATUS_BAR_HEIGHT} from '../../Constants/index';
 import Swiper from 'react-native-swiper';
 
 class TutorialScreen extends Component {

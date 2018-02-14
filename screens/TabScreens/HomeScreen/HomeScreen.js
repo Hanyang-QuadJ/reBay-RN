@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import { FlatList,View } from 'react-native'
 import * as ShuttleActionCreator from '../../../ActionCreators/ShuttleActionCreator';
+import * as LoginActionCreator from '../../../ActionCreators/LoginActionCreator';
 import {connect} from 'react-redux';
 import {Container, Text, Content, Header, Button, Spinner, List, ListItem, Body} from 'native-base';
 import Style from './Style';
-import HeaderComponent from '../../../components/HeaderComponent/HeaderComponent'
+import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 
 const mapStateToProps = state => {
     return {
@@ -25,9 +26,10 @@ class HomeScreen extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(ShuttleActionCreator.dispatchShuttleTimetable())
+        this.props.dispatch(ShuttleActionCreator.dispatchShuttleTimetable());
+        this.props.dispatch(LoginActionCreator.dispatchPostData());
     }
-    renderItem({ item } ){
+    renderItem= ({ item } ) => {
         return (
             <ListItem style={{ marginLeft: 0 }}>
                 <Body>
@@ -35,7 +37,7 @@ class HomeScreen extends Component {
                 </Body>
             </ListItem>
             )
-    }
+    };
     renderHeader = () => {
         return (
             <Text>Header</Text>

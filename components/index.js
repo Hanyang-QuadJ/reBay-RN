@@ -1,2 +1,2 @@
-import * as commonStyle from '../constants/commonStyle'
+import * as commonStyle from '../Constants/commonStyle'
 export default commonStyle;

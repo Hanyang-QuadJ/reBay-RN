@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Text, Content } from 'native-base';
-import HeaderComponent from '../../components/HeaderComponent/HeaderComponent'
+import HeaderComponent from '../../Components/HeaderComponent/HeaderComponent'
 
 const mapStateToProps = state => {
     return {
@@ -16,7 +16,7 @@ class DefaultScreen extends Component {
 
     render() {
         return (
-            <Container style={{flex: 1, backgroundColor: '#ddd'}}>
+            <Container>
                 <HeaderComponent title="default" left="" right="" />
                 <Content>
                     <Text>Default Screen</Text>

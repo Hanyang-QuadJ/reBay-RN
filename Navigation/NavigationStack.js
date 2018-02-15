@@ -6,7 +6,7 @@ import BuyScreen from '../Screens/TabScreens/BuyScreen/BuyScreen';
 import SignInScreen from "../Screens/Auth/SignInScreen/SignInScreen";
 import {TabBarBottom, StackNavigator, TabNavigator} from "react-navigation";
 
-const TabNavigation = TabNavigator({
+export const TabNavigation = TabNavigator({
         Home: {screen: HomeScreen},
         Buy: {screen: BuyScreen},
 

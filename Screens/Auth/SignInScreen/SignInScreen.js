@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {View, TextInput, KeyboardAvoidingView} from 'react-native';
 import { NavigationActions } from 'react-navigation';
+import LoggedInAppNavigation from '../../../Navigation/LoggedInAppNavigation';
 import * as LoginActionCreator from '../../../ActionCreators/LoginActionCreator';
+
 import InputComponent from '../../../Components/InputComponent/InputComponent'
 import {
     Container,
@@ -40,9 +42,7 @@ class SignInScreen extends Component {
 
     }
 
-    componentDidMount() {
 
-    }
     goToHome = () => {
         const navigateToHome = NavigationActions.navigate({ routeName:'Home'});
         this.props.navigation.dispatch(navigateToHome);
@@ -52,12 +52,19 @@ class SignInScreen extends Component {
         console.log(this.state);
         this.props.dispatch(LoginActionCreator.postLogin(this.state.email, this.state.password));
     };
-
-    render() {
+    componentDidUpdate(){
+        console.log("checkcheck");
         console.log(this.props);
-        if(this.props.loginStatus===true){
+
+        if(this.props.loginStatus ===true){
+
             this.goToHome();
         }
+    }
+
+    render() {
+
+
         return (
             <Container style={{backgroundColor: 'white'}}>
                 <Header style={styles.headerContainer}>

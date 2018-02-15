@@ -9,13 +9,14 @@ import {
 
 const middleware = createReactNavigationReduxMiddleware(
     "root",
-    state => state.nav,
+    state => state.NavigationReducer,
 );
+
 
 const createStoreWithMiddleware = applyMiddleware(
     thunkMiddleware, // Middleware for dispatch()
     loggerMiddleware,
-    middleware
+    middleware,
     // Middleware for loging
 )(createStore);
 

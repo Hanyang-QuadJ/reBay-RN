@@ -9,8 +9,8 @@ import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent
 
 const mapStateToProps = state => {
     return {
-        shuttleTimetable: state.reducer.shuttleTimetable,
-        loading:state.reducer.loading
+        shuttleTimetable: state.ShuttleReducer.shuttleTimetable,
+        loading:state.ShuttleReducer.loading
     };
 };
 
@@ -27,7 +27,6 @@ class HomeScreen extends Component {
 
     componentDidMount() {
         this.props.dispatch(ShuttleActionCreator.dispatchShuttleTimetable());
-        this.props.dispatch(LoginActionCreator.dispatchPostData());
     }
     renderItem= ({ item } ) => {
         return (

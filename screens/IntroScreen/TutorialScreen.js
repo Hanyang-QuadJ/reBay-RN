@@ -43,7 +43,7 @@ class TutorialScreen extends Component {
                     </TouchableHighlight>
                 </View>
                 <View style={styles.staticAuth}>
-                    <Button full rounded onPress={() => this.props.navigation.navigate('Home')}
+                    <Button full rounded onPress={() => this.props.navigation.navigate('SignIn')}
                             style={{
                                 backgroundColor: "rgba(92, 99,216, 1)",
                                 height: 45,

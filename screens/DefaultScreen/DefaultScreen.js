@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Text, Content } from 'native-base';
 import HeaderComponent from '../../Components/HeaderComponent/HeaderComponent'
+import  styles from './Style';
 
 const mapStateToProps = state => {
     return {
@@ -16,7 +17,7 @@ class DefaultScreen extends Component {
 
     render() {
         return (
-            <Container>
+            <Container style={{backgroundColor:'white'}}>
                 <HeaderComponent title="default" left="" right="" />
                 <Content>
                     <Text>Default Screen</Text>

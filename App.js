@@ -7,6 +7,8 @@ import { Ionicons } from '@expo/vector-icons';
 import TutorialScreen from './Screens/IntroScreen/TutorialScreen';
 import HomeScreen from './Screens/TabScreens/HomeScreen/HomeScreen';
 import BuyScreen from './Screens/TabScreens/BuyScreen/BuyScreen';
+import SignInScreen from "./Screens/Auth/SignInScreen/SignInScreen";
+import AppNavigation from './Navigation/AppNavigation';
 
 
 
@@ -53,7 +55,8 @@ export default class App extends Component {
 
         const MainNavigator = StackNavigator({
             Intro: {screen: TutorialScreen},
-            Home: {screen: TabNavigation}
+            Home: {screen: TabNavigation},
+            SignIn:{ screen: SignInScreen}
         },{
             headerMode:'none',
         });
@@ -61,7 +64,7 @@ export default class App extends Component {
 
         return (
             <Provider store={store}>
-                <MainNavigator/>
+                <MainNavigator />
             </Provider>
 
         );

@@ -1,52 +1,49 @@
 import * as HttpRequest from '../Utils/HttpRequest';
+import {ServerEndPoint, ServerEndPoint2} from "../Constants/server";
 
-
-async function postData() {
-    return await HttpRequest.post({ url: "api/auth/login", headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        }, body:JSON.stringify({
-            username: "admin",
-            password: "admin"
-        }) });
-}
-// async function postData() {
-//     return await fetch('localhost:3000/api/auth/login', {
-//         method: 'POST',
-//         headers: {
-//             Accept: 'application/json',
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//             username: 'admin',
-//             password: 'admin',
-//         }),
-//     });
-// }
-
-export const START_TO_LOIGN = "START_TO_LOGIN";
-export const FAILED_TO_LOGIN= "FAILED_TO_LOGIN";
+export const START_TO_LOGIN = "START_TO_LOGIN";
+export const FAILED_TO_LOGIN = "FAILED_TO_LOGIN";
 export const SUCCEED_TO_LOGIN = "SUCCEED_TO_LOGIN";
 
-export const dispatchPostData = () => {
-    return async ( dispatch ) => {
-        // dispatch({
-        //     type: START_TO_GET_SHUTTLE_TIMETABLE,
-        // });
-        try {
-            const data = await postData();
-            console.log(data);
-            dispatch({
-                type: SUCCEED_TO_LOGIN,
-                payload: {
-                    loginStatus: data
+export const postLogin = (email, password) => {
+
+    return (dispatch) => {
+        dispatch({type:START_TO_LOGIN});
+        fetch(ServerEndPoint2 + "api/auth/login", {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+            })
+        })
+
+            .then((response) => {
+                console.log(response);
+                if (response.status >= 200 && response.status <= 300) {
+                    return response.json()
+                        .then(responseData => (
+                                dispatch({type: SUCCEED_TO_LOGIN, payload: {loginResponse: responseData}})
+                            )
+                        )
                 }
+                else {
+                    return response.json()
+                        .then(responseData => (
+                            dispatch({type: FAILED_TO_LOGIN, payload: {loginResponse: responseData}})
+                        ))
+                }
+            })
+            .catch(err => {
+                console.log(err);
             });
-        } catch (err) {
-            dispatch({
-                type: FAILED_TO_LOGIN,
-            });
-        }
-    };
+    }
+
 };
+
+
+
 

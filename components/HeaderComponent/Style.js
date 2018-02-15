@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
     headerContainer:{
         backgroundColor: commonStyle.PRIMARY_COLOR,
     },
+
     headerText:{
         color: 'white',
     }

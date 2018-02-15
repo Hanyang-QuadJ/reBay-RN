@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {View, TextInput, KeyboardAvoidingView} from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import * as LoginActionCreator from '../../../ActionCreators/LoginActionCreator';
 import InputComponent from '../../../Components/InputComponent/InputComponent'
 import {
@@ -23,7 +24,6 @@ import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent
 import styles from './Style';
 
 const mapStateToProps = state => {
-    console.log(state);
     return {
         loginStatus: state.LoginReducer.loginStatus
     };
@@ -44,7 +44,8 @@ class SignInScreen extends Component {
 
     }
     goToHome = () => {
-        this.props.navigation.navigate('Home');
+        const navigateToHome = NavigationActions.navigate({ routeName:'Home'});
+        this.props.navigation.dispatch(navigateToHome);
     };
 
     sendToAction = () => {
@@ -54,8 +55,8 @@ class SignInScreen extends Component {
 
     render() {
         console.log(this.props);
-        if(this.props.loginStatus === true){
-            this.props.navigation.navigate('Home');
+        if(this.props.loginStatus===true){
+            this.goToHome();
         }
         return (
             <Container style={{backgroundColor: 'white'}}>

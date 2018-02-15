@@ -3,10 +3,20 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import Reducer from "../Reducers";
 const loggerMiddleware = createLogger();
+import {
+    createReactNavigationReduxMiddleware,
+} from 'react-navigation-redux-helpers';
+
+const middleware = createReactNavigationReduxMiddleware(
+    "root",
+    state => state.nav,
+);
 
 const createStoreWithMiddleware = applyMiddleware(
     thunkMiddleware, // Middleware for dispatch()
-    loggerMiddleware // Middleware for loging
+    loggerMiddleware,
+    middleware
+    // Middleware for loging
 )(createStore);
 
 const store = createStoreWithMiddleware(Reducer);

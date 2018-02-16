@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Ionicons } from '@expo/vector-icons';
+import {Ionicons} from '@expo/vector-icons';
 import TutorialScreen from '../Screens/IntroScreen/TutorialScreen';
 import HomeScreen from '../Screens/TabScreens/HomeScreen/HomeScreen';
 import BuyScreen from '../Screens/TabScreens/BuyScreen/BuyScreen';
@@ -37,7 +37,7 @@ const TabNavigation = TabNavigator({
         tabBarOptions: {
             activeTintColor: 'tomato',
             inactiveTintColor: 'gray',
-            iconStyle:{marginTop:1}
+            iconStyle: {marginTop: 1}
         },
         tabBarComponent: TabBarBottom,
         tabBarPosition: 'bottom',
@@ -49,15 +49,15 @@ const TabNavigation = TabNavigator({
 const MainNavigator = StackNavigator({
     Intro: {screen: TutorialScreen},
     Home: {screen: TabNavigation},
-    SignIn:{ screen: SignInScreen},
-    SignUp: { screen: SignUpScreen},
-    Terms: { screen: TermsScreen}
-},{
-    navigationOptions:{
+    SignIn: {screen: SignInScreen},
+    SignUp: {screen: SignUpScreen},
+    Terms: {screen: TermsScreen}
+}, {
+    navigationOptions: {
         // gesturesEnabled:false
 
     },
-    headerMode:'none',
+    headerMode: 'none',
 });
 
 export default MainNavigator;

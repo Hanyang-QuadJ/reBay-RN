@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import  LoginReducer  from './LoginReducer';
 import ShuttleReducer from './ShuttleReducer';
 import NavigationReducer from './NavigationReducer';

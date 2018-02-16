@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
     },
     essential:{
         flex:2,
-        backgroundColor:"blue"
 
     },
     footer:{
@@ -21,9 +20,8 @@ const styles = StyleSheet.create({
         marginRight: 30,
         paddingTop:15,
         paddingBottom:10,
-        backgroundColor:"green",
         borderBottomWidth: 1,
-        borderBottomColor: '#898989',
+        borderBottomColor: commonStyle.BORDER_COLOR,
     },
 
 });

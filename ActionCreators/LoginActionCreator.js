@@ -22,45 +22,6 @@ function storeToken(accessToken) {
 }
 
 
-
-// export function postLogin  (email, password) {
-//     try {
-//         let response = fetch(ServerEndPoint2 + "api/auth/login",{
-//             method: 'POST',
-//             headers : {
-//                 Accept: 'application/json',
-//                 'Content-Type': 'application/json',
-//
-//             },
-//             body: JSON.stringify({
-//                 email:email,
-//                 password: password,
-//             })
-//         });
-//         let res =  response.text();
-//         if(response.status >= 200 && response.status <= 300){
-//             return ( dispatch ) => {
-//                 storeToken(res);
-//                 dispatch({type: SUCCEED_TO_LOGIN, payload: {loginResponse: res}})
-//                 getToken();
-//             }
-//
-//         }
-//         else{
-//             return ( dispatch ) => {
-//                 dispatch({type: FAILED_TO_LOGIN, payload: {loginResponse: res}})
-//
-//             }
-//         }
-//     } catch (error) {
-//         console.log(error)
-//
-//     }
-//
-//
-// }
-
-
 export const postLogin = (email, password) => {
 
     return (dispatch) => {

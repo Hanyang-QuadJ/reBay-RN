@@ -16,7 +16,6 @@ export const dispatchData = () => {
         // });
         try {
             const data = await getData();
-            console.log(data);
             dispatch({
                 type: SUCCEED_TO_GET,
                 payload: {

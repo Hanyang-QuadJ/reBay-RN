@@ -6,7 +6,7 @@ import BuyScreen from '../Screens/TabScreens/BuyScreen/BuyScreen';
 import SignInScreen from "../Screens/Auth/SignInScreen/SignInScreen";
 import {TabBarBottom, StackNavigator, TabNavigator} from "react-navigation";
 
-export const TabNavigation = TabNavigator({
+const TabNavigation = TabNavigator({
         Home: {screen: HomeScreen},
         Buy: {screen: BuyScreen},
 
@@ -49,6 +49,10 @@ const MainNavigator = StackNavigator({
     Home: {screen: TabNavigation},
     SignIn:{ screen: SignInScreen}
 },{
+    navigationOptions:{
+        gesturesEnabled:false
+
+    },
     headerMode:'none',
 });
 

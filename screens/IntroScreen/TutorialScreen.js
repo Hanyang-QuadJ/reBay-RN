@@ -54,7 +54,7 @@ class TutorialScreen extends Component {
                         <Text>로그인</Text>
                     </Button>
 
-                    <Button full rounded onPress={() => this.props.navigation.navigate('Home')}
+                    <Button full rounded onPress={() => this.props.navigation.navigate('Terms')}
                             style={{
                                 backgroundColor: "rgba(92, 99,216, 0.5)",
                                 height: 45,

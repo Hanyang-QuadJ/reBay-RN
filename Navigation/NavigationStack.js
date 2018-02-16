@@ -4,6 +4,8 @@ import TutorialScreen from '../Screens/IntroScreen/TutorialScreen';
 import HomeScreen from '../Screens/TabScreens/HomeScreen/HomeScreen';
 import BuyScreen from '../Screens/TabScreens/BuyScreen/BuyScreen';
 import SignInScreen from "../Screens/Auth/SignInScreen/SignInScreen";
+import TermsScreen from '../Screens/Auth/TermsScreen/TermsScreen';
+import SignUpScreen from '../Screens/Auth/SignUpScreen/SignUpScreen';
 import {TabBarBottom, StackNavigator, TabNavigator} from "react-navigation";
 
 const TabNavigation = TabNavigator({
@@ -47,10 +49,12 @@ const TabNavigation = TabNavigator({
 const MainNavigator = StackNavigator({
     Intro: {screen: TutorialScreen},
     Home: {screen: TabNavigation},
-    SignIn:{ screen: SignInScreen}
+    SignIn:{ screen: SignInScreen},
+    SignUp: { screen: SignUpScreen},
+    Terms: { screen: TermsScreen}
 },{
     navigationOptions:{
-        gesturesEnabled:false
+        // gesturesEnabled:false
 
     },
     headerMode:'none',

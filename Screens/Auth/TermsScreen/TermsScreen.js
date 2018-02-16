@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Text, Content } from 'native-base';
-import HeaderComponent from '../../Components/HeaderComponent/HeaderComponent'
+import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 import  styles from './Style';
 
 const mapStateToProps = state => {
@@ -9,18 +9,21 @@ const mapStateToProps = state => {
     };
 };
 
-class DefaultScreen extends Component {
+class TermsScreen extends Component {
     constructor(props){
         super(props)
 
     }
+    goToSignUp = () =>{
+         this.props.navigation.navigate('SignUp')
+    };
 
     render() {
         return (
             <Container style={{backgroundColor:'white'}}>
-                <HeaderComponent title="default" left="" right="" />
+                <HeaderComponent title="이용 약관" left="ios-arrow-back" right="ios-arrow-forward" onPress={() => this.goToSignUp()} />
                 <Content contentContainerStyle={{flex: 1}}>
-                    <Text>Default Screen</Text>
+                    <Text>Terms Screen</Text>
                 </Content>
             </Container>
         )
@@ -28,5 +31,5 @@ class DefaultScreen extends Component {
     }
 
 }
-export default (DefaultScreen = connect(mapStateToProps)(DefaultScreen));
+export default (TermsScreen = connect(mapStateToProps)(TermsScreen));
 

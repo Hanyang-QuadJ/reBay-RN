@@ -15,10 +15,10 @@ export default class HeaderComponent extends Component {
                         </Button>
                     </Left>
                     <Body>
-                    <Title style={styles.headerText}> {this.props.title} </Title>
+                        <Title style={styles.headerText}> {this.props.title} </Title>
                     </Body>
                     <Right>
-                        <Button transparent>
+                        <Button transparent onPress={this.props.onPress}>
                             {this.props.right === "" ? null : <Icon type="Ionicons" name={this.props.right}/>}
                         </Button>
                     </Right>

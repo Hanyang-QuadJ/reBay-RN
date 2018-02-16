@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { FlatList,View } from 'react-native'
+import { FlatList,View, AsyncStorage } from 'react-native'
 import * as ShuttleActionCreator from '../../../ActionCreators/ShuttleActionCreator';
 import * as LoginActionCreator from '../../../ActionCreators/LoginActionCreator';
 import {connect} from 'react-redux';
@@ -10,9 +10,12 @@ import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent
 const mapStateToProps = state => {
     return {
         shuttleTimetable: state.ShuttleReducer.shuttleTimetable,
-        loading:state.ShuttleReducer.loading
+        loading:state.ShuttleReducer.loading,
+        token:state.LoginReducer.token
     };
 };
+
+
 
 
 class HomeScreen extends Component {
@@ -24,9 +27,24 @@ class HomeScreen extends Component {
         }
 
     }
+    getToken = ()  => {
+        try {
+            console.log("~~~this is token~~~");
+            AsyncStorage.getItem("ACCESS TOKEN").then((value) => console.log(value));
+
+
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    };
 
     componentDidMount() {
         this.props.dispatch(ShuttleActionCreator.dispatchShuttleTimetable());
+        this.getToken();
+
+
     }
     renderItem= ({ item } ) => {
         return (
@@ -51,6 +69,7 @@ class HomeScreen extends Component {
     };
 
     render() {
+
         return (
             <Container>
                 <HeaderComponent title="rebay" left="" right="ios-basket"/>

@@ -53,8 +53,6 @@ class SignInScreen extends Component {
         this.props.dispatch(LoginActionCreator.postLogin(this.state.email, this.state.password));
     };
     componentDidUpdate(){
-        console.log("checkcheck");
-        console.log(this.props);
 
         if(this.props.loginStatus ===true){
 
@@ -63,8 +61,6 @@ class SignInScreen extends Component {
     }
 
     render() {
-
-
         return (
             <Container style={{backgroundColor: 'white'}}>
                 <Header style={styles.headerContainer}>
@@ -107,7 +103,7 @@ class SignInScreen extends Component {
                                     <Icon type="MaterialIcons" name="lock-open"/>
                                 </View>
                                 <View style={styles.input}>
-                                    <TextInput autoCapitalize="none" placeholder="비밀번호"
+                                    <TextInput autoCapitalize="none" placeholder="비밀번호" secureTextEntry={true}
                                                onChangeText={(password) => this.setState({password})}
                                                value={this.state.password}/>
                                 </View>

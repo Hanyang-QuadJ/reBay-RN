@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     },
     formContainer:{
         flex:1,
-
     },
     formInput:{
         marginLeft:40,

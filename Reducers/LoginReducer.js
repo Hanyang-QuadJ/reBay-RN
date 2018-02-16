@@ -5,9 +5,11 @@ import {
 
 
 
+
 const initialState = {
     loginStatus: false,
     loginResponse: null,
+    token: null,
 };
 
 const LoginReducer  = (state = initialState, action) => {
@@ -17,11 +19,13 @@ const LoginReducer  = (state = initialState, action) => {
             return Object.assign({}, state, {
                 loginStatus: true,
                 loginResponse: action.payload.loginResponse,
+                token: action.payload.token
 
             });
         case FAILED_TO_LOGIN:
             return Object.assign({}, state, {
                 loginStatus:false,
+                token: null
             });
         default:
             return state;

@@ -10,8 +10,7 @@ const ACCESS_TOKEN = "ACCESS_TOKEN";
 
 function storeToken(accessToken) {
     try {
-        console.log("Stored!!");
-        console.log(accessToken);
+
         AsyncStorage.setItem(ACCESS_TOKEN, accessToken);
 
 
@@ -44,7 +43,6 @@ export const postLogin = (email, password) => {
                         .then(responseData => {
                                 dispatch({type: SUCCEED_TO_LOGIN, payload: {loginResponse: responseData, token: responseData.token}});
                                 storeToken(responseData.token);
-                                getToken();
                             }
                         )
                 }

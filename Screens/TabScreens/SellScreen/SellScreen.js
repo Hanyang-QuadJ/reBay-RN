@@ -2,29 +2,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Text, Content } from 'native-base';
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
+import  styles from './Style';
 
 const mapStateToProps = state => {
     return {
     };
 };
 
-class BuyScreen extends Component {
+class SellScreen extends Component {
     constructor(props){
         super(props)
 
     }
-    componentDidMount(){
-
-    }
 
     render() {
-        console.log("BuyScreen");
-
+        console.log("Sell Screen");
         return (
-            <Container style={{flex: 1, backgroundColor: '#ddd'}}>
-                <Content>
-                    <HeaderComponent title="default" left="" right="ios-basket" />
-                    <Text>Buy Screen</Text>
+            <Container style={{backgroundColor:'white'}}>
+                <HeaderComponent title="default" left="" right="" />
+                <Content contentContainerStyle={{flex: 1}}>
+                    <Text>Sell Screen</Text>
                 </Content>
             </Container>
         )
@@ -32,5 +29,5 @@ class BuyScreen extends Component {
     }
 
 }
-export default (BuyScreen = connect(mapStateToProps)(BuyScreen));
+export default (SellScreen = connect(mapStateToProps)(SellScreen));
 

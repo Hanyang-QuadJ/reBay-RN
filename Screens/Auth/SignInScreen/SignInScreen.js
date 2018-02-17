@@ -2,10 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {View, TextInput, KeyboardAvoidingView} from 'react-native';
 import { NavigationActions } from 'react-navigation';
-import LoggedInAppNavigation from '../../../Navigation/LoggedInAppNavigation';
 import * as LoginActionCreator from '../../../ActionCreators/LoginActionCreator';
 
-import InputComponent from '../../../Components/InputComponent/InputComponent'
 import {
     Container,
     Text,

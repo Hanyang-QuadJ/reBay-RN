@@ -6,11 +6,13 @@ import BuyScreen from '../Screens/TabScreens/BuyScreen/BuyScreen';
 import SignInScreen from "../Screens/Auth/SignInScreen/SignInScreen";
 import TermsScreen from '../Screens/Auth/TermsScreen/TermsScreen';
 import SignUpScreen from '../Screens/Auth/SignUpScreen/SignUpScreen';
+import SellScreen from '../Screens/TabScreens/SellScreen/SellScreen';
 import {TabBarBottom, StackNavigator, TabNavigator} from "react-navigation";
 
 const TabNavigation = TabNavigator({
         Home: {screen: HomeScreen},
         Buy: {screen: BuyScreen},
+        Sell: {screen: SellScreen},
 
     },
     {

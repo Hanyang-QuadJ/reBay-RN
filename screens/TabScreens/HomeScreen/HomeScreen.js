@@ -21,7 +21,6 @@ const mapStateToProps = state => {
 class HomeScreen extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
             refreshing:false,
         }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StatusBar, View, TouchableHighlight, StyleSheet} from 'react-native';
+import {StatusBar, View, TouchableHighlight, StyleSheet, TouchableOpacity} from 'react-native';
 import {Button, Container, Content, Text} from 'native-base';
 
 import {STATUS_BAR_HEIGHT} from '../../Constants/index';
@@ -38,9 +38,9 @@ class TutorialScreen extends Component {
                     </View>
                 </Swiper>
                 <View style={styles.staticJump}>
-                    <TouchableHighlight onPress={() => this.props.navigation.navigate('Home')}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}>
                         <Text style={styles.staticJumpText}>건너뛰기</Text>
-                    </TouchableHighlight>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.staticAuth}>
                     <Button full rounded onPress={() => this.props.navigation.navigate('SignIn')}

@@ -23,10 +23,16 @@ class InputComponent extends Component {
             <View>
                 <View style={styles.container}>
                     <View style={styles.icon}>
-                        <Icon type={this.props.iconType} size={this.props.iconSize} name={this.props.icon}/>
+                        {this.props.icon === "" ?  <View><Text style={styles.emptyText}> </Text></View> : <Icon type={this.props.iconType} size={this.props.iconSize} name={this.props.icon}/>
+                        }
                     </View>
                     <View style={styles.input}>
-                        <TextInput placeholder={this.props.placeholder} />
+                        <TextInput placeholder={this.props.placeholder}
+                                   onChangeText={this.props.onChangeText}
+                                   autoCapitalize="none"
+                                   value={this.props.value}
+                                   seccureTextEntry={this.props.secureTextEntry}
+                        />
                     </View>
                 </View>
             </View>

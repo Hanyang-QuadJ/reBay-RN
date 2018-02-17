@@ -16,6 +16,10 @@ const styles = StyleSheet.create({
         alignItems: 'center'
 
     },
+    emptyText:{
+        padding:6,
+
+    },
     input: {
         borderBottomWidth: 1,
         borderBottomColor: '#898989',

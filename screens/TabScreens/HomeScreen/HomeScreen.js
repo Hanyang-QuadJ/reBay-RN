@@ -7,6 +7,8 @@ import {Container, Text, Content, Header, Button, Spinner, List, ListItem, Body}
 import Style from './Style';
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 
+
+
 const mapStateToProps = state => {
     return {
         shuttleTimetable: state.ShuttleReducer.shuttleTimetable,
@@ -19,6 +21,18 @@ const mapStateToProps = state => {
 
 
 class HomeScreen extends Component {
+    static navigationOptions = ( navigation ) => {
+        return {
+            tabBarOnPress: ({ scene, jumpToIndex}) => {
+                if (!scene.focused) {
+                    jumpToIndex(scene.index);
+                } else {
+                    console.log("pressed!")
+                }
+            },
+        };
+    };
+
     constructor(props) {
         super(props);
         this.state = {

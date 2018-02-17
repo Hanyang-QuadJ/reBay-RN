@@ -17,6 +17,7 @@ const TabNavigation = TabNavigator({
     },
     {
         navigationOptions: ({navigation}) => ({
+
             tabBarIcon: ({focused, tintColor}) => {
                 const {routeName} = navigation.state;
                 let iconName;
@@ -41,6 +42,7 @@ const TabNavigation = TabNavigator({
             inactiveTintColor: 'gray',
             iconStyle: {marginTop: 1}
         },
+
         tabBarComponent: TabBarBottom,
         tabBarPosition: 'bottom',
         animationEnabled: false,

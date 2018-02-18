@@ -12,7 +12,6 @@ import AppNavigation from './Navigation/AppNavigation';
 export default class App extends Component {
 
     render() {
-        console.log(store.getState());
         return (
             <Provider store={store}>
                 <AppNavigation />

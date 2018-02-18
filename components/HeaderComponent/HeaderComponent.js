@@ -10,7 +10,7 @@ export default class HeaderComponent extends Component {
         return (
                 <Header style={styles.headerContainer}>
                     <Left>
-                        <Button transparent>
+                        <Button transparent onPress={this.props.onPressLeft}>
                             {this.props.left === "" ? null : <Icon type="Ionicons" name={this.props.left}/>}
                         </Button>
                     </Left>

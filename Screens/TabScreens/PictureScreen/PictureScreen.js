@@ -12,43 +12,35 @@ const mapStateToProps = state => {
 };
 
 class PictureScreen extends Component {
-    // static navigationOptions = ( navigation ) => {
-    //     return  {
-    //         tabBarOnPress: ({ scene, jumpToIndex}) => {
-    //             if (!scene.focused) {
-    //                 NavigationActions.navigate("Brand");
-    //
-    //             } else {
-    //             }
-    //         },
-    //     };
-    // };
+    static navigationOptions = (navigation) => {
+        return ({
+                mode:'modal'
+            }
+
+        )
+
+    };
+
     constructor(props){
         super(props);
-        this.state = {
-            modalVisible: true,
-        }
+
 
     }
     closeModal = () => {
-        this.setState({modalVisible:false})
+        this.props.navigation.goBack(null);
 
     };
 
     render() {
         return (
-            <Modal
-                visible={this.state.modalVisible}
-                animationType={'slide'}
-            >
+
                 <Container style={{backgroundColor:'white'}}>
-                    <HeaderComponent title="default" left="" right="" onPressRight={() => this.closeModal()} />
+                    <HeaderComponent title="Picture" left="ios-arrow-back" right="" onPressLeft={()=>this.closeModal()} />
                     <Content contentContainerStyle={{flex: 1}}>
-                        <Text>Default Screen</Text>
+                        <Text>Picture Screen</Text>
                     </Content>
 
                 </Container>
-            </Modal>
 
 
 

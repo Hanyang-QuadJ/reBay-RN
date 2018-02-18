@@ -4,6 +4,7 @@ import {View, TextInput, KeyboardAvoidingView} from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import * as LoginActionCreator from '../../../ActionCreators/LoginActionCreator';
 
+import InputComponent from '../../../Components/InputComponent/InputComponent'
 import {
     Container,
     Text,
@@ -42,8 +43,14 @@ class SignInScreen extends Component {
 
 
     goToHome = () => {
-        const navigateToHome = NavigationActions.navigate({ routeName:'Home'});
-        this.props.navigation.dispatch(navigateToHome);
+        this.props.navigation.dispatch(
+            NavigationActions.reset({
+                index: 0,
+                actions: [
+                    NavigationActions.navigate({ routeName: 'Home' })
+                ]
+            })
+        )
     };
 
     sendToAction = () => {

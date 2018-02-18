@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Provider, connect} from 'react-redux';
 import { addNavigationHelpers } from 'react-navigation';
-import  MainNavigator from './NavigationStack';
+import MainNavigator, {AuthNavigator} from './NavigationStack';
 import {createReduxBoundAddListener} from "react-navigation-redux-helpers";
 
 

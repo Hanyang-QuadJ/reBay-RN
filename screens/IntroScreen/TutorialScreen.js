@@ -4,6 +4,7 @@ import {Button, Container, Content, Text} from 'native-base';
 
 import {STATUS_BAR_HEIGHT} from '../../Constants/index';
 import Swiper from 'react-native-swiper';
+import {NavigationActions} from "react-navigation";
 
 class TutorialScreen extends Component {
     static navigationOptions = () => ({
@@ -15,6 +16,16 @@ class TutorialScreen extends Component {
         super(props);   
 
     }
+    skipToHome = () =>{
+        this.props.navigation.dispatch(
+            NavigationActions.reset({
+                index: 0,
+                actions: [
+                    NavigationActions.navigate({ routeName: 'Home' })
+                ]
+            })
+        )
+    };
     render() {
         return (
             <View style={{flex: 1}}>
@@ -38,7 +49,7 @@ class TutorialScreen extends Component {
                     </View>
                 </Swiper>
                 <View style={styles.staticJump}>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}>
+                    <TouchableOpacity onPress={() => this.skipToHome()}>
                         <Text style={styles.staticJumpText}>건너뛰기</Text>
                     </TouchableOpacity>
                 </View>

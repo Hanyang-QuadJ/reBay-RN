@@ -7,16 +7,25 @@ import SignInScreen from "../Screens/Auth/SignInScreen/SignInScreen";
 import TermsScreen from '../Screens/Auth/TermsScreen/TermsScreen';
 import SignUpScreen from '../Screens/Auth/SignUpScreen/SignUpScreen';
 import SellScreen from '../Screens/TabScreens/SellScreen/SellScreen';
-import {TabBarBottom, StackNavigator, TabNavigator} from "react-navigation";
+import PictureScreen from '../Screens/TabScreens/PictureScreen/PictureScreen';
+import {TabBarBottom, StackNavigator, TabNavigator, NavigationActions} from "react-navigation";
+
+const SellNavigator = StackNavigator({
+    Picture: {screen: PictureScreen },
+    Brand:{screen: SellScreen },
+},{
+    headerMode: 'none',
+});
 
 const TabNavigation = TabNavigator({
         Home: {screen: HomeScreen},
         Buy: {screen: BuyScreen},
-        Sell: {screen: SellScreen},
+        Sell: {screen: SellNavigator},
 
     },
     {
         navigationOptions: ({navigation}) => ({
+
 
             tabBarIcon: ({focused, tintColor}) => {
                 const {routeName} = navigation.state;
@@ -40,9 +49,8 @@ const TabNavigation = TabNavigator({
         tabBarOptions: {
             activeTintColor: 'tomato',
             inactiveTintColor: 'gray',
-            iconStyle: {marginTop: 1}
+            iconStyle: {paddingTop: 5}
         },
-
         tabBarComponent: TabBarBottom,
         tabBarPosition: 'bottom',
         animationEnabled: false,
@@ -63,5 +71,7 @@ const MainNavigator = StackNavigator({
     },
     headerMode: 'none',
 });
+
+
 
 export default MainNavigator;

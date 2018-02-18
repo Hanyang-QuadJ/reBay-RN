@@ -40,7 +40,6 @@ class HomeScreen extends Component {
                     jumpToIndex(scene.index);
                 } else {
                     scene.route.params.scrollToTop();
-                    // navigation.state.params.instance.refs.flatListRef.scrollToOffset({x:0,y:0, animated:true});
                 }
             },
         };

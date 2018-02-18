@@ -18,7 +18,7 @@ export default class HeaderComponent extends Component {
                         <Title style={styles.headerText}> {this.props.title} </Title>
                     </Body>
                     <Right>
-                        <Button transparent onPress={this.props.onPress}>
+                        <Button transparent onPress={this.props.onPressRight}>
                             {this.props.right === "" ? null : <Icon type="Ionicons" name={this.props.right}/>}
                         </Button>
                     </Right>

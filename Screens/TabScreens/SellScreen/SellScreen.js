@@ -19,7 +19,7 @@ class SellScreen extends Component {
         console.log("Sell Screen");
         return (
             <Container style={{backgroundColor:'white'}}>
-                <HeaderComponent title="default" left="" right="" />
+                <HeaderComponent title="판매하기" left="" right="" />
                 <Content contentContainerStyle={{flex: 1}}>
                     <Text>Sell Screen</Text>
                 </Content>

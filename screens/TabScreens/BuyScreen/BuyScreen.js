@@ -23,8 +23,7 @@ class BuyScreen extends Component {
         return (
             <Container style={{flex: 1, backgroundColor: '#ddd'}}>
                 <Content>
-                    <HeaderComponent title="default" left="" right="ios-basket" />
-                    <Text>Buy Screen</Text>
+                    <HeaderComponent title="구매하기" left="" right="ios-basket" />
                 </Content>
             </Container>
         )

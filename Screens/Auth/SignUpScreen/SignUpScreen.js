@@ -27,6 +27,8 @@ class SignUpScreen extends Component {
 
     }
 
+
+
     render() {
         console.log(this.state.username);
         return (

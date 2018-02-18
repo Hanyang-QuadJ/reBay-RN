@@ -18,20 +18,37 @@ const mapStateToProps = state => {
 };
 
 
-
-
 class HomeScreen extends Component {
+
+    componentWillMount() {
+        this.props.navigation.setParams({
+            scrollToTop: this.scrollToTop,
+        });
+    }
+
+    scrollToTop = () => {
+        // Scroll to top, in this case I am using FlatList
+            this.flatListRef.scrollToOffset({ offset: 0, animated: true });
+
+    };
+
+
     static navigationOptions = ( navigation ) => {
-        return {
+        return  {
             tabBarOnPress: ({ scene, jumpToIndex}) => {
                 if (!scene.focused) {
                     jumpToIndex(scene.index);
                 } else {
-                    console.log("pressed!")
+                    scene.route.params.scrollToTop();
+                    // navigation.state.params.instance.refs.flatListRef.scrollToOffset({x:0,y:0, animated:true});
                 }
             },
         };
     };
+
+
+
+
 
     constructor(props) {
         super(props);
@@ -81,6 +98,8 @@ class HomeScreen extends Component {
         // this.props.dispatch(ShuttleActionCreator.dispatchShuttleTimetable())
     };
 
+
+
     render() {
 
         return (
@@ -93,6 +112,7 @@ class HomeScreen extends Component {
                             data={this.props.shuttleTimetable}
                             renderItem={this.renderItem}
                             keyExtractor={item => item.time}
+                            ref={(ref) => { this.flatListRef = ref; }}
                             ListHeaderComponent={this.renderHeader}
                             refreshing={this.state.refreshing}
                             onRefresh={this.pullToRefresh}

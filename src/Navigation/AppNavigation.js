@@ -1,29 +1,41 @@
 import React, {Component} from 'react';
 import {Provider, connect} from 'react-redux';
-import { addNavigationHelpers } from 'react-navigation';
-import MainNavigator, {LoggedNavigator} from './NavigationStack';
+import {addNavigationHelpers, NavigationActions} from 'react-navigation';
+import MainNavigator, { LoggedNavigator } from './NavigationStack';
 import {createReduxBoundAddListener} from "react-navigation-redux-helpers";
+import { AsyncStorage,View } from 'react-native';
+
+const mapStateToProps = (state) => {
+    return ({
+        navigationState: state.NavigationReducer, // NavigationReducer contains the navigation state of the app
+    })
+};
 
 
 const addListener = createReduxBoundAddListener("root");
+
 
 const App = ({ dispatch, navigationState }) => (
     <MainNavigator navigation={addNavigationHelpers({ dispatch, state: navigationState, addListener })}/>
 );
 
-const mapStateToProps = (state) => {
-    return ({
-        navigationState: state.NavigationReducer // NavigationReducer contains the navigation state of the app
-    })
-};
+
+
 const AppWithNavigation = connect(mapStateToProps)(App);
 
-
 class AppNavigation extends Component {
+    constructor(props){
+        super(props);
+
+
+    }
+
+    componentWillMount(){
+    }
+
     render() {
-        console.log(this.state);
         return (
-            <AppWithNavigation  />
+            <AppWithNavigation/>
         )
     }
 }

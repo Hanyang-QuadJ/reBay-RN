@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { FlatList,View, AsyncStorage } from 'react-native'
+import {FlatList, View, AsyncStorage} from 'react-native'
 import * as ShuttleActionCreator from '../../../ActionCreators/ShuttleActionCreator';
 import * as ScrollToTopActionCreator from '../../../ActionCreators/ScrollToTopCreator';
 import * as LoginActionCreator from '../../../ActionCreators/LoginActionCreator';
@@ -10,13 +10,12 @@ import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent
 import ScrollToTopReducer from "../../../Reducers/ScrollToTopReducer";
 
 
-
 const mapStateToProps = state => {
     return {
         shuttleTimetable: state.ShuttleReducer.shuttleTimetable,
-        loading:state.ShuttleReducer.loading,
-        token:state.LoginReducer.token,
-        top:state.ScrollToTopReducer.top,
+        loading: state.ShuttleReducer.loading,
+        token: state.LoginReducer.token,
+        top: state.ScrollToTopReducer.top,
     };
 };
 
@@ -26,25 +25,27 @@ class HomeScreen extends Component {
     componentWillMount() {
 
     }
-    topReset () {
+
+    topReset() {
         this.props.dispatch(ScrollToTopActionCreator.topReset());
 
     }
 
     scrollToTop = () => {
         // Scroll to top, in this case I am using FlatList
-            return Promise.resolve(this.flatListRef.scrollToOffset({ offset: 0, animated: true }));
+        return Promise.resolve(this.flatListRef.scrollToOffset({offset: 0, animated: true}));
     };
 
     constructor(props) {
         super(props);
 
         this.state = {
-            refreshing:false,
+            refreshing: false,
         }
 
     }
-    getToken = ()  => {
+
+    getToken = () => {
         try {
             AsyncStorage.getItem("ACCESS TOKEN").then((value) => console.log(value));
 
@@ -59,20 +60,21 @@ class HomeScreen extends Component {
         this.getToken();
     }
 
-    componentDidUpdate(){
+    componentDidUpdate() {
         console.log(this.props.top);
-        if(this.props.top === true){
+        if (this.props.top === true) {
             this.scrollToTop().then(this.topReset());
         }
     }
-    renderItem= ({ item } ) => {
+
+    renderItem = ({item}) => {
         return (
-            <ListItem style={{ marginLeft: 0 }}>
+            <ListItem style={{marginLeft: 0}}>
                 <Body>
                 <Text>{item.time}</Text>
                 </Body>
             </ListItem>
-            )
+        )
     };
     renderHeader = () => {
         return (
@@ -83,27 +85,25 @@ class HomeScreen extends Component {
     };
     pullToRefresh = () => {
         console.log("refreshed");
-        this.setState({refreshing:true})
+        this.setState({refreshing: true})
         // this.props.dispatch(ShuttleActionCreator.dispatchShuttleTimetable())
     };
 
 
-
-        render() {
-        console.log(this.props);
-
-
+    render() {
         return (
             <Container>
                 <HeaderComponent title="rebay" left="" right="ios-basket"/>
                 <View>
                     {this.props.loading === true ?
-                        <Spinner /> :
+                        <Spinner/> :
                         <FlatList
                             data={this.props.shuttleTimetable}
                             renderItem={this.renderItem}
                             keyExtractor={item => item.time}
-                            ref={(ref) => { this.flatListRef = ref; }}
+                            ref={(ref) => {
+                                this.flatListRef = ref;
+                            }}
                             ListHeaderComponent={this.renderHeader}
                             refreshing={this.state.refreshing}
                             onRefresh={this.pullToRefresh}

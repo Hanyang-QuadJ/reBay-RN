@@ -14,7 +14,7 @@ class TutorialScreen extends Component {
 
     constructor(props) {
         super(props);
-        this.getToken();
+        // this.getToken();
 
     }
     getToken = ()  => {

@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Container, Text, Content } from 'native-base';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Container, Text, Content} from 'native-base';
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 
 const mapStateToProps = state => {
-    return {
-    };
+    return {};
 };
 
 class BuyScreen extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
 
     }
-    componentDidMount(){
+
+    componentDidMount() {
 
     }
 
@@ -22,14 +22,13 @@ class BuyScreen extends Component {
 
         return (
             <Container style={{flex: 1, backgroundColor: '#ddd'}}>
-                <Content>
-                    <HeaderComponent title="구매하기" left="" right="ios-basket" />
-                </Content>
+                <HeaderComponent title="구매하기" left="" right="ios-basket"/>
             </Container>
         )
 
     }
 
 }
+
 export default (BuyScreen = connect(mapStateToProps)(BuyScreen));
 

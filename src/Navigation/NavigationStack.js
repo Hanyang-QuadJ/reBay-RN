@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, TouchableWithoutFeedback, Text, Button} from 'react-native';
+import {View, StyleSheet, TouchableWithoutFeedback, Text, Button, AsyncStorage} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 import TutorialScreen from '../Screens/IntroScreen/TutorialScreen';
 import HomeScreen from '../Screens/TabScreens/HomeScreen/HomeScreen';
@@ -13,6 +13,22 @@ import NoticeScreen from '../Screens/TabScreens/NoticeScreen/NoticeScreen';
 import ProfileScreen from '../Screens/TabScreens/ProfileScreen/ProfileScreen';
 import TabBarComponent from '../Components/TabBarComponent/TabBarComponent';
 import { StackNavigator, TabNavigator, NavigationActions} from "react-navigation";
+import InitScreen from "../Screens/InitScreen/InitScreen";
+
+getToken = () => {
+    AsyncStorage.getItem("ACCESS TOKEN").then(value => {
+        if(value === null || value === undefined || value === ""){
+
+
+        }
+        else{
+
+        }
+    })
+
+};
+
+
 
 
 
@@ -45,14 +61,15 @@ export const AuthNavigator = StackNavigator({
     Terms: {screen: TermsScreen},
     Home: {screen: TabNavigation},
 
-
 }, {
     headerMode: 'none',
 });
 
 
 const MainNavigator = StackNavigator({
+    Init: {screen: InitScreen},
     Auth: {screen: AuthNavigator},
+    Home: {screen: TabNavigation},
     SellStack: {screen: SellNavigator}
 }, {
 
@@ -61,7 +78,9 @@ const MainNavigator = StackNavigator({
     },
     headerMode: 'none',
     mode: 'modal',
+
 });
+
 
 
 

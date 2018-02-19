@@ -1,5 +1,5 @@
 import { NavigationActions } from 'react-navigation';
-import MainNavigator from "../Navigation/NavigationStack";
+import MainNavigator, {LoggedNavigator} from "../Navigation/NavigationStack";
 
 const initialState = MainNavigator.router.getStateForAction(NavigationActions.init());
 

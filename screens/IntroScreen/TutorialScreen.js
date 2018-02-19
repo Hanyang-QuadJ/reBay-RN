@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StatusBar, View, TouchableHighlight, StyleSheet, TouchableOpacity} from 'react-native';
+import {StatusBar, View, TouchableHighlight, StyleSheet, TouchableOpacity, AsyncStorage } from 'react-native';
 import {Button, Container, Content, Text} from 'native-base';
 
 import {STATUS_BAR_HEIGHT} from '../../Constants/index';
@@ -13,7 +13,27 @@ class TutorialScreen extends Component {
     });
 
     constructor(props) {
-        super(props);   
+        super(props);
+        this.getToken();
+
+    }
+    getToken = ()  => {
+        try {
+            AsyncStorage.getItem("ACCESS TOKEN").then((value) => {
+                if( value === null || value === "" || value === undefined ){
+                    return null;
+                }
+                else{
+                    this.skipToHome();
+                }
+            });
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    };
+    componentWillMount(){
 
     }
     skipToHome = () =>{

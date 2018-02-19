@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
-import  * as commonStyle from '../Constants/commonStyle';
+import  commonStyle from '../index';
+
 const styles = StyleSheet.create({
     tabBar: {
         height: 46,

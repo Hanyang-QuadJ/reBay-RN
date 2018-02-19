@@ -8,74 +8,13 @@ import SignInScreen from "../Screens/Auth/SignInScreen/SignInScreen";
 import TermsScreen from '../Screens/Auth/TermsScreen/TermsScreen';
 import SignUpScreen from '../Screens/Auth/SignUpScreen/SignUpScreen';
 import SellScreen from '../Screens/TabScreens/SellScreen/SellScreen';
-import PictureScreen from '../Screens/TabScreens/PictureScreen/PictureScreen';
-import {TabBarBottom, StackNavigator, TabNavigator, NavigationActions} from "react-navigation";
-import  * as commonStyle from '../Constants/commonStyle';
-import * as ScrollToTopCreator from '../ActionCreators/ScrollToTopCreator';
+import PictureScreen from '../Screens/SellScreens/PictureScreen/PictureScreen';
+import NoticeScreen from '../Screens/TabScreens/NoticeScreen/NoticeScreen';
+import ProfileScreen from '../Screens/TabScreens/ProfileScreen/ProfileScreen';
+import TabBarComponent from '../Components/TabBarComponent/TabBarComponent';
+import { StackNavigator, TabNavigator, NavigationActions} from "react-navigation";
 
-import styles from './Style';
 
-const activeTintColor = commonStyle.PRIMARY_COLOR;
-const inactiveTintColor = commonStyle.BORDER_COLOR;
-
-class NavigationStack extends Component {
-    renderItem = (route, index) => {
-        const { navigation, jumpToIndex } = this.props;
-
-        const isSell = route.routeName === 'Sell';
-        const focused = index === navigation.state.index;
-        const color = focused ? activeTintColor : inactiveTintColor;
-
-        let iconName;
-        if (route.routeName === "Home") {
-            iconName = `ios-home${focused ? '' : '-outline'}`;
-        }
-        else if (route.routeName === "Buy") {
-            iconName = `ios-cart${focused ? '' : '-outline'}`;
-        }
-        else if (route.routeName === "Sell") {
-            iconName = `ios-cash`;
-        }
-        return (
-            <TouchableWithoutFeedback
-                key={route.key}
-                style={styles.tab}
-                // onPress={() => isSell ? navigation.navigate('SellStack') : jumpToIndex(index)}
-                onPress={() => {
-                    switch (route.routeName) {
-                        case "Home" : return focused ? this.props.navigation.dispatch(ScrollToTopCreator.scrollToTop()) : jumpToIndex(index);
-                        case "Buy" : return focused ? console.log('check2') : jumpToIndex(index);
-                        case "Sell" : return navigation.navigate('SellStack');
-                    }
-                }}
-            >
-                {route.routeName === "Sell" ?
-                    <View style={styles.sellTab}>
-                        <Ionicons size={24} name={iconName} color="white"/>
-                        <Text style={{color:"white"}}>{route.routeName}</Text>
-                    </View> :
-                    <View style={styles.tab}>
-                        <Ionicons size={24} name={iconName} color={color}/>
-                        <Text style={{color}}>{route.routeName}</Text>
-                    </View>
-                }
-
-            </TouchableWithoutFeedback>
-        );
-    };
-
-    render() {
-        const { navigation } = this.props;
-
-        const { routes } = navigation.state;
-
-        return (
-            <View style={styles.tabBar}>
-                {routes && routes.map(this.renderItem)}
-            </View>
-        );
-    }
-}
 
 const SellNavigator = StackNavigator({
     Picture: {screen: PictureScreen},
@@ -88,10 +27,12 @@ const TabNavigation = TabNavigator({
         Home: {screen: HomeScreen},
         Buy: {screen: BuyScreen},
         Sell: {screen: View},
+        Notice: {screen: NoticeScreen},
+        Profile: {screen: ProfileScreen},
 
     },
     {
-        tabBarComponent: NavigationStack,
+        tabBarComponent: TabBarComponent,
         tabBarPosition: 'bottom',
         animationEnabled: false,
         swipeEnabled: false,
@@ -117,7 +58,6 @@ const MainNavigator = StackNavigator({
 
     navigationOptions: {
         gesturesEnabled: false
-
     },
     headerMode: 'none',
     mode: 'modal',

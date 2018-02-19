@@ -46,10 +46,7 @@ class HomeScreen extends Component {
     }
     getToken = ()  => {
         try {
-            console.log("~~~this is token~~~");
             AsyncStorage.getItem("ACCESS TOKEN").then((value) => console.log(value));
-
-
 
         } catch (error) {
             console.log(error)

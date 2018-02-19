@@ -33,13 +33,11 @@ class PictureScreen extends Component {
 
     render() {
         return (
-
                 <Container style={{backgroundColor:'white'}}>
-                    <HeaderComponent title="Picture" left="ios-arrow-back" right="" onPressLeft={()=>this.closeModal()} />
+                    <HeaderComponent title="판매하기" left="ios-close" right="" onPressLeft={()=>this.closeModal()} />
                     <Content contentContainerStyle={{flex: 1}}>
                         <Text>Picture Screen</Text>
                     </Content>
-
                 </Container>
 
 

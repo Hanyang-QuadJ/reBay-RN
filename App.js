@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Provider} from 'react-redux';
 import {StackNavigator, TabNavigator, TabBarBottom} from 'react-navigation';
-import store from './Store';
+import store from './src/Store';
 import { Ionicons } from '@expo/vector-icons';
-import AppNavigation from './Navigation/AppNavigation';
+import AppNavigation from './src/Navigation/AppNavigation';
 
 
 

@@ -10,7 +10,6 @@ const ACCESS_TOKEN = "ACCESS_TOKEN";
 
 function storeToken(accessToken) {
     try {
-
         AsyncStorage.setItem(ACCESS_TOKEN, accessToken);
 
 

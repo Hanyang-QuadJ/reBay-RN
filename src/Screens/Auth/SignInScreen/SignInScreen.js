@@ -20,8 +20,6 @@ import {
     Form,
     StyleProvider
 } from 'native-base';
-import getTheme from '../../../native-base-theme/components';
-import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 import styles from './Style';
 
 const mapStateToProps = state => {

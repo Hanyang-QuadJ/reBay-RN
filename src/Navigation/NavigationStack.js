@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, TouchableWithoutFeedback, Text, Button, AsyncStorage} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
-import TutorialScreen from '../Screens/IntroScreen/TutorialScreen';
+import TutorialScreen from '../Screens/TutorialScreen/TutorialScreen';
 import HomeScreen from '../Screens/TabScreens/HomeScreen/HomeScreen';
 import BuyScreen from '../Screens/TabScreens/BuyScreen/BuyScreen';
 import SignInScreen from "../Screens/Auth/SignInScreen/SignInScreen";
 import TermsScreen from '../Screens/Auth/TermsScreen/TermsScreen';
 import SignUpScreen from '../Screens/Auth/SignUpScreen/SignUpScreen';
+import SignUpScreen2 from '../Screens/Auth/SignUpScreen2/SignUpScreen2';
+import SignUpScreen3 from '../Screens/Auth/SignUpScreen3/SignUpScreen3';
+
 import SellScreen from '../Screens/TabScreens/SellScreen/SellScreen';
 import PictureScreen from '../Screens/SellScreens/PictureScreen/PictureScreen';
 import NoticeScreen from '../Screens/TabScreens/NoticeScreen/NoticeScreen';
@@ -58,6 +61,8 @@ export const AuthNavigator = StackNavigator({
     Intro: {screen: TutorialScreen},
     SignIn: {screen: SignInScreen},
     SignUp: {screen: SignUpScreen},
+    SignUp2: {screen: SignUpScreen2},
+    SignUp3: {screen: SignUpScreen3},
     Terms: {screen: TermsScreen},
     Home: {screen: TabNavigation},
 

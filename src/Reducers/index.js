@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import  LoginReducer  from './LoginReducer';
-import ShuttleReducer from './ShuttleReducer';
 import NavigationReducer from './NavigationReducer';
 import ScrollToTopReducer from './ScrollToTopReducer';
+import DefaultReducer from './DefaultReducer';
 
-const Reducer = combineReducers({ShuttleReducer, LoginReducer, NavigationReducer, ScrollToTopReducer});
+
+
+const Reducer = combineReducers({LoginReducer, NavigationReducer, ScrollToTopReducer, DefaultReducer});
 export default Reducer;

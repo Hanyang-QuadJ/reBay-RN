@@ -81,8 +81,9 @@ class SignInScreen extends Component {
                         </Button>
                     </Right>
                 </Header>
+                <KeyboardAvoidingView style={{flex:0.5}} behavior="height" >
+
                 <Content contentContainerStyle={{flex: 1}}>
-                    <KeyboardAvoidingView style={{flex:1}} behavior="padding">
 
                     <View style={styles.logoContainer}>
                         <Text>REBAY LOGO</Text>
@@ -130,8 +131,9 @@ class SignInScreen extends Component {
                         </Button>
                         <Text style={{marginTop: 10}}>비밀번호를 잊어버리셨나요?</Text>
                     </View>
-                    </KeyboardAvoidingView>
                 </Content>
+                </KeyboardAvoidingView>
+
             </Container>
         )
 

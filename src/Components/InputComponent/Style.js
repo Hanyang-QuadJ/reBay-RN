@@ -17,12 +17,12 @@ const styles = StyleSheet.create({
 
     },
     emptyText:{
-        padding:6,
+        padding:8,
 
     },
     input: {
         borderBottomWidth: 1,
-        borderBottomColor: '#898989',
+        borderBottomColor: commonStyle.BORDER_COLOR,
         flex: 10,
         justifyContent: 'center',
         marginLeft: 10

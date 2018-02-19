@@ -1,21 +1,20 @@
 import React, {Component} from 'react';
-import {FlatList, View, AsyncStorage} from 'react-native'
-import * as ShuttleActionCreator from '../../../ActionCreators/ShuttleActionCreator';
+import {FlatList, View, AsyncStorage, Image} from 'react-native'
 import * as ScrollToTopActionCreator from '../../../ActionCreators/ScrollToTopCreator';
-import * as LoginActionCreator from '../../../ActionCreators/LoginActionCreator';
+import * as DefaultActionCreator from '../../../ActionCreators/DefaultActionCreator';
 import {connect} from 'react-redux';
 import {Container, Text, Content, Header, Button, Spinner, List, ListItem, Body} from 'native-base';
-import Style from './Style';
+import Swiper from 'react-native-swiper';
+import styles from './Style';
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
-import ScrollToTopReducer from "../../../Reducers/ScrollToTopReducer";
 
 
 const mapStateToProps = state => {
     return {
-        shuttleTimetable: state.ShuttleReducer.shuttleTimetable,
-        loading: state.ShuttleReducer.loading,
         token: state.LoginReducer.token,
         top: state.ScrollToTopReducer.top,
+        data: state.DefaultReducer.data,
+        loading:state.DefaultReducer.loading
     };
 };
 
@@ -23,6 +22,10 @@ const mapStateToProps = state => {
 class HomeScreen extends Component {
 
     componentWillMount() {
+
+    }
+    componentDidMount() {
+        this.props.dispatch(DefaultActionCreator.defaultFetch());
 
     }
 
@@ -55,10 +58,7 @@ class HomeScreen extends Component {
 
     };
 
-    componentDidMount() {
-        this.props.dispatch(ShuttleActionCreator.dispatchShuttleTimetable());
-        this.getToken();
-    }
+
 
     componentDidUpdate() {
         console.log(this.props.top);
@@ -78,7 +78,23 @@ class HomeScreen extends Component {
     };
     renderHeader = () => {
         return (
-            <Text>Header</Text>
+            <Swiper style={styles.wrapper} showsButtons={false}>
+                <View style={styles.slide1}>
+                    <Image style={styles.image}
+                        source={require('../../../Assets/pic1.jpg')}
+                    />
+                </View>
+                <View style={styles.slide2}>
+                    <Image style={styles.image}
+                        source={require('../../../Assets/pic2.jpg')}
+                    />
+                </View>
+                <View style={styles.slide3}>
+                    <Image style={styles.image}
+                        source={require('../../../Assets/pic3.jpg')}
+                    />
+                </View>
+            </Swiper>
 
         )
 
@@ -91,14 +107,16 @@ class HomeScreen extends Component {
 
 
     render() {
+        console.log("props check!");
+        console.log(this.props);
         return (
             <Container>
-                <HeaderComponent title="rebay" left="" right="ios-basket"/>
+                <HeaderComponent title="reBay" left="" right="ios-basket" searchBar={true}/>
                 <View>
-                    {this.props.loading === true ?
+                    {this.props.loading === true?
                         <Spinner/> :
                         <FlatList
-                            data={this.props.shuttleTimetable}
+                            data={this.props.data}
                             renderItem={this.renderItem}
                             keyExtractor={item => item.time}
                             ref={(ref) => {

@@ -12,19 +12,16 @@ const mapStateToProps = state => {
     return {};
 };
 
-class SignUpScreen extends Component {
+class SignUpScreen3 extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: null,
-            password: null,
-            passwordConfirm: null,
+            email:null,
 
         }
     }
-    goToSignUpSecond = () => {
-        this.props.navigation.navigate('SignUp2');
-    };
+
+
 
 
     render() {
@@ -35,24 +32,16 @@ class SignUpScreen extends Component {
                     <View style={{flex:1}}>
                         <View style={styles.essential}>
                             <View style={styles.info}>
-                                <Text>필수입력정보</Text>
+                                <Text>휴대폰 번호를 입력하세요</Text>
                             </View>
                             <InputComponent icon="md-person"
-                                            placeholder="아이디"
-                                            onChangeText={(username) => this.setState({username})}
-                            />
-                            <InputComponent icon="md-key"
-                                            placeholder="비밀번호"
-                                            onChangeText={(password) => this.setState({password})}
-                            />
-                            <InputComponent icon=""
-                                            placeholder="비밀번호 확인"
-                                            onChangeText={(passwordConfirm) => this.setState({passwordConfirm})}
+                                            placeholder="휴대폰번호"
+                                            onChangeText={(email) => this.setState({email})}
                             />
                         </View>
                     </View>
                     <View style={styles.footer}>
-                        <ButtonComponent onPress={() => this.goToSignUpSecond()} text="다음" buttonColor="white" textColor={commonStyle.PRIMARY_COLOR}/>
+                        <ButtonComponent text="가입하기" buttonColor="white" textColor={commonStyle.PRIMARY_COLOR}/>
                     </View>
                 </KeyboardAvoidingView>
             </Container>
@@ -62,5 +51,5 @@ class SignUpScreen extends Component {
 
 }
 
-export default (SignUpScreen = connect(mapStateToProps)(SignUpScreen));
+export default (SignUpScreen3 = connect(mapStateToProps)(SignUpScreen3));
 

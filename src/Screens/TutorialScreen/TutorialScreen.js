@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {StatusBar, View, TouchableHighlight, StyleSheet, TouchableOpacity, AsyncStorage } from 'react-native';
 import {Button, Container, Content, Text} from 'native-base';
 
-import {STATUS_BAR_HEIGHT} from '../../Constants/index';
 import Swiper from 'react-native-swiper';
 import {NavigationActions} from "react-navigation";
 

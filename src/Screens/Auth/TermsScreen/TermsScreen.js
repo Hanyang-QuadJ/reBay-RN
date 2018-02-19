@@ -14,14 +14,15 @@ class TermsScreen extends Component {
         super(props)
 
     }
-    goToSignUp = () =>{
+    goToSignUp = () => {
+        console.log("@#@#");
          this.props.navigation.navigate('SignUp')
     };
 
     render() {
         return (
             <Container style={{backgroundColor:'white'}}>
-                <HeaderComponent title="이용 약관" left="ios-arrow-back" right="ios-arrow-forward" onPress={() => this.goToSignUp()} />
+                <HeaderComponent title="이용 약관" left="ios-arrow-back" right="ios-arrow-forward" onPressRight={() => this.goToSignUp()} />
                 <Content contentContainerStyle={{flex: 1}}>
                     <Text>Terms Screen</Text>
                 </Content>

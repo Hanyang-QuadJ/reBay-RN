@@ -23,7 +23,7 @@ class SignUpScreen extends Component {
         }
     }
     goToSignUpSecond = () => {
-        this.props.navigation.navigate('SignUp2');
+        this.props.navigation.navigate('SignUp2',{username:this.state.username, password:this.state.password});
     };
 
 

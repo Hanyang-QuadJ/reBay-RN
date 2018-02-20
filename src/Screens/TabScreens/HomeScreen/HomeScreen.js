@@ -61,7 +61,6 @@ class HomeScreen extends Component {
 
 
     componentDidUpdate() {
-        console.log(this.props.top);
         if (this.props.top === true) {
             this.scrollToTop().then(this.topReset());
         }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Provider, connect} from 'react-redux';
 import {addNavigationHelpers, NavigationActions} from 'react-navigation';
-import MainNavigator, { LoggedNavigator } from './NavigationStack';
+import MainNavigator from './NavigationStack';
 import {createReduxBoundAddListener} from "react-navigation-redux-helpers";
 import { AsyncStorage,View } from 'react-native';
 

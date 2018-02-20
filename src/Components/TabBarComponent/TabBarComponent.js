@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View,TouchableWithoutFeedback,Text} from 'react-native';
+import {View, TouchableWithoutFeedback, Text , AsyncStorage, Alert} from 'react-native';
 import{ Ionicons }from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import styles from "./Style";
@@ -54,9 +54,28 @@ class TabBarComponent extends Component{
                 style={styles.tab}
                 onPress={() => {
                     switch (route.routeName) {
-                        case "Home" : return focused ? this.props.navigation.dispatch(ScrollToTopCreator.scrollToTop()) : jumpToIndex(index);
+                        case "Home" : return focused ? this.props.navigation.dispatch(ScrollToTopCreator.scrollToTop()) : jumpToIndex(index)
                         case "Buy" : return focused ? console.log('check2') : jumpToIndex(index);
-                        case "Sell" : return navigation.navigate('SellStack');
+                        case "Sell" : AsyncStorage.getItem("ACCESS_TOKEN").then(value => {
+                            if(value === "" || value === undefined || value === null){
+                                return Alert.alert(
+                                    '회원가입이 필요합니다!',
+                                    '계속 진행하시려면 확인을 누르세요',
+                                    [
+                                        {text: '취소', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                                        {text: '확인', onPress: () => this.props.navigation.navigate('Terms')},
+                                    ],
+                                    { cancelable: false }
+                                )
+                            }
+                            else{
+                                return navigation.navigate('SellStack');
+                            }
+
+                        });
+                            break;
+
+
                         case "Notice" : return focused ? console.log('check2') : jumpToIndex(index);
                         case "Profile" : return focused ? console.log('check2') : jumpToIndex(index);
                         default: return jumpToIndex(index);

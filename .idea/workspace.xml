@@ -2,40 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac25896e-bfac-4b4c-a398-45048a9ab122" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Assets/pic1.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Assets/pic2.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Assets/pic3.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Components/ButtonComponent/ButtonComponent.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Components/ButtonComponent/Style.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Reducers/DefaultReducer.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Screens/Auth/SignUpScreen2/SignUpScreen2.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Screens/Auth/SignUpScreen2/Style.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Screens/Auth/SignUpScreen3/SignUpScreen3.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Screens/Auth/SignUpScreen3/Style.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Screens/TutorialScreen/Style.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/src/ActionCreators/ShuttleActionCreator.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Components/DefaultComponent/DefaultComponent.js" afterPath="$PROJECT_DIR$/src/Components/DefaultComponent/DefaultComponent.js" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HeaderComponent/HeaderComponent.js" afterPath="$PROJECT_DIR$/src/Components/HeaderComponent/HeaderComponent.js" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HeaderComponent/Style.js" afterPath="$PROJECT_DIR$/src/Components/HeaderComponent/Style.js" />
-      <change beforePath="$PROJECT_DIR$/src/Components/InputComponent/Style.js" afterPath="$PROJECT_DIR$/src/Components/InputComponent/Style.js" />
-      <change beforePath="$PROJECT_DIR$/src/Constants/commonStyle.js" afterPath="$PROJECT_DIR$/src/Constants/commonStyle.js" />
-      <change beforePath="$PROJECT_DIR$/src/Constants/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Constants/server.js" afterPath="$PROJECT_DIR$/src/Constants/server.js" />
-      <change beforePath="$PROJECT_DIR$/src/Navigation/NavigationStack.js" afterPath="$PROJECT_DIR$/src/Navigation/NavigationStack.js" />
-      <change beforePath="$PROJECT_DIR$/src/Reducers/LoginReducer.js" afterPath="$PROJECT_DIR$/src/Reducers/LoginReducer.js" />
-      <change beforePath="$PROJECT_DIR$/src/Reducers/NavigationReducer.js" afterPath="$PROJECT_DIR$/src/Reducers/NavigationReducer.js" />
-      <change beforePath="$PROJECT_DIR$/src/Reducers/ShuttleReducer.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Reducers/index.js" afterPath="$PROJECT_DIR$/src/Reducers/index.js" />
+      <change beforePath="$PROJECT_DIR$/src/Components/TabBarComponent/TabBarComponent.js" afterPath="$PROJECT_DIR$/src/Components/TabBarComponent/TabBarComponent.js" />
       <change beforePath="$PROJECT_DIR$/src/Screens/Auth/SignInScreen/SignInScreen.js" afterPath="$PROJECT_DIR$/src/Screens/Auth/SignInScreen/SignInScreen.js" />
-      <change beforePath="$PROJECT_DIR$/src/Screens/Auth/SignUpScreen/SignUpScreen.js" afterPath="$PROJECT_DIR$/src/Screens/Auth/SignUpScreen/SignUpScreen.js" />
-      <change beforePath="$PROJECT_DIR$/src/Screens/Auth/SignUpScreen/Style.js" afterPath="$PROJECT_DIR$/src/Screens/Auth/SignUpScreen/Style.js" />
-      <change beforePath="$PROJECT_DIR$/src/Screens/Auth/TermsScreen/TermsScreen.js" afterPath="$PROJECT_DIR$/src/Screens/Auth/TermsScreen/TermsScreen.js" />
-      <change beforePath="$PROJECT_DIR$/src/Screens/IntroScreen/Style.js" afterPath="$PROJECT_DIR$/src/ActionCreators/DefaultActionCreator.js" />
-      <change beforePath="$PROJECT_DIR$/src/Screens/IntroScreen/TutorialScreen.js" afterPath="$PROJECT_DIR$/src/Screens/TutorialScreen/TutorialScreen.js" />
-      <change beforePath="$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/HomeScreen.js" afterPath="$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/HomeScreen.js" />
-      <change beforePath="$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/Style.js" afterPath="$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/Style.js" />
+      <change beforePath="$PROJECT_DIR$/src/Screens/InitScreen/InitScreen.js" afterPath="$PROJECT_DIR$/src/Screens/InitScreen/InitScreen.js" />
+      <change beforePath="$PROJECT_DIR$/src/Screens/TabScreens/ProfileScreen/ProfileScreen.js" afterPath="$PROJECT_DIR$/src/Screens/TabScreens/ProfileScreen/ProfileScreen.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -55,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HomeScreen.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HomeScreen.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/HomeScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="109" column="36" lean-forward="true" selection-start-line="109" selection-start-column="36" selection-end-line="109" selection-end-column="36" />
+            <state relative-caret-position="181">
+              <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -70,33 +41,65 @@
       <file leaf-file-name="Style.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/Style.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-277">
+            <state relative-caret-position="252">
               <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultActionCreator.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ActionCreators/DefaultActionCreator.js">
+      <file leaf-file-name="TabBarComponent.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Components/TabBarComponent/TabBarComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="28" column="32" lean-forward="true" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+            <state relative-caret-position="210">
+              <caret line="58" column="72" lean-forward="false" selection-start-line="58" selection-start-column="72" selection-end-line="58" selection-end-column="72" />
               <folding>
-                <element signature="e#0#68#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeaderComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/HeaderComponent/HeaderComponent.js">
+      <file leaf-file-name="ProfileScreen.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Screens/TabScreens/ProfileScreen/ProfileScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="49" column="81" lean-forward="false" selection-start-line="49" selection-start-column="81" selection-end-line="49" selection-end-column="81" />
+            <state relative-caret-position="476">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SignInScreen.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Screens/Auth/SignInScreen/SignInScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="83" column="52" lean-forward="false" selection-start-line="83" selection-start-column="52" selection-end-line="83" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginActionCreator.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ActionCreators/LoginActionCreator.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="4" column="47" lean-forward="false" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InitScreen.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Screens/InitScreen/InitScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="47" column="37" lean-forward="true" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -125,46 +128,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TutorialScreen.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Screens/TutorialScreen/TutorialScreen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="141" column="11" lean-forward="true" selection-start-line="141" selection-start-column="11" selection-end-line="141" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Constants/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="55" lean-forward="false" selection-start-line="0" selection-start-column="55" selection-end-line="0" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="NavigationStack.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Navigation/NavigationStack.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-82">
+            <state relative-caret-position="-951">
               <caret line="7" column="66" lean-forward="true" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Style.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Screens/Auth/SignUpScreen/Style.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -226,8 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Screens/TabScreens/PictureScreen/Style.js" />
-        <option value="$PROJECT_DIR$/Screens/Auth/SignInScreen/SignInScreen.js" />
         <option value="$PROJECT_DIR$/Screens/TabScreens/PictureScreen/PictureScreen.js" />
         <option value="$PROJECT_DIR$/Components/HeaderComponent/HeaderComponent.js" />
         <option value="$PROJECT_DIR$/Reducers/index.js" />
@@ -258,10 +225,8 @@
         <option value="$PROJECT_DIR$/src/Screens/IntroScreen/TutorialScreen.js" />
         <option value="$PROJECT_DIR$/src/Reducers/LoginReducer.js" />
         <option value="$PROJECT_DIR$/src/Reducers/DefaultReducer.js" />
-        <option value="$PROJECT_DIR$/src/Screens/InitScreen/InitScreen.js" />
         <option value="$PROJECT_DIR$/src/Constants/commonStyle.js" />
         <option value="$PROJECT_DIR$/src/Components/InputComponent/Style.js" />
-        <option value="$PROJECT_DIR$/src/Screens/Auth/SignInScreen/SignInScreen.js" />
         <option value="$PROJECT_DIR$/src/Components/DefaultComponent/DefaultComponent.js" />
         <option value="$PROJECT_DIR$/src/Screens/Auth/SignUpScreen/Style.js" />
         <option value="$PROJECT_DIR$/src/Screens/Auth/SignUpScreen2/SignUpScreen.js" />
@@ -277,6 +242,10 @@
         <option value="$PROJECT_DIR$/src/Components/HeaderComponent/HeaderComponent.js" />
         <option value="$PROJECT_DIR$/src/Components/HeaderComponent/Style.js" />
         <option value="$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/HomeScreen.js" />
+        <option value="$PROJECT_DIR$/src/Screens/Auth/SignInScreen/SignInScreen.js" />
+        <option value="$PROJECT_DIR$/src/Screens/InitScreen/InitScreen.js" />
+        <option value="$PROJECT_DIR$/src/Screens/TabScreens/ProfileScreen/ProfileScreen.js" />
+        <option value="$PROJECT_DIR$/src/Components/TabBarComponent/TabBarComponent.js" />
       </list>
     </option>
   </component>
@@ -327,13 +296,59 @@
             <path>
               <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
               <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
-              <item name="native-base-theme" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
               <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
-              <item name="native-base-theme" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ActionCreators" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Components" type="462c0819:PsiDirectoryNode" />
+              <item name="TabBarComponent" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Constants" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Navigation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Screens" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Screens" type="462c0819:PsiDirectoryNode" />
+              <item name="TabScreens" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Screens" type="462c0819:PsiDirectoryNode" />
+              <item name="TabScreens" type="462c0819:PsiDirectoryNode" />
+              <item name="ProfileScreen" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -398,12 +413,12 @@
       <workItem from="1518694171723" duration="9838000" />
       <workItem from="1518705415386" duration="6494000" />
       <workItem from="1518714673423" duration="59738000" />
-      <workItem from="1519047856978" duration="11790000" />
+      <workItem from="1519047856978" duration="14880000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179910000" />
+    <option name="totallyTimeSpent" value="183000000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -485,14 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screens/TabScreens/ProfileScreen/ProfileScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" column="38" lean-forward="false" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Screens/TabScreens/ProfileScreen/Style.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
@@ -507,16 +514,6 @@
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/TabBarComponent/TabBarComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="68" column="62" lean-forward="false" selection-start-line="68" selection-start-column="62" selection-end-line="68" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -595,16 +592,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActionCreators/LoginActionCreator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="4" column="47" lean-forward="false" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Reducers/LoginReducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -652,14 +639,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screens/InitScreen/InitScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="46" column="43" lean-forward="false" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Constants/commonStyle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
@@ -699,14 +678,6 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screens/Auth/SignInScreen/SignInScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="124" column="52" lean-forward="true" selection-start-line="124" selection-start-column="52" selection-end-line="124" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -804,14 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Navigation/NavigationStack.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-82">
-          <caret line="7" column="66" lean-forward="true" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Assets/pic1.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -845,14 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/Style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-277">
-          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/HeaderComponent/HeaderComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
@@ -883,12 +838,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/Style.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/HomeScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="109" column="36" lean-forward="true" selection-start-line="109" selection-start-column="36" selection-end-line="109" selection-end-column="36" />
+        <state relative-caret-position="181">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Navigation/NavigationStack.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-951">
+          <caret line="7" column="66" lean-forward="true" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ActionCreators/LoginActionCreator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="4" column="47" lean-forward="false" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screens/InitScreen/InitScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="47" column="37" lean-forward="true" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screens/TabScreens/ProfileScreen/ProfileScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screens/Auth/SignInScreen/SignInScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="83" column="52" lean-forward="false" selection-start-line="83" selection-start-column="52" selection-end-line="83" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/TabBarComponent/TabBarComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="58" column="72" lean-forward="false" selection-start-line="58" selection-start-column="72" selection-end-line="58" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>

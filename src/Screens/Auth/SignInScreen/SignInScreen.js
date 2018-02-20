@@ -81,7 +81,7 @@ class SignInScreen extends Component {
                         </Button>
                     </Right>
                 </Header>
-                <KeyboardAvoidingView style={{flex:0.5}} behavior="height" >
+                <KeyboardAvoidingView style={{flex:1}} behavior="height" >
 
                 <Content contentContainerStyle={{flex: 1}}>
 

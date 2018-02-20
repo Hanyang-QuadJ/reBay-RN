@@ -44,7 +44,7 @@ class InitScreen extends Component {
     };
 
     getToken = () => {
-        AsyncStorage.getItem("ACCESS TOKEN2").then(value => {
+        AsyncStorage.getItem("ACCESS_TOKEN").then(value => {
             if(value === null || value === undefined || value === ""){
                 this.goToIntro();
             }

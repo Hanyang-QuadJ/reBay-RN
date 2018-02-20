@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac25896e-bfac-4b4c-a398-45048a9ab122" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/Components/TabBarComponent/TabBarComponent.js" afterPath="$PROJECT_DIR$/src/Components/TabBarComponent/TabBarComponent.js" />
-      <change beforePath="$PROJECT_DIR$/src/Screens/Auth/SignInScreen/SignInScreen.js" afterPath="$PROJECT_DIR$/src/Screens/Auth/SignInScreen/SignInScreen.js" />
-      <change beforePath="$PROJECT_DIR$/src/Screens/InitScreen/InitScreen.js" afterPath="$PROJECT_DIR$/src/Screens/InitScreen/InitScreen.js" />
-      <change beforePath="$PROJECT_DIR$/src/Screens/TabScreens/ProfileScreen/ProfileScreen.js" afterPath="$PROJECT_DIR$/src/Screens/TabScreens/ProfileScreen/ProfileScreen.js" />
+      <change beforePath="$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/HomeScreen.js" afterPath="$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/HomeScreen.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,8 +26,8 @@
       <file leaf-file-name="HomeScreen.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/HomeScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state relative-caret-position="1408">
+              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -51,10 +48,32 @@
       <file leaf-file-name="TabBarComponent.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/TabBarComponent/TabBarComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="58" column="72" lean-forward="false" selection-start-line="58" selection-start-column="72" selection-end-line="58" selection-end-column="72" />
+            <state relative-caret-position="307">
+              <caret line="69" column="52" lean-forward="false" selection-start-line="69" selection-start-column="52" selection-end-line="69" selection-end-column="52" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InitScreen.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Screens/InitScreen/InitScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="40" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SignUpScreen.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Screens/Auth/SignUpScreen/SignUpScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1474">
+              <caret line="54" column="48" lean-forward="false" selection-start-line="54" selection-start-column="48" selection-end-line="54" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -75,7 +94,7 @@
       <file leaf-file-name="SignInScreen.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Screens/Auth/SignInScreen/SignInScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
+            <state relative-caret-position="1708">
               <caret line="83" column="52" lean-forward="false" selection-start-line="83" selection-start-column="52" selection-end-line="83" selection-end-column="52" />
               <folding />
             </state>
@@ -89,28 +108,6 @@
               <caret line="4" column="47" lean-forward="false" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InitScreen.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Screens/InitScreen/InitScreen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="47" column="37" lean-forward="true" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Style.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/HeaderComponent/Style.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -131,7 +128,7 @@
       <file leaf-file-name="NavigationStack.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Navigation/NavigationStack.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-951">
+            <state relative-caret-position="-1341">
               <caret line="7" column="66" lean-forward="true" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
               <folding />
             </state>
@@ -241,11 +238,11 @@
         <option value="$PROJECT_DIR$/src/ActionCreators/DefaultActionCreator.js" />
         <option value="$PROJECT_DIR$/src/Components/HeaderComponent/HeaderComponent.js" />
         <option value="$PROJECT_DIR$/src/Components/HeaderComponent/Style.js" />
-        <option value="$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/HomeScreen.js" />
         <option value="$PROJECT_DIR$/src/Screens/Auth/SignInScreen/SignInScreen.js" />
         <option value="$PROJECT_DIR$/src/Screens/InitScreen/InitScreen.js" />
         <option value="$PROJECT_DIR$/src/Screens/TabScreens/ProfileScreen/ProfileScreen.js" />
         <option value="$PROJECT_DIR$/src/Components/TabBarComponent/TabBarComponent.js" />
+        <option value="$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/HomeScreen.js" />
       </list>
     </option>
   </component>
@@ -297,58 +294,6 @@
               <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
               <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ActionCreators" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="TabBarComponent" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Constants" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Navigation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Screens" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Screens" type="462c0819:PsiDirectoryNode" />
-              <item name="TabScreens" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reBay-Front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reBay-Front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Screens" type="462c0819:PsiDirectoryNode" />
-              <item name="TabScreens" type="462c0819:PsiDirectoryNode" />
-              <item name="ProfileScreen" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -413,18 +358,17 @@
       <workItem from="1518694171723" duration="9838000" />
       <workItem from="1518705415386" duration="6494000" />
       <workItem from="1518714673423" duration="59738000" />
-      <workItem from="1519047856978" duration="14880000" />
+      <workItem from="1519047856978" duration="16124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183000000" />
+    <option name="totallyTimeSpent" value="184244000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947146" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947146" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -737,16 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screens/Auth/SignUpScreen/SignUpScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="54" column="48" lean-forward="false" selection-start-line="54" selection-start-column="48" selection-end-line="54" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Screens/Auth/SignUpScreen2/SignUpScreen2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -846,21 +780,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/HomeScreen.js">
+    <entry file="file://$PROJECT_DIR$/src/Screens/TabScreens/ProfileScreen/ProfileScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="476">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Navigation/NavigationStack.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-951">
-          <caret line="7" column="66" lean-forward="true" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -874,38 +800,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screens/InitScreen/InitScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="47" column="37" lean-forward="true" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screens/TabScreens/ProfileScreen/ProfileScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Screens/Auth/SignInScreen/SignInScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
+        <state relative-caret-position="1708">
           <caret line="83" column="52" lean-forward="false" selection-start-line="83" selection-start-column="52" selection-end-line="83" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screens/Auth/SignUpScreen/SignUpScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1474">
+          <caret line="54" column="48" lean-forward="false" selection-start-line="54" selection-start-column="48" selection-end-line="54" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screens/InitScreen/InitScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="40" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Navigation/NavigationStack.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1341">
+          <caret line="7" column="66" lean-forward="true" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screens/TabScreens/HomeScreen/HomeScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1408">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/TabBarComponent/TabBarComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="58" column="72" lean-forward="false" selection-start-line="58" selection-start-column="72" selection-end-line="58" selection-end-column="72" />
+        <state relative-caret-position="307">
+          <caret line="69" column="52" lean-forward="false" selection-start-line="69" selection-start-column="52" selection-end-line="69" selection-end-column="52" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>

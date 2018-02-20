@@ -26,12 +26,11 @@ const AppWithNavigation = connect(mapStateToProps)(App);
 class AppNavigation extends Component {
     constructor(props){
         super(props);
-
-
     }
 
     componentWillMount(){
-    }
+
+	}
 
     render() {
         return (

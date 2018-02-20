@@ -10,7 +10,6 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-
     slide2: {
         flex:1,
 
@@ -30,7 +29,5 @@ const style = StyleSheet.create({
         width:375
 
     }
-
-
 });
 export default style

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Modal } from 'react-native';
-import { Container, Text, Content } from 'native-base';
+import { Container, Text, Content, Button } from 'native-base';
 import { NavigationActions } from 'react-navigation';
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 import  styles from './Style';
@@ -12,6 +12,7 @@ const mapStateToProps = state => {
 };
 
 class PictureScreen extends Component {
+
     static navigationOptions = (navigation) => {
         return ({
                 mode:'modal'
@@ -31,16 +32,22 @@ class PictureScreen extends Component {
 
     };
 
+	goToBrand = () => {
+		this.props.navigation.navigate('SignUp2');
+	}
+
     render() {
         return (
                 <Container style={{backgroundColor:'white'}}>
                     <HeaderComponent title="판매하기" left="ios-close" right="" onPressLeft={()=>this.closeModal()} />
                     <Content contentContainerStyle={{flex: 1}}>
                         <Text>Picture Screen</Text>
+						<Button onPress={() => this.goToBrand()}>
+							<Text>Button</Text>
+						</Button>
                     </Content>
+
                 </Container>
-
-
 
         )
 
@@ -48,4 +55,3 @@ class PictureScreen extends Component {
 
 }
 export default (PictureScreen = connect(mapStateToProps)(PictureScreen));
-

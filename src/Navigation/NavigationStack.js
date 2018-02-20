@@ -58,6 +58,7 @@ const TabNavigation = TabNavigator({
     });
 
 export const AuthNavigator = StackNavigator({
+
     Intro: {screen: TutorialScreen},
     SignIn: {screen: SignInScreen},
     SignUp: {screen: SignUpScreen},
@@ -67,7 +68,7 @@ export const AuthNavigator = StackNavigator({
     Home: {screen: TabNavigation},
 
 }, {
-    headerMode: 'none',
+    headerMode: 'none', //Navigation Header
 });
 
 
@@ -76,10 +77,10 @@ const MainNavigator = StackNavigator({
     Auth: {screen: AuthNavigator},
     Home: {screen: TabNavigation},
     SellStack: {screen: SellNavigator}
-}, {
-
-    navigationOptions: {
-        gesturesEnabled: false
+	},
+	{
+	    navigationOptions: {
+	        gesturesEnabled: false
     },
     headerMode: 'none',
     mode: 'modal',

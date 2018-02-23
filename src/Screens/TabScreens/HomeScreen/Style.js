@@ -1,8 +1,7 @@
 import { StyleSheet } from 'react-native';
 const style = StyleSheet.create({
     wrapper:{
-        height:200
-
+        height:200,
     },
     slide1: {
         flex:1,

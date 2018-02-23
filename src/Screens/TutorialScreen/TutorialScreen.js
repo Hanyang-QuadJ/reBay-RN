@@ -39,6 +39,7 @@ class TutorialScreen extends Component {
         this.props.navigation.dispatch(
             NavigationActions.reset({
                 index: 0,
+                key:null,
                 actions: [
                     NavigationActions.navigate({ routeName: 'Home' })
                 ]

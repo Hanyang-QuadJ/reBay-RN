@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-import {FlatList, View, AsyncStorage, Image, Dimensions, ScrollView, Animated} from 'react-native'
+import {FlatList, View, AsyncStorage, Image, Dimensions, ScrollView, Animated, RefreshControl} from 'react-native'
 import * as ScrollToTopActionCreator from '../../../ActionCreators/ScrollToTopCreator';
 import * as DefaultActionCreator from '../../../ActionCreators/DefaultActionCreator';
 import {connect} from 'react-redux';
 import {TabViewAnimated, TabBar} from 'react-native-tab-view';
 import ScrollableTabComponent from '../../../Components/ScrollableTabComponent/ScrollableTabComponent'
+import Swiper from 'react-native-swiper';
+
 import {
     Container,
     Text,
@@ -84,14 +86,35 @@ class HomeScreen extends Component {
         return (
             <Container>
                 <HeaderComponent title="reBay" left="" right="ios-basket" searchBar={true}/>
+                <View style={{flex: 0.8}}
+                >
+                    <Swiper style={styles.wrapper} showsButtons={false}>
+                        <View style={styles.slide1}>
+                            <Image style={styles.image}
+                                   source={require('../../../Assets/pic1.jpg')}
+                            /></View>
+                        <View style={styles.slide2}>
+                            <Image style={styles.image}
+                                   source={require('../../../Assets/pic2.jpg')}
+                            />
+                        </View>
+                        <View style={styles.slide3}>
+                            <Image style={styles.image}
+                                   source={require('../../../Assets/pic3.jpg')}
+                            />
+                        </View>
+                    </Swiper>
+                </View>
+
                 <TabViewAnimated
-                    style={styles.container}
-                    navigationState={this.state}
-                    renderScene={this._renderScene}
-                    renderHeader={this._renderHeader}
-                    onIndexChange={this._handleIndexChange}
-                    initialLayout={initialLayout}
-                />
+                        style={styles.container}
+                        navigationState={this.state}
+                        renderScene={this._renderScene}
+                        renderHeader={this._renderHeader}
+                        onIndexChange={this._handleIndexChange}
+                        initialLayout={initialLayout}
+                    />
+
             </Container>
         )
     }

@@ -48,7 +48,6 @@ class PictureScreen extends Component {
 							<Text>Button</Text>
 						</Button>
                     </Content>
-
                 </Container>
 
         )

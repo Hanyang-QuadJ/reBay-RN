@@ -7,21 +7,8 @@ export const START_TO_GET_BRAND = "START_TO_GET_BRAND";
 export const FAILED_TO_GET_BRAND = "FAILED_TO_GET_BRAND";
 export const SUCCEED_TO_GET_BRAND = "SUCCEED_TO_GET_BRAND";
 
-const ACCESS_TOKEN = "ACCESS_TOKEN";
-
-//LocalStorage
-getToken = () => {
-    try {
-        AsyncStorage.getItem(ACCESS_TOKEN).then(value => {
-            return value
-        });
 
 
-    } catch (error) {
-        console.log(error)
-    }
-
-};
 
 export const getBrand = (token) => {
     return async (dispatch) => {

@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import Swiper from 'react-native-swiper';
 
 import {TabViewAnimated, TabBar } from 'react-native-tab-view';
-import {Animated, Dimensions, FlatList, View, Text, Image} from "react-native";
+import {Animated, Dimensions, FlatList, View, Text, Image, TouchableWithoutFeedback} from "react-native";
 import * as ScrollToTopActionCreator from '../../ActionCreators/ScrollToTopCreator';
 import * as DefaultActionCreator from '../../ActionCreators/DefaultActionCreator';
 import * as commonStyle from '../../Constants/commonStyle';
@@ -39,8 +39,6 @@ class ScrollableTabComponent extends Component {
                 {key: 'fifth', title: '5'},
                 {key: 'sixth', title: '6'},
                 {key: 'seventh', title: '7'},
-
-
             ],
         }
     }
@@ -124,6 +122,8 @@ class ScrollableTabComponent extends Component {
     _renderScene = ({route}) => {
         switch (route.key) {
             case 'first':
+
+
                 return <FlatList
                     data={this.props.data}
                     renderItem={this.renderItem}
@@ -131,7 +131,8 @@ class ScrollableTabComponent extends Component {
                     ref={(ref) => {
                         this.flatListRef = ref;
                     }}
-                    ListHeaderComponent={this.renderHeader}
+
+                    // ListHeaderComponent={this.renderHeader}
                     refreshing={this.state.refreshing}
                     onRefresh={this.pullToRefresh}
                 />;

@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Modal } from 'react-native';
+import { Modal, AsyncStorage } from 'react-native';
 import { Container, Text, Content, Button } from 'native-base';
 import { NavigationActions } from 'react-navigation';
+import * as BrandActionCreator from '../../../ActionCreators/BrandActionCreator'
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 import  styles from './Style';
+import * as DefaultActionCreator from "../../../ActionCreators/DefaultActionCreator";
 
 const mapStateToProps = state => {
     return {
+        brand:state.BrandReducer.brand
     };
 };
 
 class PictureScreen extends Component {
 
-    static navigationOptions = (navigation) => {
-        return ({
-                mode:'modal'
-            }
 
-        )
-
-    };
 
     constructor(props){
         super(props);
@@ -31,12 +27,18 @@ class PictureScreen extends Component {
         this.props.navigation.goBack(null);
 
     };
+    componentWillMount(){
+        AsyncStorage.getItem("ACCESS_TOKEN").then(token => {
+            this.props.dispatch(BrandActionCreator.getBrand(token));
+        });
+    }
 
 	goToBrand = () => {
-		this.props.navigation.navigate('SignUp2');
-	}
+	};
 
     render() {
+        console.log("---brand----");
+        console.log(this.props.brand);
         return (
                 <Container style={{backgroundColor:'white'}}>
                     <HeaderComponent title="판매하기" left="ios-close" right="" onPressLeft={()=>this.closeModal()} />

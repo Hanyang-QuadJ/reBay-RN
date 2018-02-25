@@ -41,35 +41,6 @@ export const  defaultFetch = () => {
 };
 
 
-// export const defaultFetch = () => {
-//     return async (dispatch) => {
-//         dispatch({type: START_TO_FETCH});
-//         await fetch(ServerEndPoint, {
-//             method: 'GET',
-//         })
-//             .then((response) => {
-//                 if (response.status >= 200 && response.status <= 300) {
-//                     return response.json()
-//                         .then(responseData => {
-//                                 console.log(responseData);
-//                                 dispatch({type: SUCCEED_TO_FETCH, payload: {data: responseData}});
-//                             }
-//                         )
-//                 }
-//                 else {
-//                     return response.json()
-//                         .then(responseData => (
-//                             dispatch({type: FAILED_TO_FETCH, payload: {data: "SERVER_ERROR"}})
-//                         ))
-//                 }
-//             })
-//             .catch(err => {
-//                 dispatch({type: FAILED_TO_FETCH, payload: {data: "NETWORK_ERROR"}})
-//
-//             });
-//     }
-//
-// };
 
 
 

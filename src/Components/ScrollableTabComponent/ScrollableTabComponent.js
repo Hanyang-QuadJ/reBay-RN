@@ -3,12 +3,26 @@ import {Container, Header, Left, Body, Right, Button, Icon, Title, ListItem} fro
 import styles from './Style';
 import {connect} from "react-redux";
 import Swiper from 'react-native-swiper';
+import {Constants} from 'expo'
 
-import {TabViewAnimated, TabBar } from 'react-native-tab-view';
-import {Animated, Dimensions, FlatList, View, Text, Image, TouchableWithoutFeedback} from "react-native";
+import {TabViewAnimated, TabBar} from 'react-native-tab-view';
+import {
+    Animated,
+    Dimensions,
+    FlatList,
+    View,
+    Text,
+    Image,
+    TouchableWithoutFeedback,
+    RefreshControl
+} from "react-native";
 import * as ScrollToTopActionCreator from '../../ActionCreators/ScrollToTopCreator';
 import * as DefaultActionCreator from '../../ActionCreators/DefaultActionCreator';
 import * as commonStyle from '../../Constants/commonStyle';
+
+const HEADER_HEIGHT = 160;
+const COLLAPSED_HEIGHT = 50;
+const SCROLLABLE_HEIGHT = HEADER_HEIGHT - COLLAPSED_HEIGHT;
 
 
 const mapStateToProps = state => {
@@ -29,24 +43,25 @@ class ScrollableTabComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            index:0,
+            index: 0,
             refreshing: false,
+            scroll: new Animated.Value(0),
+            scroll2: new Animated.Value(160),
+
             routes: [
-                {key: 'first', title: '1'},
-                {key: 'second', title: '2'},
-                {key: 'third', title: '3'},
-                {key: 'fourth', title: '4'},
-                {key: 'fifth', title: '5'},
-                {key: 'sixth', title: '6'},
-                {key: 'seventh', title: '7'},
+                {key: 'first', title: '남성의류'},
+                {key: 'second', title: '여성의류'},
+                {key: 'third', title: '신발'},
+                {key: 'fourth', title: '가발'},
+                {key: 'fifth', title: '목걸이'},
+                {key: 'sixth', title: '팔찌'},
+                {key: 'seventh', title: '발찌'},
             ],
         }
     }
 
     componentWillMount() {
         this.props.dispatch(DefaultActionCreator.defaultFetch());
-
-
     }
 
     topReset() {
@@ -74,43 +89,57 @@ class ScrollableTabComponent extends Component {
             </ListItem>
         )
     };
-
-    renderHeader = () => {
-        return (
-            <Swiper style={styles.wrapper} showsButtons={false}>
-                <View style={styles.slide1}>
-                    <Image style={styles.image}
-                           source={require('../../Assets/pic1.jpg')}
-                    /></View>
-                <View style={styles.slide2}>
-                    <Image style={styles.image}
-                           source={require('../../Assets/pic2.jpg')}
-                    />
-                </View>
-                <View style={styles.slide3}>
-                    <Image style={styles.image}
-                           source={require('../../Assets/pic3.jpg')}
-                    />
-                </View>
-            </Swiper>
-
-        )
-
-    };
+    _renderIcon = ({route}) => (
+        <Image style={{width: 20, height: 20,}}
+               source={require('../../Assets/dress.png')}
+        />
+    );
 
     _handleIndexChange = index => this.setState({index});
 
     _renderHeader = props => {
+        const translateY = this.state.scroll.interpolate({
+            inputRange: [0, SCROLLABLE_HEIGHT],
+            outputRange: [0, -SCROLLABLE_HEIGHT],
+            extrapolate: 'clamp',
+        });
         return (
-            <View>
+            <Animated.View style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                zIndex: 1,
+                transform: [{translateY}]
+            }}>
+                <View style={{
+                    height: 160,
+                }}>
+                    <Swiper style={styles.wrapper} showsButtons={false}>
+                        <View style={styles.slide1}>
+                            <Image style={styles.image}
+                                   source={require('../../Assets/pic1.jpg')}
+                            /></View>
+                        <View style={styles.slide2}>
+                            <Image style={styles.image}
+                                   source={require('../../Assets/pic2.jpg')}
+                            />
+                        </View>
+                        <View style={styles.slide3}>
+                            <Image style={styles.image}
+                                   source={require('../../Assets/pic3.jpg')}
+                            />
+                        </View>
+                    </Swiper>
+                    <TabBar {...props} scrollEnabled={true}
+                            renderIcon={this._renderIcon}
+                            tabStyle={{width: 60, paddingHorizontal: 2}}
+                            indicatorStyle={{backgroundColor: commonStyle.PRIMARY_COLOR,}}
+                            labelStyle={{color: commonStyle.PRIMARY_COLOR, marginTop: 2, fontSize: 10, marginBottom: 1}}
+                            style={{backgroundColor: "white", elevation: 0, shadowOpacity: 0,}}/>
 
-                <TabBar {...props} scrollEnabled={true}
-                        tabStyle={{width:60}}
-                        indicatorStyle={{backgroundColor:commonStyle.PRIMARY_COLOR}}
-                        labelStyle={{ color:commonStyle.PRIMARY_COLOR}}
-                        style={{backgroundColor:"white"}} />
-
-            </View>
+                </View>
+            </Animated.View>
         )
     };
 
@@ -120,22 +149,38 @@ class ScrollableTabComponent extends Component {
     };
 
     _renderScene = ({route}) => {
+        const translateY = this.state.scroll.interpolate({
+            inputRange: [0, SCROLLABLE_HEIGHT],
+            outputRange: [HEADER_HEIGHT, 0],
+            extrapolate: 'clamp',
+        });
         switch (route.key) {
             case 'first':
+                return <View>
+                    <Animated.View style={{height:translateY}}>
 
+                    </Animated.View>
+                    <FlatList
+                        data={this.props.data}
+                        renderItem={this.renderItem}
+                        scrollEventThrottle={1}
+                        keyExtractor={item => item.time}
+                        ref={(ref) => {
+                            this.flatListRef = ref;
+                        }}
+                        onScroll={Animated.event(
+                            [{nativeEvent: {contentOffset: {y: this.state.scroll}}}],
+                        )}
+                        refreshControl={
+                            <RefreshControl
+                                refreshing={this.state.refreshing}
+                                onRefresh={this.pullToRefresh}
+                                progressViewOffset={30}
+                            />
+                        }
 
-                return <FlatList
-                    data={this.props.data}
-                    renderItem={this.renderItem}
-                    keyExtractor={item => item.time}
-                    ref={(ref) => {
-                        this.flatListRef = ref;
-                    }}
-
-                    // ListHeaderComponent={this.renderHeader}
-                    refreshing={this.state.refreshing}
-                    onRefresh={this.pullToRefresh}
-                />;
+                    />
+                </View>;
             case 'second':
                 return <View style={{backgroundColor: '#673ab7', flex: 1}}/>;
             case 'third':
@@ -159,6 +204,7 @@ class ScrollableTabComponent extends Component {
     };
 
     render() {
+
         return (
             <TabViewAnimated
                 style={styles.container}

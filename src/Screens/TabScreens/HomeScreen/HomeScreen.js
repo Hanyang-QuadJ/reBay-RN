@@ -31,6 +31,8 @@ const initialLayout = {
 };
 
 
+
+
 const mapStateToProps = state => {
     return {
         token: state.LoginReducer.token,
@@ -56,16 +58,17 @@ class HomeScreen extends Component {
         }
 
     }
+    componentDidUpdate(){
+
+    }
 
     _handleIndexChange = index => this.setState({index});
     _renderHeader = props => {
         return (
             <View>
-
                 <TabBar {...props} indicatorStyle={{backgroundColor: commonStyle.PRIMARY_COLOR}}
-                        labelStyle={{color: commonStyle.PRIMARY_COLOR}}
-                        style={{backgroundColor: "white"}}/>
-
+                        labelStyle={{color: commonStyle.PRIMARY_COLOR, fontSize:13, marginVertical:1}}
+                        style={{backgroundColor: "white",}}/>
             </View>
         )
     };
@@ -83,30 +86,13 @@ class HomeScreen extends Component {
 
     render() {
 
+
+
         return (
             <Container>
-                <HeaderComponent title="reBay" left="" right="ios-basket" searchBar={true}/>
-                <View style={{flex: 0.8}}
-                >
-                    <Swiper style={styles.wrapper} showsButtons={false}>
-                        <View style={styles.slide1}>
-                            <Image style={styles.image}
-                                   source={require('../../../Assets/pic1.jpg')}
-                            /></View>
-                        <View style={styles.slide2}>
-                            <Image style={styles.image}
-                                   source={require('../../../Assets/pic2.jpg')}
-                            />
-                        </View>
-                        <View style={styles.slide3}>
-                            <Image style={styles.image}
-                                   source={require('../../../Assets/pic3.jpg')}
-                            />
-                        </View>
-                    </Swiper>
-                </View>
+                <HeaderComponent title="reBay" left="" right="ios-basket" searchBar={true} />
 
-                <TabViewAnimated
+                    <TabViewAnimated
                         style={styles.container}
                         navigationState={this.state}
                         renderScene={this._renderScene}
@@ -114,6 +100,7 @@ class HomeScreen extends Component {
                         onIndexChange={this._handleIndexChange}
                         initialLayout={initialLayout}
                     />
+
 
             </Container>
         )

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {View, TextInput, KeyboardAvoidingView} from 'react-native';
-import { NavigationActions } from 'react-navigation';
+import {NavigationActions} from 'react-navigation';
 import * as LoginActionCreator from '../../../ActionCreators/LoginActionCreator';
 
 import InputComponent from '../../../Components/InputComponent/InputComponent'
@@ -44,9 +44,9 @@ class SignInScreen extends Component {
         this.props.navigation.dispatch(
             NavigationActions.reset({
                 index: 0,
-                key:null,
+                key: null,
                 actions: [
-                    NavigationActions.navigate({ routeName: 'Home' })
+                    NavigationActions.navigate({routeName: 'Home'})
                 ]
             })
         )
@@ -56,9 +56,10 @@ class SignInScreen extends Component {
         console.log(this.state);
         this.props.dispatch(LoginActionCreator.postLogin(this.state.email, this.state.password));
     };
-    componentDidUpdate(){
 
-        if(this.props.loginStatus ===true){
+    componentDidUpdate() {
+
+        if (this.props.loginStatus === true) {
 
             this.goToHome();
         }
@@ -81,58 +82,60 @@ class SignInScreen extends Component {
                         </Button>
                     </Right>
                 </Header>
-                <KeyboardAvoidingView style={{flex:1}} behavior="height" >
 
                 <Content contentContainerStyle={{flex: 1}}>
+                    <KeyboardAvoidingView style={{flex: 1}} behavior="height">
 
-                    <View style={styles.logoContainer}>
-                        <Text>REBAY LOGO</Text>
-                    </View>
 
-                    <View style={styles.formContainer}>
-                        <View>
-                            <View style={styles.container}>
-                                <View style={styles.icon}>
-                                    <Icon type="MaterialIcons" name="person-outline"/>
+                        <View style={styles.logoContainer}>
+                            <Text>REBAY LOGO</Text>
+                        </View>
+
+                        <View style={styles.formContainer}>
+                            <View>
+                                <View style={styles.container}>
+                                    <View style={styles.icon}>
+                                        <Icon type="MaterialIcons" name="person-outline"/>
+                                    </View>
+                                    <View style={styles.input}>
+                                        <TextInput autoCapitalize="none" placeholder="아이디"
+                                                   onChangeText={(email) => this.setState({email})}
+                                                   value={this.state.email}/>
+                                    </View>
                                 </View>
-                                <View style={styles.input}>
-                                    <TextInput autoCapitalize="none" placeholder="아이디"
-                                               onChangeText={(email) => this.setState({email})}
-                                               value={this.state.email}/>
+                            </View>
+                            <View>
+                                <View style={styles.container}>
+                                    <View style={styles.icon}>
+                                        <Icon type="MaterialIcons" name="lock-open"/>
+                                    </View>
+                                    <View style={styles.input}>
+                                        <TextInput autoCapitalize="none" placeholder="비밀번호" secureTextEntry={true}
+                                                   onChangeText={(password) => this.setState({password})}
+                                                   value={this.state.password}/>
+                                    </View>
                                 </View>
                             </View>
                         </View>
-                        <View>
-                            <View style={styles.container}>
-                                <View style={styles.icon}>
-                                    <Icon type="MaterialIcons" name="lock-open"/>
-                                </View>
-                                <View style={styles.input}>
-                                    <TextInput autoCapitalize="none" placeholder="비밀번호" secureTextEntry={true}
-                                               onChangeText={(password) => this.setState({password})}
-                                               value={this.state.password}/>
-                                </View>
-                            </View>
+                        <View style={styles.buttonContainer}>
+                            <Button full rounded onPress={() => this.sendToAction()}
+                                    style={{
+                                        backgroundColor: "rgba(92, 99,216, 0.5)",
+                                        height: 45,
+                                        marginTop: 20,
+                                        marginLeft: 30,
+                                        marginRight: 30,
+                                        borderColor: "transparent",
+                                        borderWidth: 0,
+                                        borderRadius: 7,
+                                    }}>
+                                <Text>로그인</Text>
+                            </Button>
+                            <Text style={{marginTop: 10}}>비밀번호를 잊어버리셨나요?</Text>
                         </View>
-                    </View>
-                    <View style={styles.buttonContainer}>
-                        <Button full rounded onPress={() => this.sendToAction()}
-                                style={{
-                                    backgroundColor: "rgba(92, 99,216, 0.5)",
-                                    height: 45,
-                                    marginTop: 20,
-                                    marginLeft: 30,
-                                    marginRight: 30,
-                                    borderColor: "transparent",
-                                    borderWidth: 0,
-                                    borderRadius: 7,
-                                }}>
-                            <Text>로그인</Text>
-                        </Button>
-                        <Text style={{marginTop: 10}}>비밀번호를 잊어버리셨나요?</Text>
-                    </View>
+                    </KeyboardAvoidingView>
+
                 </Content>
-                </KeyboardAvoidingView>
 
             </Container>
         )

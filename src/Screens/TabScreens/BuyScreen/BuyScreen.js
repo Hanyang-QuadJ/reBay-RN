@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {AsyncStorage, View, FlatList} from 'react-native';
+import {AsyncStorage, View, FlatList, TouchableOpacity} from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import {Container, Text, Content, Item, Input, Form, Button, Badge, Header, Footer, Title, Left, Right, List, ListItem,FooterTab} from 'native-base';
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
@@ -64,7 +64,7 @@ class BuyScreen extends Component {
                     <FlatList
                         keyExtractor={item => item.id}
                         data={this.state.currentBrand}
-                        renderItem={({item}) => <Text>{item.brand_name}</Text>}
+                        renderItem={({item}) => <TouchableOpacity onPress={()=>this.props.navigation.navigate('BuyScreen2',{brandID:item.id,brandName:item.brand_name})}><Text>{item.brand_name}</Text></TouchableOpacity>}
                     />
                     <Footer>
                             <Button full>

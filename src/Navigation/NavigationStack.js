@@ -4,6 +4,7 @@ import {Ionicons} from '@expo/vector-icons';
 import TutorialScreen from '../Screens/TutorialScreen/TutorialScreen';
 import HomeScreen from '../Screens/TabScreens/HomeScreen/HomeScreen';
 import BuyScreen from '../Screens/TabScreens/BuyScreen/BuyScreen';
+import BuyScreen2 from '../Screens/TabScreens/BuyScreen/BuyScreen2';
 import SignInScreen from "../Screens/Auth/SignInScreen/SignInScreen";
 import TermsScreen from '../Screens/Auth/TermsScreen/TermsScreen';
 import SignUpScreen from '../Screens/Auth/SignUpScreen/SignUpScreen';
@@ -26,7 +27,11 @@ import BrandScreen from "../Screens/SellScreens/BrandScreen/BrandScreen";
 
 
 
-
+const BuyNavigator = StackNavigator({
+    BuyScreen2: {screen: BuyScreen2},
+}, {
+    headerMode: 'none',
+});
 const SellNavigator = StackNavigator({
     Picture: {screen: PictureScreen},
     Brand: {screen: BrandScreen},
@@ -69,6 +74,7 @@ const MainNavigator = StackNavigator({
     Init: {screen: InitScreen},
     Auth: {screen: AuthNavigator},
     Home: {screen: TabNavigation},
+    BuyStack: {screen: BuyNavigator},
     SellStack: {screen: SellNavigator}
 	},
 	{

@@ -20,7 +20,7 @@ import * as ScrollToTopActionCreator from '../../ActionCreators/ScrollToTopCreat
 import * as DefaultActionCreator from '../../ActionCreators/DefaultActionCreator';
 import * as commonStyle from '../../Constants/commonStyle';
 
-const HEADER_HEIGHT = 160;
+const HEADER_HEIGHT = 170;
 const COLLAPSED_HEIGHT = 50;
 const SCROLLABLE_HEIGHT = HEADER_HEIGHT - COLLAPSED_HEIGHT;
 
@@ -46,7 +46,7 @@ class ScrollableTabComponent extends Component {
             index: 0,
             refreshing: false,
             scroll: new Animated.Value(0),
-            scroll2: new Animated.Value(160),
+            scroll2: new Animated.Value(170),
 
             routes: [
                 {key: 'first', title: '남성의류'},
@@ -113,7 +113,7 @@ class ScrollableTabComponent extends Component {
                 transform: [{translateY}]
             }}>
                 <View style={{
-                    height: 160,
+                    height: 170,
                 }}>
                     <Swiper style={styles.wrapper} showsButtons={false}>
                         <View style={styles.slide1}>

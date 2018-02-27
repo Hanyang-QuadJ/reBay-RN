@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Modal, AsyncStorage, View, Image, TouchableOpacity} from 'react-native';
+import {Modal, AsyncStorage, View, Image, TouchableOpacity, Alert} from 'react-native';
 import {Container, Text, Content, Button, Footer} from 'native-base';
 import * as BrandActionCreator from '../../../ActionCreators/BrandActionCreator'
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
@@ -52,7 +52,40 @@ class PictureScreen extends Component {
         });
     }
 
+    parseBase = () => {
+        let {base1, base2, base3, base4, base5, base6, base7, base8, base9} = this.state;
+        let baseArray = [base1,base2,base3,base4, base5, base6, base7, base8, base9];
+        function filter_array(arr) {
+            arr = arr.filter(isEligible);
+            return arr;
+        }
+        function isEligible(value) {
+            if(value !== false || value !== null || value !== 0 || value !== "") {
+                return value;
+            }
+        }
+        return filter_array(baseArray);
+
+    };
+
+
+
     goToBrand = () => {
+        const baseArray = this.parseBase();
+        this.props.navigation.navigate('Brand',{base64:baseArray});
+
+        // if(baseArray.length <3 ){
+        //     Alert.alert(
+        //         '잠깐!',
+        //         '최소 3장 이상의 상품사진을 입력하세요',
+        //         [
+        //             {text: 'OK'},
+        //         ],
+        //     )
+        // }
+        // else{
+        //     this.props.navigation.navigate('Brand',{base64:baseArray});
+        // }
     };
 
     imagePicker = async (imageNumber) => {
@@ -170,7 +203,7 @@ class PictureScreen extends Component {
                 </View>
                 <Footer style={styles.footer}>
                     <Button style={styles.button1}><Text style={styles.button1Text}>임시저장</Text></Button>
-                    <Button style={styles.button2} ><Text style={styles.button2Text}>다음으로</Text></Button>
+                    <Button onPress={() => this.goToBrand()} style={styles.button2} ><Text style={styles.button2Text}>다음으로</Text></Button>
                 </Footer>
             </Container>
 

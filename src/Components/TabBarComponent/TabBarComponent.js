@@ -9,7 +9,7 @@ import * as ScrollToTopCreator from '../../ActionCreators/ScrollToTopCreator';
 
 
 const activeTintColor = commonStyle.PRIMARY_COLOR;
-const inactiveTintColor = commonStyle.BORDER_COLOR;
+const inactiveTintColor = commonStyle.THIRD_COLOR;
 
 const mapStateToProps = state => {
     return {};

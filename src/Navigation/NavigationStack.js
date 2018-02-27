@@ -9,6 +9,8 @@ import TermsScreen from '../Screens/Auth/TermsScreen/TermsScreen';
 import SignUpScreen from '../Screens/Auth/SignUpScreen/SignUpScreen';
 import SignUpScreen2 from '../Screens/Auth/SignUpScreen2/SignUpScreen2';
 import SignUpScreen3 from '../Screens/Auth/SignUpScreen3/SignUpScreen3';
+import FilterScreen from '../Screens/SellScreens/FilterScreen/FilterScreen';
+
 
 import SellScreen from '../Screens/TabScreens/SellScreen/SellScreen';
 import PictureScreen from '../Screens/SellScreens/PictureScreen/PictureScreen';
@@ -17,19 +19,9 @@ import ProfileScreen from '../Screens/TabScreens/ProfileScreen/ProfileScreen';
 import TabBarComponent from '../Components/TabBarComponent/TabBarComponent';
 import { StackNavigator, TabNavigator, NavigationActions} from "react-navigation";
 import InitScreen from "../Screens/InitScreen/InitScreen";
-
-getToken = () => {
-    AsyncStorage.getItem("ACCESS TOKEN").then(value => {
-        if(value === null || value === undefined || value === ""){
+import BrandScreen from "../Screens/SellScreens/BrandScreen/BrandScreen";
 
 
-        }
-        else{
-
-        }
-    })
-
-};
 
 
 
@@ -37,7 +29,8 @@ getToken = () => {
 
 const SellNavigator = StackNavigator({
     Picture: {screen: PictureScreen},
-    Brand: {screen: SellScreen},
+    Brand: {screen: BrandScreen},
+    Filter:{screen: FilterScreen}
 }, {
     headerMode: 'none',
 });

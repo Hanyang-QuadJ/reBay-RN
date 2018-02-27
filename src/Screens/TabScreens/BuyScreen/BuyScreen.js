@@ -17,7 +17,6 @@ class BuyScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchBarInput: '',
             currentBrand:[]
         };
     }
@@ -46,6 +45,9 @@ class BuyScreen extends Component {
                 }
             })
         }
+        this.setState({
+            currentBrand: brands
+        });
     }
 
     render() {

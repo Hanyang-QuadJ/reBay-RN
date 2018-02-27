@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-import {FlatList, View, AsyncStorage, Image, Dimensions, ScrollView, Animated} from 'react-native'
+import {FlatList, View, AsyncStorage, Image, Dimensions, ScrollView, Animated, RefreshControl} from 'react-native'
 import * as ScrollToTopActionCreator from '../../../ActionCreators/ScrollToTopCreator';
 import * as DefaultActionCreator from '../../../ActionCreators/DefaultActionCreator';
 import {connect} from 'react-redux';
 import {TabViewAnimated, TabBar} from 'react-native-tab-view';
 import ScrollableTabComponent from '../../../Components/ScrollableTabComponent/ScrollableTabComponent'
+import Swiper from 'react-native-swiper';
+
 import {
     Container,
     Text,
@@ -27,6 +29,8 @@ const initialLayout = {
     height: 0,
     width: Dimensions.get('window').width,
 };
+
+
 
 
 const mapStateToProps = state => {
@@ -54,16 +58,17 @@ class HomeScreen extends Component {
         }
 
     }
+    componentDidUpdate(){
+
+    }
 
     _handleIndexChange = index => this.setState({index});
     _renderHeader = props => {
         return (
             <View>
-
                 <TabBar {...props} indicatorStyle={{backgroundColor: commonStyle.PRIMARY_COLOR}}
-                        labelStyle={{color: commonStyle.PRIMARY_COLOR}}
-                        style={{backgroundColor: "white"}}/>
-
+                        labelStyle={{color: commonStyle.PRIMARY_COLOR, fontSize:13, marginVertical:1}}
+                        style={{backgroundColor: "white",}}/>
             </View>
         )
     };
@@ -81,17 +86,22 @@ class HomeScreen extends Component {
 
     render() {
 
+
+
         return (
             <Container>
-                <HeaderComponent title="reBay" left="" right="ios-basket" searchBar={true}/>
-                <TabViewAnimated
-                    style={styles.container}
-                    navigationState={this.state}
-                    renderScene={this._renderScene}
-                    renderHeader={this._renderHeader}
-                    onIndexChange={this._handleIndexChange}
-                    initialLayout={initialLayout}
-                />
+                <HeaderComponent title="reBay" left="" right="ios-basket" searchBar={true} />
+
+                    <TabViewAnimated
+                        style={styles.container}
+                        navigationState={this.state}
+                        renderScene={this._renderScene}
+                        renderHeader={this._renderHeader}
+                        onIndexChange={this._handleIndexChange}
+                        initialLayout={initialLayout}
+                    />
+
+
             </Container>
         )
     }

@@ -1,11 +1,7 @@
 import { StyleSheet } from 'react-native';
 import  commonStyle from '../index'
 const styles = StyleSheet.create({
-    container:{
-
-    },
     wrapper:{
-        height:180,
     },
     slide1: {
         flex:1,
@@ -15,14 +11,12 @@ const styles = StyleSheet.create({
     },
     slide2: {
         flex:1,
-
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#97CAE5',
     },
     slide3: {
         flex:1,
-
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#92BBD9',
@@ -31,6 +25,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         width:375
     }
+
 
 
 });

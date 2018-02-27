@@ -5,7 +5,6 @@ import { Col, Row, Grid } from 'react-native-easy-grid';
 import {Container, Text, Content, Item, Input, Form, Button, Badge, Header, Footer, Title, Left, Right, List, ListItem,FooterTab} from 'native-base';
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 import styles from './Style';
-import * as BuyActionCreator from '../../../ActionCreators/BuyActionCreator';
 import * as BrandActionCreator from "../../../ActionCreators/BrandActionCreator";
 
 const mapStateToProps = state => {
@@ -47,9 +46,6 @@ class BuyScreen extends Component {
                 }
             })
         }
-        this.setState({
-            currentBrand: brands
-        });
     }
 
     render() {
@@ -64,6 +60,7 @@ class BuyScreen extends Component {
                         <Input placeholder='Rounded Textbox' onChangeText={(text) => this.filterBySearchBar(text)}/>
                     </Item>
                     <FlatList
+                        keyExtractor={item => item.id}
                         data={this.state.currentBrand}
                         renderItem={({item}) => <Text>{item.brand_name}</Text>}
                     />

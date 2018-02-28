@@ -64,14 +64,13 @@ class BuyScreen extends Component {
                     <FlatList
                         keyExtractor={item => item.id}
                         data={this.state.currentBrand}
-                        renderItem={({item}) => <TouchableOpacity onPress={()=>this.props.navigation.navigate('BuyScreen2',{brandID:item.id,brandName:item.brand_name})}><Text>{item.brand_name}</Text></TouchableOpacity>}
+                        renderItem={({item}) => <TouchableOpacity onPress={()=>this.props.navigation.navigate('BuyStack',{brandID:item.id,brandName:item.brand_name})}><Text>{item.brand_name}</Text></TouchableOpacity>}
                     />
                     <Footer>
                             <Button full>
                                 <Text>선택하기</Text>
                             </Button>
                     </Footer>
-
                 </Container>
         )
     }

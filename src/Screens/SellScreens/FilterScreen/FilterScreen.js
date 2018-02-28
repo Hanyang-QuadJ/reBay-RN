@@ -318,7 +318,7 @@ class FilterScreen extends Component {
             category_2: detail,
             item_status: condition,
             fullbox: fullBox,
-            warranty: warranty,
+            warantee: warranty,
             domestic: korea,
             refund: refund
         })

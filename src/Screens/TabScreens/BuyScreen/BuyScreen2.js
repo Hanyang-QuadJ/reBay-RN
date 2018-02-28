@@ -10,7 +10,7 @@ const mapStateToProps = state => {
     };
 };
 
-class DefaultScreen extends Component {
+class BuyScreen2 extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -95,6 +95,10 @@ class DefaultScreen extends Component {
             });
         }
     }
+    checkIndex = () => {
+        console.log(this.state.category[this.state.selectedCategory]);
+
+    };
     render() {
         return (
             <Container style={{backgroundColor:'white'}}>
@@ -138,12 +142,12 @@ class DefaultScreen extends Component {
                         )))
                     }
                 </Content>
-
+                <Button onPress={()=>this.checkIndex()}><Text>확인</Text></Button>
             </Container>
         )
 
     }
 
 }
-export default (DefaultScreen = connect(mapStateToProps)(DefaultScreen));
+export default (BuyScreen2 = connect(mapStateToProps)(BuyScreen2));
 

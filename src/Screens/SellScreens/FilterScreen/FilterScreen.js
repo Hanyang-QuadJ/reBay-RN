@@ -92,7 +92,7 @@ class FilterScreen extends Component {
         let brand_id = this.props.navigation.state.params.brandID;
         let price = this.state.item_price;
         let size = this.state.item_size;
-        let season = this.state.year[this.state.selectedYear].name + this.state.season[this.state.selectedSeason].name;
+        let season = this.state.year[this.state.selectedYear].name +" "+this.state.season[this.state.selectedSeason].name;
         let category_1 = this.state.category[this.state.selectedCategory].name;
         let category_2 = this.state.category[this.state.selectedCategory].detailCategory[this.state.selectedDetailCategory].name;
         let item_status = this.state.item_status[this.state.selectedItemStatus].name;
@@ -202,7 +202,7 @@ class FilterScreen extends Component {
                     </View>
 
                     <Text>시즌</Text>
-                    <View style={styles.row}>
+                    <ScrollView style={styles.row} horizontal={true}>
                         {this.state.year.map((year, index) => (
                             <Button
                                 style={(index === this.state.selectedYear ? styles.checked : styles.notChecked)}
@@ -217,7 +217,7 @@ class FilterScreen extends Component {
                                     style={(index === this.state.selectedYear) ? null : styles.notText}>{year.name}</Text>
                             </Button>
                         ))}
-                    </View>
+                    </ScrollView>
                     <View style={styles.row}>
                         {this.state.season.map((season, index) => (
                             <Button

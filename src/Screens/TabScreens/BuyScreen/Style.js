@@ -25,5 +25,8 @@ const style = StyleSheet.create({
     notText:{
         color:commonStyle.PRIMARY_COLOR
     },
+    row:{
+        flexDirection:"row"
+    }
 });
 export default style

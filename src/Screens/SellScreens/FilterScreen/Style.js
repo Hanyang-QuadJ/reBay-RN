@@ -1,6 +1,10 @@
 import { StyleSheet } from 'react-native';
 import  commonStyle from '../../index'
 const styles = StyleSheet.create({
+    row:{
+        flexDirection:"row",
+
+    },
     checked:{
         backgroundColor:commonStyle.PRIMARY_COLOR
     },

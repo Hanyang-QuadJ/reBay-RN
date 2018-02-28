@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import commonStyle from "../../index";
 const style = StyleSheet.create({
     itemStyle: {
 		height: 30,
@@ -12,6 +13,17 @@ const style = StyleSheet.create({
     //non-container style wrapper for scrollview
     footerWrapperNC: {
         flexDirection:'column',
+    },
+    checked:{
+        backgroundColor:commonStyle.PRIMARY_COLOR
+    },
+    notChecked:{
+        backgroundColor:"white",
+        borderWidth:1,
+        borderColor:commonStyle.PRIMARY_COLOR
+    },
+    notText:{
+        color:commonStyle.PRIMARY_COLOR
     },
 });
 export default style

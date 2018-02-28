@@ -5,6 +5,7 @@ import { Container, Text, Content, Button, Item, Input } from 'native-base';
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 import  styles from './Style';
 import * as BrandActionCreator from "../../../ActionCreators/BrandActionCreator";
+import FooterButtonComponent from '../../../Components/FooterButtonComponent/FooterButtonComponent';
 
 const mapStateToProps = state => {
     return {
@@ -57,7 +58,7 @@ class BrandScreen extends Component {
         return (
             <Container style={{backgroundColor:'white'}}>
                 <HeaderComponent title="default" left="" right="" />
-                <View contentContainerStyle={{flex: 1}}>
+                <Content contentContainerStyle={{flex: 1}}>
                     <Item rounded style={styles.itemStyle}>
                         <Input placeholder='Rounded Textbox' onChangeText={(text) => this.filterBySearchBar(text)}/>
                     </Item>
@@ -66,7 +67,8 @@ class BrandScreen extends Component {
                         data={this.state.currentBrand}
                         renderItem={({item}) => <TouchableOpacity onPress={()=>this.props.navigation.navigate('Filter',{brandID:item.id,brandName:item.brand_name, base64:base64})}><Text>{item.brand_name}</Text></TouchableOpacity>}
                     />
-                </View>
+                </Content>
+                <FooterButtonComponent leftText="임시저장" rightText="다음으로"/>
             </Container>
         )
 

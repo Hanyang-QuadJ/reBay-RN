@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Container, Text, Content, Button, Input, Item} from 'native-base';
-import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
+import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent';
+import FooterButtonComponent from '../../../Components/FooterButtonComponent/FooterButtonComponent';
+
 import styles from './Style';
 
 const mapStateToProps = state => {
@@ -23,7 +25,7 @@ class FilterScreen extends Component {
             detail: null,
             d_topCheck: false,
             d_bottomCheck: false,
-            d_underWearCheck:false,
+            d_underWearCheck: false,
             //상품상태 Condition의 c
             condition: null,
             c_newCheck: false,
@@ -33,26 +35,26 @@ class FilterScreen extends Component {
             y_2016: null,
             y_2016Check: false,
             //시즌 Season의 s
-            season:null,
-            s_springSummerCheck:false,
-            s_fallWinterCheck:false,
+            season: null,
+            s_springSummerCheck: false,
+            s_fallWinterCheck: false,
             //구성물품 fullBox의 f
-            fullBox:null,
-            f_yesCheck:false,
-            f_noCheck:false,
+            fullBox: null,
+            f_yesCheck: false,
+            f_noCheck: false,
             //보증서 warranty의 w
-            warranty:null,
-            w_yesCheck:false,
-            w_noCheck:false,
+            warranty: null,
+            w_yesCheck: false,
+            w_noCheck: false,
             //국내 Korea의 k
-            korea:null,
-            k_yesCheck:false,
-            k_noCheck:false,
+            korea: null,
+            k_yesCheck: false,
+            k_noCheck: false,
             //환불 Refund의 r
-            refund:null,
-            r_noCheck:false,
-            r_3DayCheck:false,
-            r_7DayCheck:false,
+            refund: null,
+            r_noCheck: false,
+            r_3DayCheck: false,
+            r_7DayCheck: false,
 
         }
     }
@@ -92,7 +94,7 @@ class FilterScreen extends Component {
                 this.setState({
                     d_topCheck: true,
                     d_bottomCheck: false,
-                    detail:"상의"
+                    detail: "상의"
                 })
             }
         }
@@ -104,7 +106,7 @@ class FilterScreen extends Component {
                 this.setState({
                     d_topCheck: false,
                     d_bottomCheck: true,
-                    detail:"하의"
+                    detail: "하의"
                 })
             }
         }
@@ -115,7 +117,7 @@ class FilterScreen extends Component {
             else {
                 this.setState({
                     d_underWearCheck: true,
-                    detail:"속옷"
+                    detail: "속옷"
                 })
             }
         }
@@ -129,7 +131,7 @@ class FilterScreen extends Component {
                 this.setState({
                     c_newCheck: true,
                     c_oldCheck: false,
-                    condition:"새상품"
+                    condition: "새상품"
 
                 })
             }
@@ -143,7 +145,7 @@ class FilterScreen extends Component {
                 this.setState({
                     c_newCheck: false,
                     c_oldCheck: true,
-                    condition:"중고상품"
+                    condition: "중고상품"
                 })
             }
         }
@@ -155,7 +157,7 @@ class FilterScreen extends Component {
             else {
                 this.setState({
                     y_2016Check: true,
-                    year:"2016"
+                    year: "2016"
                 })
             }
         }
@@ -167,8 +169,8 @@ class FilterScreen extends Component {
             else {
                 this.setState({
                     s_springSummerCheck: true,
-                    s_fallWinterCheck:false,
-                    season:"S/S"
+                    s_fallWinterCheck: false,
+                    season: "S/S"
                 })
             }
         }
@@ -179,148 +181,147 @@ class FilterScreen extends Component {
             else {
                 this.setState({
                     s_springSummerCheck: false,
-                    s_fallWinterCheck:true,
-                    season:"F/W"
+                    s_fallWinterCheck: true,
+                    season: "F/W"
                 })
             }
         }
         //구성상품
         else if (kind === "f_yes") {
-            if (this.state.f_yesCheck=== true) {
+            if (this.state.f_yesCheck === true) {
 
             }
             else {
                 this.setState({
-                    f_yesCheck:true,
-                    f_noCheck:false,
-                    fullBox:1
+                    f_yesCheck: true,
+                    f_noCheck: false,
+                    fullBox: 1
                 })
             }
         }
         else if (kind === "f_no") {
-            if (this.state.f_noCheck=== true) {
+            if (this.state.f_noCheck === true) {
 
             }
             else {
                 this.setState({
-                    f_yesCheck:false,
-                    f_noCheck:true,
-                    fullBox:0
+                    f_yesCheck: false,
+                    f_noCheck: true,
+                    fullBox: 0
                 })
             }
         }
         //보증서
         else if (kind === "w_yes") {
-            if (this.state.w_yesCheck=== true) {
+            if (this.state.w_yesCheck === true) {
 
             }
             else {
                 this.setState({
-                    w_yesCheck:true,
-                    w_noCheck:false,
-                    warranty:1
+                    w_yesCheck: true,
+                    w_noCheck: false,
+                    warranty: 1
                 })
             }
         }
         else if (kind === "w_no") {
-            if (this.state.w_noCheck=== true) {
+            if (this.state.w_noCheck === true) {
 
             }
             else {
                 this.setState({
-                    w_yesCheck:false,
-                    w_noCheck:true,
-                    warranty:0
+                    w_yesCheck: false,
+                    w_noCheck: true,
+                    warranty: 0
                 })
             }
         }
         //국내
         else if (kind === "k_yes") {
-            if (this.state.k_yesCheck=== true) {
+            if (this.state.k_yesCheck === true) {
 
             }
             else {
                 this.setState({
-                    k_yesCheck:true,
-                    k_noCheck:false,
-                    korea:1
+                    k_yesCheck: true,
+                    k_noCheck: false,
+                    korea: 1
                 })
             }
         }
         else if (kind === "k_no") {
-            if (this.state.k_noCheck=== true) {
+            if (this.state.k_noCheck === true) {
 
             }
             else {
                 this.setState({
-                    k_yesCheck:false,
-                    k_noCheck:true,
-                    korea:0
+                    k_yesCheck: false,
+                    k_noCheck: true,
+                    korea: 0
                 })
             }
         }
         //환불
         else if (kind === "r_no") {
-            if (this.state.r_noCheck=== true) {
+            if (this.state.r_noCheck === true) {
 
             }
             else {
                 this.setState({
-                    r_7DayCheck:false,
-                    r_3DayCheck:false,
-                    r_noCheck:true,
-                    refund:0
+                    r_7DayCheck: false,
+                    r_3DayCheck: false,
+                    r_noCheck: true,
+                    refund: 0
                 })
             }
         }
         else if (kind === "r_3Day") {
-            if (this.state.r_3DayCheck=== true) {
+            if (this.state.r_3DayCheck === true) {
 
             }
             else {
                 this.setState({
-                    r_7DayCheck:false,
-                    r_3DayCheck:true,
-                    r_noCheck:false,
-                    refund:1
+                    r_7DayCheck: false,
+                    r_3DayCheck: true,
+                    r_noCheck: false,
+                    refund: 1
                 })
             }
         }
         else if (kind === "r_7Day") {
-            if (this.state.r_7DayCheck=== true) {
+            if (this.state.r_7DayCheck === true) {
 
             }
             else {
                 this.setState({
-                    r_7DayCheck:true,
-                    r_3DayCheck:false,
-                    r_noCheck:false,
-                    refund:2
+                    r_7DayCheck: true,
+                    r_3DayCheck: false,
+                    r_noCheck: false,
+                    refund: 2
                 })
             }
         }
     };
 
     goToDetail = () => {
-        let {item_name, item_price, item_size, big, detail, condition, year, season, fullBox , warranty, refund, korea} = this.state;
+        let {item_name, item_price, item_size, big, detail, condition, year, season, fullBox, warranty, refund, korea} = this.state;
         let pic_list = this.props.navigation.state.params.base64;
-        let brand = this.props.navigation.state.params.brandName;
-        console.log(brand);
-        console.log(pic_list);
-        console.log(item_name);
-        console.log(item_price);
-        console.log(item_size);
-        console.log(big);
-        console.log(detail);
-        console.log(condition);
-        console.log(year);
-        console.log(season);
-        console.log(fullBox);
-        console.log(warranty);
-        console.log(refund);
-        console.log(korea);
-
-
+        let brand = this.props.navigation.state.params.brandID;
+        this.props.navigation.navigate('Detail', {
+            pic_list: pic_list,
+            item_name: item_name,
+            brand_id: brand,
+            price: item_price,
+            size: item_size,
+            season:year+season,
+            category_1: big,
+            category_2: detail,
+            item_status: condition,
+            fullbox: fullBox,
+            warranty: warranty,
+            domestic: korea,
+            refund: refund
+        })
 
     };
 
@@ -355,7 +356,7 @@ class FilterScreen extends Component {
                     }
 
                     <Text>상세카테고리</Text>
-                    {this.state.b_manCheck === true  ? null
+                    {this.state.b_manCheck === true ? null
 
 
                         :
@@ -410,13 +411,15 @@ class FilterScreen extends Component {
                         <Button style={styles.checked}
                         ><Text>S/S</Text></Button>
                         : <Button style={styles.notChecked}
-                                  onPress={() => this.buttonPressed("s_springSummer")}><Text style={styles.notText}>S/S</Text></Button>
+                                  onPress={() => this.buttonPressed("s_springSummer")}><Text
+                            style={styles.notText}>S/S</Text></Button>
                     }
                     {this.state.s_fallWinterCheck === true ?
                         <Button style={styles.checked}
                         ><Text>F/W</Text></Button>
                         : <Button style={styles.notChecked}
-                                  onPress={() => this.buttonPressed("s_fallWinter")}><Text style={styles.notText}>F/W</Text></Button>
+                                  onPress={() => this.buttonPressed("s_fallWinter")}><Text
+                            style={styles.notText}>F/W</Text></Button>
                     }
                     <Text>구성상품</Text>
 
@@ -424,13 +427,15 @@ class FilterScreen extends Component {
                         <Button style={styles.checked}
                         ><Text>있음</Text></Button>
                         : <Button style={styles.notChecked}
-                                  onPress={() => this.buttonPressed("f_yes")}><Text style={styles.notText}>있음</Text></Button>
+                                  onPress={() => this.buttonPressed("f_yes")}><Text
+                            style={styles.notText}>있음</Text></Button>
                     }
                     {this.state.f_noCheck === true ?
                         <Button style={styles.checked}
                         ><Text>없음</Text></Button>
                         : <Button style={styles.notChecked}
-                                  onPress={() => this.buttonPressed("f_no")}><Text style={styles.notText}>없음</Text></Button>
+                                  onPress={() => this.buttonPressed("f_no")}><Text
+                            style={styles.notText}>없음</Text></Button>
                     }
                     <Text>보증서</Text>
 
@@ -438,13 +443,15 @@ class FilterScreen extends Component {
                         <Button style={styles.checked}
                         ><Text>있음</Text></Button>
                         : <Button style={styles.notChecked}
-                                  onPress={() => this.buttonPressed("w_yes")}><Text style={styles.notText}>있음</Text></Button>
+                                  onPress={() => this.buttonPressed("w_yes")}><Text
+                            style={styles.notText}>있음</Text></Button>
                     }
                     {this.state.w_noCheck === true ?
                         <Button style={styles.checked}
                         ><Text>없음</Text></Button>
                         : <Button style={styles.notChecked}
-                                  onPress={() => this.buttonPressed("w_no")}><Text style={styles.notText}>없음</Text></Button>
+                                  onPress={() => this.buttonPressed("w_no")}><Text
+                            style={styles.notText}>없음</Text></Button>
                     }
                     <Text>구매</Text>
 
@@ -452,36 +459,42 @@ class FilterScreen extends Component {
                         <Button style={styles.checked}
                         ><Text>국내</Text></Button>
                         : <Button style={styles.notChecked}
-                                  onPress={() => this.buttonPressed("k_yes")}><Text style={styles.notText}>국내</Text></Button>
+                                  onPress={() => this.buttonPressed("k_yes")}><Text
+                            style={styles.notText}>국내</Text></Button>
                     }
                     {this.state.k_noCheck === true ?
                         <Button style={styles.checked}
                         ><Text>해외</Text></Button>
                         : <Button style={styles.notChecked}
-                                  onPress={() => this.buttonPressed("k_no")}><Text style={styles.notText}>해외</Text></Button>
+                                  onPress={() => this.buttonPressed("k_no")}><Text
+                            style={styles.notText}>해외</Text></Button>
                     }
                     <Text>환불</Text>
                     {this.state.r_noCheck === true ?
                         <Button style={styles.checked}
                         ><Text>불가능</Text></Button>
                         : <Button style={styles.notChecked}
-                                  onPress={() => this.buttonPressed("r_no")}><Text style={styles.notText}>불가능</Text></Button>
+                                  onPress={() => this.buttonPressed("r_no")}><Text
+                            style={styles.notText}>불가능</Text></Button>
                     }
                     {this.state.r_3DayCheck === true ?
                         <Button style={styles.checked}
                         ><Text>수령후 3일내</Text></Button>
                         : <Button style={styles.notChecked}
-                                  onPress={() => this.buttonPressed("r_3Day")}><Text style={styles.notText}>수령후 3일내</Text></Button>
+                                  onPress={() => this.buttonPressed("r_3Day")}><Text style={styles.notText}>수령후
+                            3일내</Text></Button>
                     }
                     {this.state.r_7DayCheck === true ?
                         <Button style={styles.checked}
                         ><Text>수령후 7일내</Text></Button>
                         : <Button style={styles.notChecked}
-                                  onPress={() => this.buttonPressed("r_7Day")}><Text style={styles.notText}>수령후 7일내</Text></Button>
+                                  onPress={() => this.buttonPressed("r_7Day")}><Text style={styles.notText}>수령후
+                            7일내</Text></Button>
                     }
 
                     <Button onPress={() => this.goToDetail()}><Text>Check!</Text></Button>
                 </Content>
+                <FooterButtonComponent onPress={() => this.goToDetail()} leftText="임시저장" rightText="다음으로"/>
             </Container>
         )
 

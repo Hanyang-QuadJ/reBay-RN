@@ -11,6 +11,7 @@ import SignUpScreen from '../Screens/Auth/SignUpScreen/SignUpScreen';
 import SignUpScreen2 from '../Screens/Auth/SignUpScreen2/SignUpScreen2';
 import SignUpScreen3 from '../Screens/Auth/SignUpScreen3/SignUpScreen3';
 import FilterScreen from '../Screens/SellScreens/FilterScreen/FilterScreen';
+import DetailScreen from '../Screens/SellScreens/DetailScreen/DetailScreen';
 
 
 import SellScreen from '../Screens/TabScreens/SellScreen/SellScreen';
@@ -35,7 +36,8 @@ const BuyNavigator = StackNavigator({
 const SellNavigator = StackNavigator({
     Picture: {screen: PictureScreen},
     Brand: {screen: BrandScreen},
-    Filter:{screen: FilterScreen}
+    Filter:{screen: FilterScreen},
+    Detail:{screen: DetailScreen}
 }, {
     headerMode: 'none',
 });

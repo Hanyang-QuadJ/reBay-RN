@@ -6,6 +6,7 @@ import * as BrandActionCreator from '../../../ActionCreators/BrandActionCreator'
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 import {ImagePicker} from 'expo'
 import styles from './Style';
+import FooterButtonComponent from '../../../Components/FooterButtonComponent/FooterButtonComponent';
 
 const mapStateToProps = state => {
     return {
@@ -201,10 +202,7 @@ class PictureScreen extends Component {
                         </View>
                     </View>
                 </View>
-                <Footer style={styles.footer}>
-                    <Button style={styles.button1}><Text style={styles.button1Text}>임시저장</Text></Button>
-                    <Button onPress={() => this.goToBrand()} style={styles.button2} ><Text style={styles.button2Text}>다음으로</Text></Button>
-                </Footer>
+                <FooterButtonComponent onPress={()=>this.goToBrand()} leftText="임시저장" rightText="다음으로"/>
             </Container>
 
         )

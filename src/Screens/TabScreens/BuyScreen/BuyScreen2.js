@@ -37,7 +37,7 @@ class BuyScreen2 extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        if(nextProps.brand != null){
+        if(nextProps.brand !== null){
 
             this.setState({
                 selectedBrand: nextProps.navigation.state.params.brandName

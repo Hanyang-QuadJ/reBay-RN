@@ -14,6 +14,7 @@ import FilterScreen from '../Screens/SellScreens/FilterScreen/FilterScreen';
 import DetailScreen from '../Screens/SellScreens/DetailScreen/DetailScreen';
 
 
+
 import SellScreen from '../Screens/TabScreens/SellScreen/SellScreen';
 import PictureScreen from '../Screens/SellScreens/PictureScreen/PictureScreen';
 import NoticeScreen from '../Screens/TabScreens/NoticeScreen/NoticeScreen';
@@ -22,6 +23,7 @@ import TabBarComponent from '../Components/TabBarComponent/TabBarComponent';
 import { StackNavigator, TabNavigator, NavigationActions} from "react-navigation";
 import InitScreen from "../Screens/InitScreen/InitScreen";
 import BrandScreen from "../Screens/SellScreens/BrandScreen/BrandScreen";
+import ItemScreen from '../Screens/ItemScreen/ItemScreen';
 
 
 
@@ -30,6 +32,11 @@ import BrandScreen from "../Screens/SellScreens/BrandScreen/BrandScreen";
 
 const BuyNavigator = StackNavigator({
     BuyScreen2: {screen: BuyScreen2},
+}, {
+    headerMode: 'none',
+});
+const ItemNavigator= StackNavigator({
+    Item: {screen: ItemScreen},
 }, {
     headerMode: 'none',
 });
@@ -77,7 +84,8 @@ const MainNavigator = StackNavigator({
     Auth: {screen: AuthNavigator},
     Home: {screen: TabNavigation},
     BuyStack: {screen: BuyNavigator},
-    SellStack: {screen: SellNavigator}
+    SellStack: {screen: SellNavigator},
+    ItemStack: {screen: ItemNavigator }
 	},
 	{
 	    navigationOptions: {

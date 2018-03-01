@@ -65,27 +65,6 @@ class FilterScreen extends Component {
         }
     }
 
-    goToDetail2 = () => {
-        let {item_name, item_price, item_size, big, detail, condition, year, season, fullBox, warranty, refund, korea} = this.state;
-        let pic_list = this.props.navigation.state.params.base64;
-        let brand = this.props.navigation.state.params.brandID;
-        this.props.navigation.navigate('Detail', {
-            pic_list: pic_list,
-            item_name: item_name,
-            brand_id: brand,
-            price: item_price,
-            size: item_size,
-            season: year + season,
-            category_1: big,
-            category_2: detail,
-            item_status: condition,
-            fullbox: fullBox,
-            warantee: warranty,
-            domestic: korea,
-            refund: refund
-        })
-
-    };
     goToDetail = () => {
         let pic_list = this.props.navigation.state.params.base64;
         let item_name = this.state.item_name;

@@ -19,6 +19,7 @@ class ItemScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            item:null
 
         }
 
@@ -27,14 +28,13 @@ class ItemScreen extends Component {
 
     componentWillMount(){
         AsyncStorage.getItem("ACCESS_TOKEN").then(value => {this.props.dispatch(ItemActionCreator.getItem(value, 67)).then(
-            console.log(this.props.item)
         )});
     }
 
     componentWillReceiveProps(nextProps){
         if(nextProps.item !== null){
             console.log("바뀐거!!!");
-            console.log(nextProps.item);
+            this.setState({item: nextProps.item})
 
         }
     }
@@ -67,6 +67,7 @@ class ItemScreen extends Component {
                 <HeaderComponent title="default" left="" right="ios-close" onPressRight={() => this.closeModal()}/>
                 <Content contentContainerStyle={{flex: 1}}>
                     <Text>Item Screen</Text>
+                    {/*<Text>{this.state.item.username}</Text>*/}
                 </Content>
             </Container>
         )

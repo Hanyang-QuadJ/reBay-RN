@@ -90,10 +90,6 @@ class PictureScreen extends Component {
         //     this.props.navigation.navigate('Brand',{base64:baseArray});
         // }
     };
-    presentActionSheet = () => {
-
-    };
-
 
 
     imagePicker = async (imageNumber) => {
@@ -267,7 +263,7 @@ class PictureScreen extends Component {
                         </View>
                     </View>
                 </View>
-                <FooterButtonComponent onPress={()=>this.presentActionSheet()} leftText="임시저장" rightText="다음으로"/>
+                <FooterButtonComponent onPress={()=>this.goToBrand()} leftText="임시저장" rightText="다음으로"/>
             </Container>
 
         )

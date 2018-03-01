@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Modal, AsyncStorage, View, Image, TouchableOpacity, Alert} from 'react-native';
-import {Container, Text, Content, Button, Footer} from 'native-base';
+import {Container, Text, Content, Button, Footer, ActionSheet } from 'native-base';
 import * as BrandActionCreator from '../../../ActionCreators/BrandActionCreator'
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 import {ImagePicker} from 'expo'
@@ -13,6 +13,8 @@ const mapStateToProps = state => {
         brand: state.BrandReducer.brand
     };
 };
+const BUTTONS = ["직접촬영","라이브러리에서 선택", "Cancel"];
+const CANCEL_INDEX = 4;
 
 class PictureScreen extends Component {
 
@@ -88,46 +90,109 @@ class PictureScreen extends Component {
         //     this.props.navigation.navigate('Brand',{base64:baseArray});
         // }
     };
+    presentActionSheet = () => {
+
+    };
+
+
 
     imagePicker = async (imageNumber) => {
-        let result = await ImagePicker.launchImageLibraryAsync({
-            allowsEditing: true,
-            base64: true,
-            aspect: [4, 3],
-        });
+        ActionSheet.show(
+            {
+                options: BUTTONS,
+                cancelButtonIndex: CANCEL_INDEX,
+                title: "사진 등록"
+            },
 
-        console.log(result);
+            async buttonIndex =>  {
+                console.log(buttonIndex);
+                if(buttonIndex === 0){
+                    let result = await ImagePicker.launchCameraAsync({
+                        allowsEditing: true,
+                        base64: true,
+                        aspect: [4, 3],
+                    });
+                    console.log(result);
 
-        if (!result.cancelled) {
-            if (imageNumber === 1) {
-                this.setState({image1: result.uri, base1: result.base64});
-            }
-            else if (imageNumber === 2) {
-                this.setState({image2: result.uri, base2: result.base64});
-            }
-            else if (imageNumber === 3) {
-                this.setState({image3: result.uri, base3: result.base64});
-            }
-            else if (imageNumber === 4) {
-                this.setState({image4: result.uri, base4: result.base64});
-            }
-            else if (imageNumber === 5) {
-                this.setState({image5: result.uri, base5: result.base64});
-            }
-            else if (imageNumber === 6) {
-                this.setState({image6: result.uri, base6: result.base64});
-            }
-            else if (imageNumber === 7) {
-                this.setState({image7: result.uri, base7: result.base64});
-            }
-            else if (imageNumber === 8) {
-                this.setState({image8: result.uri, base8: result.base64});
-            }
-            else if (imageNumber === 9) {
-                this.setState({image9: result.uri, base9: result.base64});
-            }
+                    if (!result.cancelled) {
+                        if (imageNumber === 1) {
+                            this.setState({image1: result.uri, base1: result.base64});
+                        }
+                        else if (imageNumber === 2) {
+                            this.setState({image2: result.uri, base2: result.base64});
+                        }
+                        else if (imageNumber === 3) {
+                            this.setState({image3: result.uri, base3: result.base64});
+                        }
+                        else if (imageNumber === 4) {
+                            this.setState({image4: result.uri, base4: result.base64});
+                        }
+                        else if (imageNumber === 5) {
+                            this.setState({image5: result.uri, base5: result.base64});
+                        }
+                        else if (imageNumber === 6) {
+                            this.setState({image6: result.uri, base6: result.base64});
+                        }
+                        else if (imageNumber === 7) {
+                            this.setState({image7: result.uri, base7: result.base64});
+                        }
+                        else if (imageNumber === 8) {
+                            this.setState({image8: result.uri, base8: result.base64});
+                        }
+                        else if (imageNumber === 9) {
+                            this.setState({image9: result.uri, base9: result.base64});
+                        }
 
-        }
+                    }
+
+
+                }
+                else if(buttonIndex === 1){
+
+                    let result = await ImagePicker.launchImageLibraryAsync({
+                        allowsEditing: true,
+                        base64: true,
+                        aspect: [4, 3],
+                    });
+
+                    console.log(result);
+
+                    if (!result.cancelled) {
+                        if (imageNumber === 1) {
+                            this.setState({image1: result.uri, base1: result.base64});
+                        }
+                        else if (imageNumber === 2) {
+                            this.setState({image2: result.uri, base2: result.base64});
+                        }
+                        else if (imageNumber === 3) {
+                            this.setState({image3: result.uri, base3: result.base64});
+                        }
+                        else if (imageNumber === 4) {
+                            this.setState({image4: result.uri, base4: result.base64});
+                        }
+                        else if (imageNumber === 5) {
+                            this.setState({image5: result.uri, base5: result.base64});
+                        }
+                        else if (imageNumber === 6) {
+                            this.setState({image6: result.uri, base6: result.base64});
+                        }
+                        else if (imageNumber === 7) {
+                            this.setState({image7: result.uri, base7: result.base64});
+                        }
+                        else if (imageNumber === 8) {
+                            this.setState({image8: result.uri, base8: result.base64});
+                        }
+                        else if (imageNumber === 9) {
+                            this.setState({image9: result.uri, base9: result.base64});
+                        }
+
+                    }
+
+                }
+
+            }
+        )
+
     };
 
     render() {
@@ -202,7 +267,7 @@ class PictureScreen extends Component {
                         </View>
                     </View>
                 </View>
-                <FooterButtonComponent onPress={()=>this.goToBrand()} leftText="임시저장" rightText="다음으로"/>
+                <FooterButtonComponent onPress={()=>this.presentActionSheet()} leftText="임시저장" rightText="다음으로"/>
             </Container>
 
         )

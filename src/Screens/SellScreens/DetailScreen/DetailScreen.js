@@ -41,6 +41,7 @@ class DetailScreen extends Component {
     };
 
 
+
     async postItem  ()  {
         let token = await AsyncStorage.getItem("ACCESS_TOKEN");
         let pic_list = this.props.navigation.state.params.pic_list;

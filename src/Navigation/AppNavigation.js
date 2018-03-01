@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Provider, connect} from 'react-redux';
+import { Root } from 'native-base';
 import {addNavigationHelpers, NavigationActions} from 'react-navigation';
 import MainNavigator from './NavigationStack';
 import {createReduxBoundAddListener} from "react-navigation-redux-helpers";
@@ -34,7 +35,9 @@ class AppNavigation extends Component {
 
     render() {
         return (
-            <AppWithNavigation/>
+            <Root>
+                <AppWithNavigation/>
+            </Root>
         )
     }
 }

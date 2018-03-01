@@ -5,6 +5,7 @@ import {Container, Text, Content} from 'native-base';
 import HeaderComponent from '../../Components/HeaderComponent/HeaderComponent'
 import * as ItemActionCreator from '../../ActionCreators/ItemActionCreator'
 import styles from './Style';
+import {NavigationActions} from "react-navigation";
 
 const mapStateToProps = state => {
     return {
@@ -25,30 +26,45 @@ class ItemScreen extends Component {
 
 
     componentWillMount(){
-        AsyncStorage.getItem("ACCESS_TOKEN").then(value => {this.props.dispatch(ItemActionCreator.getItem(value, this.props.item_id)).then(
+        AsyncStorage.getItem("ACCESS_TOKEN").then(value => {this.props.dispatch(ItemActionCreator.getItem(value, 67)).then(
             console.log(this.props.item)
         )});
     }
 
-    componentDidMount() {
+    componentWillReceiveProps(nextProps){
+        if(nextProps.item !== null){
+            console.log("바뀐거!!!");
+            console.log(nextProps.item);
 
-
-
-
+        }
     }
+
+    componentDidMount() {
+    }
+
+    closeModal = () => {
+        this.props.navigation.dispatch(
+            NavigationActions.reset({
+                index: 0,
+                key:null,
+                actions: [
+                    NavigationActions.navigate({ routeName: 'Home' })
+                ]
+            })
+        )
+
+    };
 
     componentDidUpdate() {
 
     }
 
     render() {
-        // AsyncStorage.getItem("ACCESS_TOKEN").then(value => {
-        //     this.props.dispatch(ItemActionCreator.getItem(value, this.state.item_id));
-        // });
+
         return (
 
             <Container style={{backgroundColor: 'white'}}>
-                <HeaderComponent title="default" left="" right=""/>
+                <HeaderComponent title="default" left="" right="ios-close" onPressRight={() => this.closeModal()}/>
                 <Content contentContainerStyle={{flex: 1}}>
                     <Text>Item Screen</Text>
                 </Content>

@@ -24,6 +24,7 @@ import { StackNavigator, TabNavigator, NavigationActions} from "react-navigation
 import InitScreen from "../Screens/InitScreen/InitScreen";
 import BrandScreen from "../Screens/SellScreens/BrandScreen/BrandScreen";
 import ItemScreen from '../Screens/ItemScreen/ItemScreen';
+import Item from "../../native-base-theme/components/Item";
 
 
 
@@ -53,7 +54,7 @@ const TabNavigation = TabNavigator({
         Home: {screen: HomeScreen},
         Buy: {screen: BuyScreen},
         Sell: {screen: View},
-        Notice: {screen: NoticeScreen},
+        Notice: {screen: ItemScreen},
         Profile: {screen: ProfileScreen},
 
     },

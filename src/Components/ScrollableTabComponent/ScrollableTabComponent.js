@@ -15,7 +15,8 @@ import {
     Text,
     Image,
     TouchableWithoutFeedback,
-    RefreshControl
+    RefreshControl,
+    ScrollView
 } from "react-native";
 import * as ScrollToTopActionCreator from '../../ActionCreators/ScrollToTopCreator';
 import * as DefaultActionCreator from '../../ActionCreators/DefaultActionCreator';
@@ -46,9 +47,9 @@ class ScrollableTabComponent extends Component {
         this.state = {
             index: 0,
             refreshing: false,
-            scroll: new Animated.Value(0.001,{ useNativeDriver: false }),
-            scroll2: new Animated.Value(170,{ useNativeDriver: false }),
-            top:false,
+            scroll: new Animated.Value(0.001, {useNativeDriver: true}),
+            scroll2: new Animated.Value(170, {useNativeDriver: true}),
+            top: false,
 
             routes: [
                 {key: 'first', title: '남성의류'},
@@ -71,7 +72,7 @@ class ScrollableTabComponent extends Component {
 
 
     scrollToTop = () => {
-       this.flatListRef.scrollToOffset({offset: 0, animated: true});
+        this.flatListRef.scrollToOffset({offset: 0, animated: true});
     };
 
 
@@ -161,28 +162,23 @@ class ScrollableTabComponent extends Component {
                 return <View>
                     <Animated.View style={{height: translateY}}>
 
+
                     </Animated.View>
+                    <ScrollView scrollEventThrottle={2} onScroll={Animated.event(
+                        [{nativeEvent: {contentOffset: {y: this.state.scroll}}}],
+                    )}>
+                        {this.props.data !== null ?
+                            this.props.data.map((data, index) => {
+                                return (
+                                    <View key={data.time}>
+                                        <Text> {data.time} </Text>
+                                    </View>
+                                )
+                            })
+                            : null}
+                    </ScrollView>
 
-                    <FlatList
-                        useNativeDriver={true}
-                        data={this.props.data}
-                        renderItem={this.renderItem}
-                        scrollEventThrottle={1}
-                        keyExtractor={item => item.time}
-                        ref={(ref) => {
-                            this.flatListRef = ref;
-                        }}
-                        onScroll={Animated.event(
-                            [{nativeEvent: {contentOffset: {y: this.state.scroll}}}],
-                        )}
-                        refreshControl={
-                            <RefreshControl
-                                refreshing={this.state.refreshing}
-                                onRefresh={this.pullToRefresh}
-                            />
-                        }
 
-                    />
                 </View>;
             case 'second':
                 return <View style={{backgroundColor: '#673ab7', flex: 1}}/>;

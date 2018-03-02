@@ -79,7 +79,7 @@ class HomeScreen extends Component {
             <Container>
                 <HeaderComponent title="reBay" left="" right="ios-basket" searchBar={true}/>
 
-                <Tabs initialPage={this.state.currentPage} onChangeTab={({i}) => this.setState({currentTab: i})}
+                <Tabs initialPage={this.state.currentPage} tabStyle={{backgroundColor:"red"}} onChangeTab={({i}) => this.setState({currentTab: i})}
                       tabContainerStyle={{height: 40}} tabBarUnderlineStyle={styles.tabUnderLine}>
                     <Tab
                         heading={<TabHeading

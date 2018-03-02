@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react';
 import {FlatList, View, AsyncStorage, Image, Dimensions, ScrollView, Animated, RefreshControl} from 'react-native'
 import * as ScrollToTopActionCreator from '../../../ActionCreators/ScrollToTopCreator';
@@ -6,6 +7,7 @@ import {connect} from 'react-redux';
 import {TabViewAnimated, TabBar} from 'react-native-tab-view';
 import ScrollableTabComponent from '../../../Components/ScrollableTabComponent/ScrollableTabComponent'
 import Swiper from 'react-native-swiper';
+
 import {
     Container,
     Text,
@@ -18,13 +20,18 @@ import {
     Body,
     Tabs,
     Tab,
-    TabHeading,
-    ScrollableTab,
-    Icon
+    ScrollableTab
 } from 'native-base';
 import styles from './Style';
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 import * as commonStyle from "../../../Constants/commonStyle";
+
+const initialLayout = {
+    height: 0,
+    width: Dimensions.get('window').width,
+};
+
+
 
 
 const mapStateToProps = state => {
@@ -39,68 +46,63 @@ const mapStateToProps = state => {
 
 class HomeScreen extends Component {
 
-
     constructor(props) {
         super(props);
         this.state = {
             refreshing: false,
-            currentTab: 0,
-            currentSubTab: 0
-
+            index: 0,
+            scroll: 0,
+            routes: [
+                {key: 'first', title: '카테고리 추천'},
+                {key: 'second', title: '신규 상품'},
+            ],
         }
 
     }
-
-
-    componentWillMount() {
-        this.props.dispatch(DefaultActionCreator.defaultFetch());
+    componentDidUpdate(){
 
     }
 
-    renderItem = ({item}) => {
+    _handleIndexChange = index => this.setState({index});
+    _renderHeader = props => {
         return (
-            <ListItem style={{marginLeft: 0}}>
-                <Body>
-                <Text>{item.time}</Text>
-                </Body>
-            </ListItem>
+            <View>
+                <TabBar {...props} indicatorStyle={{backgroundColor: commonStyle.PRIMARY_COLOR}}
+                        labelStyle={{color: commonStyle.PRIMARY_COLOR, fontSize:13, marginVertical:1}}
+                        style={{backgroundColor: "white",}}/>
+            </View>
         )
     };
-    pullToRefresh = () => {
-        this.setState({refreshing: true})
-        // this.props.dispatch(ShuttleActionCreator.dispatchShuttleTimetable())
-    };
 
+    _renderScene = ({route}) => {
+        switch (route.key) {
+            case 'first':
+                return <ScrollableTabComponent navigation={this.props.navigation}/>;
+            case 'second':
+                return <View style={{backgroundColor: '#673ab7', flex: 1}}/>;
+            default:
+                return null;
+        }
+    };
 
     render() {
 
 
+
         return (
             <Container>
-                <HeaderComponent title="reBay" left="" right="ios-basket" searchBar={true}/>
+                <HeaderComponent title="reBay" left="" right="ios-basket" searchBar={true} />
 
-                <Tabs initialPage={this.state.currentPage} tabStyle={{backgroundColor:"red"}} onChangeTab={({i}) => this.setState({currentTab: i})}
-                      tabContainerStyle={{height: 40}} tabBarUnderlineStyle={styles.tabUnderLine}>
-                    <Tab
-                        heading={<TabHeading
-                            style={this.state.currentTab === 0 ? styles.activeTabStyle : styles.tabStyle}>
-                            <Text
-                                style={this.state.currentTab === 0 ? styles.activeTabTextStyle : styles.tabTextStyle}>카테고리</Text>
-                        </TabHeading>}>
-                        <ScrollableTabComponent navigation={this.props.navigation}/>
+                <TabViewAnimated
+                    style={styles.container}
+                    navigationState={this.state}
+                    renderScene={this._renderScene}
+                    renderHeader={this._renderHeader}
+                    onIndexChange={this._handleIndexChange}
+                    initialLayout={initialLayout}
+                />
 
 
-                    </Tab>
-                    <Tab
-                        heading={<TabHeading
-                            style={this.state.currentTab === 1 ? styles.activeTabStyle : styles.tabStyle}>
-                            <Text
-                                style={this.state.currentTab === 1 ? styles.activeTabTextStyle : styles.tabTextStyle}>신규상품</Text>
-                        </TabHeading>}>
-                        <Text>신규상품</Text>
-
-                    </Tab>
-                </Tabs>
             </Container>
         )
     }

@@ -72,7 +72,7 @@ class ScrollableTabComponent extends Component {
 
 
     scrollToTop = () => {
-        this.flatListRef.scrollToOffset({offset: 0, animated: true});
+        this.flatListRef.scrollTo({x:0, y:0, animated: true});
     };
 
 
@@ -164,9 +164,13 @@ class ScrollableTabComponent extends Component {
 
 
                     </Animated.View>
-                    <ScrollView scrollEventThrottle={2} onScroll={Animated.event(
-                        [{nativeEvent: {contentOffset: {y: this.state.scroll}}}],
-                    )}>
+                    <ScrollView scrollEventThrottle={2}
+                                onScroll={Animated.event(
+                                    [{nativeEvent: {contentOffset: {y: this.state.scroll}}}],
+                                )}
+                                ref={(ref) => {
+                                    this.flatListRef = ref;
+                                }}>
                         {this.props.data !== null ?
                             this.props.data.map((data, index) => {
                                 return (

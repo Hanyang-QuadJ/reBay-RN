@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, TouchableWithoutFeedback, Text, Button, AsyncStorage} from 'react-native';
+import {View, StyleSheet, TouchableWithoutFeedback, Text, Button, AsyncStorage, Alert} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 import TutorialScreen from '../Screens/TutorialScreen/TutorialScreen';
 import HomeScreen from '../Screens/TabScreens/HomeScreen/HomeScreen';
@@ -15,17 +15,17 @@ import DetailScreen from '../Screens/SellScreens/DetailScreen/DetailScreen';
 
 
 
+
 import SellScreen from '../Screens/TabScreens/SellScreen/SellScreen';
 import PictureScreen from '../Screens/SellScreens/PictureScreen/PictureScreen';
 import NoticeScreen from '../Screens/TabScreens/NoticeScreen/NoticeScreen';
 import ProfileScreen from '../Screens/TabScreens/ProfileScreen/ProfileScreen';
 import TabBarComponent from '../Components/TabBarComponent/TabBarComponent';
-import { StackNavigator, TabNavigator, NavigationActions} from "react-navigation";
+import { StackNavigator, TabNavigator, NavigationActions, TabBarBottom} from "react-navigation";
 import InitScreen from "../Screens/InitScreen/InitScreen";
 import BrandScreen from "../Screens/SellScreens/BrandScreen/BrandScreen";
 import ItemScreen from '../Screens/ItemScreen/ItemScreen';
 import Item from "../../native-base-theme/components/Item";
-
 
 
 
@@ -59,6 +59,7 @@ const TabNavigation = TabNavigator({
 
     },
     {
+
         tabBarComponent: TabBarComponent,
         tabBarPosition: 'bottom',
         animationEnabled: false,

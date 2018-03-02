@@ -10,6 +10,17 @@ const mapStateToProps = state => {
 };
 
 class SellScreen extends Component {
+    static navigationOptions = {
+        tabBarOnPress:(scene) => {
+            if(scene.scene.focused === true){
+
+            }
+            else{
+
+            }
+        }
+
+    };
     constructor(props){
         super(props)
 

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import commonStyle from '../../index';
 const style = StyleSheet.create({
     container:{
 
@@ -27,6 +28,20 @@ const style = StyleSheet.create({
     image:{
         resizeMode: 'contain',
         width:375
+    },
+    activeTabStyle: {
+
+    },
+    activeTabTextStyle: {
+        color:commonStyle.PRIMARY_COLOR,
+        fontSize:13
+    },
+    tabTextStyle: {
+        fontSize:13
+    },
+    tabUnderLine:{
+        height:2,
+        backgroundColor:commonStyle.PRIMARY_COLOR
     }
 
 });

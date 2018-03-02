@@ -48,6 +48,7 @@ class ScrollableTabComponent extends Component {
             refreshing: false,
             scroll: new Animated.Value(0.001,{ useNativeDriver: false }),
             scroll2: new Animated.Value(170,{ useNativeDriver: false }),
+            top:false,
 
             routes: [
                 {key: 'first', title: '남성의류'},
@@ -63,22 +64,16 @@ class ScrollableTabComponent extends Component {
 
     componentWillMount() {
         this.props.dispatch(DefaultActionCreator.defaultFetch());
+        this.props.navigation.setParams({
+            scrollToTop: this.scrollToTop,
+        });
     }
 
-    topReset() {
-        this.props.dispatch(ScrollToTopActionCreator.topReset());
-
-    }
 
     scrollToTop = () => {
-        return Promise.resolve(this.flatListRef.scrollToOffset({offset: 0, animated: true}));
+       this.flatListRef.scrollToOffset({offset: 0, animated: true});
     };
-    componentWillReceiveProps(nextProps){
-        if (nextProps.top === true) {
-            this.scrollToTop().then(this.topReset());
-        }
 
-    }
 
     componentDidUpdate() {
 
@@ -136,6 +131,7 @@ class ScrollableTabComponent extends Component {
                         </View>
                     </Swiper>
 
+
                     <TabBar {...props} scrollEnabled={true}
                             renderIcon={this._renderIcon}
                             tabStyle={{width: 60, paddingHorizontal: 2}}
@@ -152,7 +148,6 @@ class ScrollableTabComponent extends Component {
 
     pullToRefresh = () => {
         this.setState({refreshing: true})
-        // this.props.dispatch(ShuttleActionCreator.dispatchShuttleTimetable())
     };
 
     _renderScene = ({route}) => {

@@ -6,7 +6,6 @@ import {connect} from 'react-redux';
 import {TabViewAnimated, TabBar} from 'react-native-tab-view';
 import ScrollableTabComponent from '../../../Components/ScrollableTabComponent/ScrollableTabComponent'
 import Swiper from 'react-native-swiper';
-
 import {
     Container,
     Text,
@@ -19,18 +18,13 @@ import {
     Body,
     Tabs,
     Tab,
-    ScrollableTab
+    TabHeading,
+    ScrollableTab,
+    Icon
 } from 'native-base';
 import styles from './Style';
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 import * as commonStyle from "../../../Constants/commonStyle";
-
-const initialLayout = {
-    height: 0,
-    width: Dimensions.get('window').width,
-};
-
-
 
 
 const mapStateToProps = state => {
@@ -45,63 +39,68 @@ const mapStateToProps = state => {
 
 class HomeScreen extends Component {
 
+
     constructor(props) {
         super(props);
         this.state = {
             refreshing: false,
-            index: 0,
-            scroll: 0,
-            routes: [
-                {key: 'first', title: '카테고리 추천'},
-                {key: 'second', title: '신규 상품'},
-            ],
+            currentTab: 0,
+            currentSubTab: 0
+
         }
 
     }
-    componentDidUpdate(){
+
+
+    componentWillMount() {
+        this.props.dispatch(DefaultActionCreator.defaultFetch());
 
     }
 
-    _handleIndexChange = index => this.setState({index});
-    _renderHeader = props => {
+    renderItem = ({item}) => {
         return (
-            <View>
-                <TabBar {...props} indicatorStyle={{backgroundColor: commonStyle.PRIMARY_COLOR}}
-                        labelStyle={{color: commonStyle.PRIMARY_COLOR, fontSize:13, marginVertical:1}}
-                        style={{backgroundColor: "white",}}/>
-            </View>
+            <ListItem style={{marginLeft: 0}}>
+                <Body>
+                <Text>{item.time}</Text>
+                </Body>
+            </ListItem>
         )
     };
-
-    _renderScene = ({route}) => {
-        switch (route.key) {
-            case 'first':
-                return <ScrollableTabComponent/>;
-            case 'second':
-                return <View style={{backgroundColor: '#673ab7', flex: 1}}/>;
-            default:
-                return null;
-        }
+    pullToRefresh = () => {
+        this.setState({refreshing: true})
+        // this.props.dispatch(ShuttleActionCreator.dispatchShuttleTimetable())
     };
+
 
     render() {
 
 
-
         return (
             <Container>
-                <HeaderComponent title="reBay" left="" right="ios-basket" searchBar={true} />
+                <HeaderComponent title="reBay" left="" right="ios-basket" searchBar={true}/>
 
-                    <TabViewAnimated
-                        style={styles.container}
-                        navigationState={this.state}
-                        renderScene={this._renderScene}
-                        renderHeader={this._renderHeader}
-                        onIndexChange={this._handleIndexChange}
-                        initialLayout={initialLayout}
-                    />
+                <Tabs initialPage={this.state.currentPage} onChangeTab={({i}) => this.setState({currentTab: i})}
+                      tabContainerStyle={{height: 40}} tabBarUnderlineStyle={styles.tabUnderLine}>
+                    <Tab
+                        heading={<TabHeading
+                            style={this.state.currentTab === 0 ? styles.activeTabStyle : styles.tabStyle}>
+                            <Text
+                                style={this.state.currentTab === 0 ? styles.activeTabTextStyle : styles.tabTextStyle}>카테고리</Text>
+                        </TabHeading>}>
+                        <ScrollableTabComponent navigation={this.props.navigation}/>
 
 
+                    </Tab>
+                    <Tab
+                        heading={<TabHeading
+                            style={this.state.currentTab === 1 ? styles.activeTabStyle : styles.tabStyle}>
+                            <Text
+                                style={this.state.currentTab === 1 ? styles.activeTabTextStyle : styles.tabTextStyle}>신규상품</Text>
+                        </TabHeading>}>
+                        <Text>신규상품</Text>
+
+                    </Tab>
+                </Tabs>
             </Container>
         )
     }

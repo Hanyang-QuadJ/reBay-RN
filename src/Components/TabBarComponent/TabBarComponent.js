@@ -55,7 +55,7 @@ class TabBarComponent extends Component {
                 onPress={() => {
                     switch (route.routeName) {
                         case "Home" :
-                            return focused ? this.props.navigation.dispatch(ScrollToTopCreator.scrollToTop()) : jumpToIndex(index)
+                            return focused ? this.props.dispatch(ScrollToTopCreator.scrollToTop()) : jumpToIndex(index);
                         case "Buy" :
                             return focused ? console.log('check2') : jumpToIndex(index);
                         case "Sell" :

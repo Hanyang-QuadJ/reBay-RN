@@ -3,6 +3,7 @@ import {Container, Header, Left, Body, Right, Button, Icon, Title, ListItem} fro
 import styles from './Style';
 import {connect} from "react-redux";
 import Swiper from 'react-native-swiper';
+import * as ScrollToTopCreator from '../../ActionCreators/ScrollToTopCreator';
 import {Constants} from 'expo'
 
 import {TabViewAnimated, TabBar} from 'react-native-tab-view';
@@ -45,8 +46,8 @@ class ScrollableTabComponent extends Component {
         this.state = {
             index: 0,
             refreshing: false,
-            scroll: new Animated.Value(0),
-            scroll2: new Animated.Value(170),
+            scroll: new Animated.Value(0.001,{ useNativeDriver: false }),
+            scroll2: new Animated.Value(170,{ useNativeDriver: false }),
 
             routes: [
                 {key: 'first', title: '남성의류'},
@@ -70,14 +71,17 @@ class ScrollableTabComponent extends Component {
     }
 
     scrollToTop = () => {
-        // Scroll to top, in this case I am using FlatList
         return Promise.resolve(this.flatListRef.scrollToOffset({offset: 0, animated: true}));
     };
-
-    componentDidUpdate() {
-        if (this.props.top === true) {
+    componentWillReceiveProps(nextProps){
+        if (nextProps.top === true) {
             this.scrollToTop().then(this.topReset());
         }
+
+    }
+
+    componentDidUpdate() {
+
     }
 
     renderItem = ({item}) => {
@@ -99,8 +103,8 @@ class ScrollableTabComponent extends Component {
 
     _renderHeader = props => {
         const translateY = this.state.scroll.interpolate({
-            inputRange: [0, SCROLLABLE_HEIGHT],
-            outputRange: [0, -SCROLLABLE_HEIGHT],
+            inputRange: [0.001, SCROLLABLE_HEIGHT],
+            outputRange: [0.001, -SCROLLABLE_HEIGHT],
             extrapolate: 'clamp',
         });
         return (
@@ -131,14 +135,17 @@ class ScrollableTabComponent extends Component {
                             />
                         </View>
                     </Swiper>
+
                     <TabBar {...props} scrollEnabled={true}
                             renderIcon={this._renderIcon}
                             tabStyle={{width: 60, paddingHorizontal: 2}}
                             indicatorStyle={{backgroundColor: commonStyle.PRIMARY_COLOR,}}
+                            useNativeDriver={false}
                             labelStyle={{color: commonStyle.PRIMARY_COLOR, marginTop: 2, fontSize: 10, marginBottom: 1}}
                             style={{backgroundColor: "white", elevation: 0, shadowOpacity: 0,}}/>
 
                 </View>
+
             </Animated.View>
         )
     };
@@ -150,17 +157,19 @@ class ScrollableTabComponent extends Component {
 
     _renderScene = ({route}) => {
         const translateY = this.state.scroll.interpolate({
-            inputRange: [0, SCROLLABLE_HEIGHT],
-            outputRange: [HEADER_HEIGHT, 0],
+            inputRange: [0.001, SCROLLABLE_HEIGHT],
+            outputRange: [HEADER_HEIGHT, 0.001],
             extrapolate: 'clamp',
         });
         switch (route.key) {
             case 'first':
                 return <View>
-                    <Animated.View style={{height:translateY}}>
+                    <Animated.View style={{height: translateY}}>
 
                     </Animated.View>
+
                     <FlatList
+                        useNativeDriver={true}
                         data={this.props.data}
                         renderItem={this.renderItem}
                         scrollEventThrottle={1}
@@ -175,7 +184,6 @@ class ScrollableTabComponent extends Component {
                             <RefreshControl
                                 refreshing={this.state.refreshing}
                                 onRefresh={this.pullToRefresh}
-                                progressViewOffset={30}
                             />
                         }
 

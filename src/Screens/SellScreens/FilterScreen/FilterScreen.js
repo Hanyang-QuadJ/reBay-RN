@@ -100,7 +100,7 @@ class FilterScreen extends Component {
     render() {
         return (
             <Container style={{backgroundColor: 'white'}}>
-                <HeaderComponent title="default" left="" right=""/>
+                <HeaderComponent title="카테고리" left="" right=""/>
                 <Content>
                     <Item regular>
                         <Input onChangeText={(item_name) => this.setState({item_name})} placeholder='상품명을 입력해주세요'/>

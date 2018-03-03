@@ -9,22 +9,18 @@ const mapStateToProps = state => {
     };
 };
 
-class TermsScreen extends Component {
+class ItemDetailScreen extends Component {
     constructor(props){
         super(props)
 
     }
-    goToSignUp = () => {
-        console.log("@#@#");
-         this.props.navigation.navigate('SignUp')
-    };
 
     render() {
         return (
             <Container style={{backgroundColor:'white'}}>
-                <HeaderComponent title="이용 약관" onPressLeft={() => this.props.navigation.goBack(null)}  left="ios-arrow-back" right="ios-arrow-forward" onPressRight={() => this.goToSignUp()} />
+                <HeaderComponent title="default" left="" right="" />
                 <Content contentContainerStyle={{flex: 1}}>
-                    <Text>Terms Screen</Text>
+                    <Text>Default Screen</Text>
                 </Content>
             </Container>
         )
@@ -32,5 +28,5 @@ class TermsScreen extends Component {
     }
 
 }
-export default (TermsScreen = connect(mapStateToProps)(TermsScreen));
+export default (ItemDetailScreen = connect(mapStateToProps)(ItemDetailScreen));
 

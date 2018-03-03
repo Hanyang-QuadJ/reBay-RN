@@ -3,6 +3,9 @@ import {connect} from 'react-redux';
 import {View, TextInput, KeyboardAvoidingView} from 'react-native';
 import {NavigationActions} from 'react-navigation';
 import * as LoginActionCreator from '../../../ActionCreators/LoginActionCreator';
+import commonStyle from '../../index'
+
+
 
 import InputComponent from '../../../Components/InputComponent/InputComponent'
 import {
@@ -51,6 +54,10 @@ class SignInScreen extends Component {
             })
         )
     };
+    goBack = () => {
+        this.props.navigation.goBack(null);
+
+    };
 
     sendToAction = () => {
         console.log(this.state);
@@ -70,8 +77,8 @@ class SignInScreen extends Component {
             <Container style={{backgroundColor: 'white'}}>
                 <Header style={styles.headerContainer}>
                     <Left>
-                        <Button transparent>
-                            <Icon type="Ionicons" name="ios-arrow-back"/>
+                        <Button onPress={()=>this.goBack()} transparent>
+                            <Icon style={{color:commonStyle.PRIMARY_COLOR}} name="ios-arrow-back"/>
                         </Button>
                     </Left>
                     <Body>
@@ -98,7 +105,7 @@ class SignInScreen extends Component {
                                         <Icon type="MaterialIcons" name="person-outline"/>
                                     </View>
                                     <View style={styles.input}>
-                                        <TextInput autoCapitalize="none" placeholder="아이디"
+                                        <Input autoCapitalize="none" placeholder="아이디"
                                                    onChangeText={(email) => this.setState({email})}
                                                    value={this.state.email}/>
                                     </View>
@@ -110,7 +117,7 @@ class SignInScreen extends Component {
                                         <Icon type="MaterialIcons" name="lock-open"/>
                                     </View>
                                     <View style={styles.input}>
-                                        <TextInput autoCapitalize="none" placeholder="비밀번호" secureTextEntry={true}
+                                        <Input autoCapitalize="none" placeholder="비밀번호" secureTextEntry={true}
                                                    onChangeText={(password) => this.setState({password})}
                                                    value={this.state.password}/>
                                     </View>

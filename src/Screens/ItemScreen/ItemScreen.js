@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {AsyncStorage} from 'react-native';
+import { AppLoading, Asset} from 'expo';
+import {AsyncStorage, Image, ActivityIndicator} from 'react-native';
 import {connect} from 'react-redux';
-import {Container, Text, Content} from 'native-base';
+import {Container, Text, Content, Spinner} from 'native-base';
 import HeaderComponent from '../../Components/HeaderComponent/HeaderComponent'
 import * as ItemActionCreator from '../../ActionCreators/ItemActionCreator'
 import styles from './Style';
@@ -19,7 +20,7 @@ class ItemScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            item:null
+            item:[]
 
         }
 
@@ -27,12 +28,14 @@ class ItemScreen extends Component {
 
 
     componentWillMount(){
-        AsyncStorage.getItem("ACCESS_TOKEN").then(value => {this.props.dispatch(ItemActionCreator.getItem(value, 67)).then(value2 => {
-            console.log("하하");
-            }
+        AsyncStorage.getItem("ACCESS_TOKEN").then(value => {this.props.dispatch(ItemActionCreator.getItem(value, 74)).then(value2 =>
+            {
 
+            }
         )});
     }
+
+
 
     componentWillReceiveProps(nextProps){
         if(nextProps.item !== null){
@@ -43,6 +46,7 @@ class ItemScreen extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props.item)
     }
 
     closeModal = () => {
@@ -63,18 +67,29 @@ class ItemScreen extends Component {
     }
 
     render() {
+        const { item } = this.props;
+        if(item != null){
+            return (
 
-        return (
+                <Container style={{backgroundColor: 'white'}}>
+                    <HeaderComponent title="default" left="" right="ios-close" onPressRight={() => this.closeModal()}/>
+                    <Content contentContainerStyle={{flex: 1}}>
+                        <Text>{item.username}</Text>
+                        <Image style={{width:40, height:40}} source={{uri:item.profile_img}}/>
+                        <Text>{item.item_name}</Text>
+                        <Text>{item.price}</Text>
 
-            <Container style={{backgroundColor: 'white'}}>
-                <HeaderComponent title="default" left="" right="ios-close" onPressRight={() => this.closeModal()}/>
-                <Content contentContainerStyle={{flex: 1}}>
-                    <Text>Item Screen</Text>
-                    {/*<Text>{this.state.item.username}</Text>*/}
-                </Content>
-            </Container>
-        )
 
+
+                    </Content>
+                </Container>
+            )
+        }
+        else{
+            return(
+                <Spinner />
+            )
+        }
     }
 
 }

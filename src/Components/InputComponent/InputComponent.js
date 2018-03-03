@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { TextInput, Text, View } from 'react-native';
-import { Icon } from 'native-base'
+import {  Text, View } from 'react-native';
+import { Icon, Input } from 'native-base'
 import  styles from './Style';
 
 const mapStateToProps = state => {
@@ -27,7 +27,7 @@ class InputComponent extends Component {
                         }
                     </View>
                     <View style={styles.input}>
-                        <TextInput placeholder={this.props.placeholder}
+                        <Input placeholder={this.props.placeholder}
                                    onChangeText={this.props.onChangeText}
                                    autoCapitalize="none"
                                    value={this.props.value}

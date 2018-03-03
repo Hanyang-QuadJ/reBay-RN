@@ -91,7 +91,13 @@ class DetailScreen extends Component {
             refund,
             content,
             sub_content,
-            tags));
+            tags)).then(value => {
+                this.props.dispatch(ItemActionCreator.getItemPicture(token, value)).then(value2 => {
+                    console.log('사진');
+                    console.log(value2)
+                })
+
+        });
         await this.props.navigation.navigate('ItemStack');
 
     };
@@ -110,25 +116,23 @@ class DetailScreen extends Component {
                         numberOfLines={10}
                         placeholder="제품상세설명"
                         onChangeText={(content) => this.setState({content})}
-                        style={{height: 200, backgroundColor: 'red'}}
+                        style={styles.textArea}
                     />
                     <TextInput
                         multiline={true}
                         numberOfLines={10}
                         placeholder="추가입력"
                         onChangeText={(sub_content) => this.setState({sub_content})}
-                        style={{height: 200, backgroundColor: 'blue'}}
+                        style={styles.textArea}
                     />
                     <TextInput
                         multiline={true}
                         numberOfLines={5}
                         onChangeText={(tag) => this.setState({tag})}
                         placeholder="태그"
-                        style={{height: 200, backgroundColor: 'yellow'}}
+                        style={styles.textArea}
                     />
-                    <Button onPress={() => this.parseTag()}><Text>테스트</Text></Button>
                 </Content>
-                <Button onPress={() => this.postItem()}><Text>확인</Text></Button>
                 <FooterButton leftText="임시저장" rightText="다음으로" onPress={()=>this.postItem()}/>
             </Container>
         )

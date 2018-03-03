@@ -58,7 +58,7 @@ class SignUpScreen3 extends Component {
 
         return (
             <Container style={{backgroundColor: 'white'}}>
-                <HeaderComponent title="회원가입" left="ios-arrow-back" right=""/>
+                <HeaderComponent onPressLeft={() => this.props.navigation.goBack(null)} title="회원가입" left="ios-arrow-back" right=""/>
                 <KeyboardAvoidingView style={{flex:1}} behavior="padding">
                     <View style={{flex:1}}>
                         <View style={styles.essential}>

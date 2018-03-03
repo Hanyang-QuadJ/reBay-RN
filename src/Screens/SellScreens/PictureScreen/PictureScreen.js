@@ -50,9 +50,7 @@ class PictureScreen extends Component {
     };
 
     componentWillMount() {
-        AsyncStorage.getItem("ACCESS_TOKEN").then(token => {
-            this.props.dispatch(BrandActionCreator.getBrand(token));
-        });
+
     }
 
     parseBase = () => {
@@ -196,7 +194,7 @@ class PictureScreen extends Component {
 
         return (
             <Container style={{backgroundColor: 'white'}}>
-                <HeaderComponent title="판매하기" left="ios-close" right="" onPressLeft={() => this.closeModal()}/>
+                <HeaderComponent title="사진등록" left="ios-close" right="" onPressLeft={() => this.closeModal()}/>
                 <View style={styles.container}>
                     <View style={styles.progress}>
                     </View>

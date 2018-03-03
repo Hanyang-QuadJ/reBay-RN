@@ -57,7 +57,7 @@ class BrandScreen extends Component {
 
         return (
             <Container style={{backgroundColor:'white'}}>
-                <HeaderComponent title="default" left="" right="" />
+                <HeaderComponent title="브랜드" left="" right="" />
                 <Content contentContainerStyle={{flex: 1}}>
                     <Item rounded style={styles.itemStyle}>
                         <Input placeholder='Rounded Textbox' onChangeText={(text) => this.filterBySearchBar(text)}/>

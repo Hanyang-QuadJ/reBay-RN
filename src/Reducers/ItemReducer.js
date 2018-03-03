@@ -5,12 +5,16 @@ import {
     SUCCEED_TO_GET_ITEM,
     FAILED_TO_POST_ITEM,
     FAILED_TO_GET_ITEM,
+    START_TO_GET_ITEM_PICTURE,
+    FAILED_TO_GET_ITEM_PICTURE,
+    SUCCEED_TO_GET_ITEM_PICTURE
 
 } from "../ActionCreators/ItemActionCreator";
 
 const initialState = {
-    item_id:null,
+    item_id:0,
     item:null,
+    picture:[],
 };
 
 const ItemReducer  = (state = initialState, action) => {
@@ -21,6 +25,13 @@ const ItemReducer  = (state = initialState, action) => {
                 item:action.payload
             });
         case FAILED_TO_GET_ITEM:
+
+        case START_TO_GET_ITEM_PICTURE:
+        case SUCCEED_TO_GET_ITEM_PICTURE:
+            return Object.assign({}, state, {
+                picture:action.payload
+            });
+        case FAILED_TO_GET_ITEM_PICTURE:
 
         case START_TO_POST_ITEM:
         case SUCCEED_TO_POST_ITEM:

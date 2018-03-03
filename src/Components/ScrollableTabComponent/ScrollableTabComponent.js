@@ -50,7 +50,7 @@ class ScrollableTabComponent extends Component {
         this.state = {
             index: 0,
             refreshing: false,
-            scroll: new Animated.Value(0.001, {useNativeDriver: true}),
+            scroll: new Animated.Value(-170, {useNativeDriver: true}),
             scroll2: new Animated.Value(170, {useNativeDriver: true}),
             top: false,
 
@@ -76,13 +76,17 @@ class ScrollableTabComponent extends Component {
 
     scrollToTop = () => {
         this.scrollView.getNode().scrollTo({
-            y: 0,
+            y: -170,
             animated: true,
         });        // this.refs.scrollView.scrollTo({x: 0, y: 0, animated: true})
     };
 
 
-    componentDidUpdate() {
+    componentDidMount() {
+        if(Platform.OS==='ios'){
+            this.scrollView.getNode().scrollTo({animated:false, y:-170});
+        }
+
 
     }
 
@@ -104,11 +108,22 @@ class ScrollableTabComponent extends Component {
     _handleIndexChange = index => this.setState({index});
 
     _renderHeader = props => {
-        const translateY = this.state.scroll.interpolate({
-            inputRange: [0.001, SCROLLABLE_HEIGHT],
-            outputRange: [0.001, -SCROLLABLE_HEIGHT],
-            extrapolate: 'clamp',
-        });
+        let translateY;
+        if(Platform.OS === 'ios'){
+                translateY = this.state.scroll.interpolate({
+                inputRange: [-170, SCROLLABLE_HEIGHT],
+                outputRange: [0, -SCROLLABLE_HEIGHT],
+                extrapolate: 'clamp',
+            });
+        }
+        else{
+                translateY = this.state.scroll.interpolate({
+                inputRange: [0.001, SCROLLABLE_HEIGHT],
+                outputRange: [0.001, -SCROLLABLE_HEIGHT],
+                extrapolate: 'clamp',
+            });
+        }
+
         return (
             <Animated.View style={{
                 position: 'absolute',
@@ -143,7 +158,7 @@ class ScrollableTabComponent extends Component {
                             renderIcon={this._renderIcon}
                             tabStyle={{width: 60, paddingHorizontal: 2}}
                             indicatorStyle={{backgroundColor: commonStyle.PRIMARY_COLOR,}}
-                            useNativeDriver={false}
+                            useNativeDriver={true}
                             labelStyle={{color: commonStyle.PRIMARY_COLOR, marginTop: 2, fontSize: 10, marginBottom: 1}}
                             style={{backgroundColor: "white", elevation: 0, shadowOpacity: 0,}}/>
 
@@ -177,8 +192,8 @@ class ScrollableTabComponent extends Component {
                         </View>
                     </Animated.View>
 
-                    <AnimatedScrollView scrollEventThrottle={2}
-                                        contentContainerStyle={Platform.OS === 'ios' ? null: {paddingTop:170}}
+                    <AnimatedScrollView scrollEventThrottle={1}
+                                        contentContainerStyle={Platform.OS === 'ios' ? null : {paddingTop:170}}
                                         contentInset={{top:170}}
                                         refreshControl={
                                             <RefreshControl
@@ -188,6 +203,7 @@ class ScrollableTabComponent extends Component {
 
                                         }
                                         ref={c => (this.scrollView = c)}
+                                        automaticallyAdjustContentInsets={false}
                                         onScroll={Animated.event(
                                             [{nativeEvent: {contentOffset: {y: this.state.scroll}}}],
                                             {useNativeDriver: true}
@@ -230,6 +246,7 @@ class ScrollableTabComponent extends Component {
     };
 
     render() {
+        console.log(this.state.scroll);
 
         return (
             <TabViewAnimated

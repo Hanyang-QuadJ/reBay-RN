@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {View, KeyboardAvoidingView} from 'react-native';
-import {Container, Text, Content, Footer, Button } from 'native-base';
+import {Container, Text, Content, Footer, Button, Input } from 'native-base';
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 import ButtonComponent from '../../../Components/ButtonComponent/ButtonComponent'
 import styles from './Style';
@@ -30,7 +30,7 @@ class SignUpScreen extends Component {
     render() {
         return (
             <Container style={{backgroundColor: 'white'}}>
-                <HeaderComponent title="회원가입" left="ios-arrow-back" right=""/>
+                <HeaderComponent onPressLeft={()=>this.props.navigation.goBack(null)} title="회원가입" left="ios-arrow-back" right=""/>
                 <KeyboardAvoidingView style={{flex:1}} behavior="padding">
                     <View style={{flex:1}}>
                         <View style={styles.essential}>

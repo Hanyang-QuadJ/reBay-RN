@@ -35,6 +35,10 @@ class BuyScreen extends Component {
             });
         }
     }
+    closeModal = () => {
+        this.props.navigation.goBack(null);
+
+    };
 
     filterBySearchBar(text){
         const brands = [];
@@ -56,7 +60,7 @@ class BuyScreen extends Component {
         console.log(this.state.text);
         return (
                 <Container>
-                    <HeaderComponent title="구매하기" left="" right="ios-basket"/>
+                    <HeaderComponent title="구매하기" left="ios-close" right="" onPressLeft={() => this.closeModal()}/>
                     <Text>브랜드 검색</Text>
                     <Item rounded style={styles.itemStyle}>
                         <Input placeholder='Rounded Textbox' onChangeText={(text) => this.filterBySearchBar(text)}/>

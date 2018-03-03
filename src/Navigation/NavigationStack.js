@@ -5,6 +5,7 @@ import TutorialScreen from '../Screens/TutorialScreen/TutorialScreen';
 import HomeScreen from '../Screens/TabScreens/HomeScreen/HomeScreen';
 import BuyScreen from '../Screens/TabScreens/BuyScreen/BuyScreen';
 import BuyScreen2 from '../Screens/TabScreens/BuyScreen/BuyScreen2';
+import BuyScreen3 from '../Screens/TabScreens/BuyScreen/BuyScreen3';
 import SignInScreen from "../Screens/Auth/SignInScreen/SignInScreen";
 import TermsScreen from '../Screens/Auth/TermsScreen/TermsScreen';
 import SignUpScreen from '../Screens/Auth/SignUpScreen/SignUpScreen';
@@ -33,6 +34,7 @@ import Item from "../../native-base-theme/components/Item";
 
 const BuyNavigator = StackNavigator({
     BuyScreen2: {screen: BuyScreen2},
+    BuyScreen3: {screen: BuyScreen3},
 }, {
     headerMode: 'none',
 });

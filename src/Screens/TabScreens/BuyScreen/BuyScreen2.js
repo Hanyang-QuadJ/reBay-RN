@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View } from 'react-native';
+import { View, Slider } from 'react-native';
 import {Container, Text, Content, Item, Input, Form, Button, Badge, Header, Footer, Title, Left, Right, List, ListItem,FooterTab} from 'native-base';
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 import jsonData from '../../../Constants/data'
@@ -21,18 +21,10 @@ class BuyScreen2 extends Component {
             category:jsonData.category,
             selectedItemStatus:0,
             item_status:jsonData.item_status,
-            selectedYear:0,
-            year:jsonData.year,
             selectedSeason:0,
             season:jsonData.season,
-            selectedFullBox:0,
-            fullBox:jsonData.fullBox,
-            selectedWarantee:0,
-            warantee:jsonData.warantee,
-            selectedDomestic:0,
-            domestic:jsonData.domestic,
-            selectedRefund:0,
-            refund:jsonData.refund
+            maxPrice:100000,
+
         };
     }
 
@@ -44,7 +36,13 @@ class BuyScreen2 extends Component {
             });
         }
     }
-    checkIndex = () => {
+    gotoBuyScreen3 = () => {
+        this.props.navigation.navigate('BuyScreen3',{
+            category:this.state.category[this.state.selectedCategory].name,
+            detailCategory:this.state.category[this.state.selectedCategory].detailCategory[this.state.selectedDetailCategory].name,
+            status:this.state.item_status[this.state.selectedItemStatus].name,
+            season:this.state.season[this.state.selectedSeason].name,
+        });
         console.log(this.state.category[this.state.selectedCategory].name);
         console.log(this.state.category[this.state.selectedCategory].detailCategory[this.state.selectedDetailCategory].name);
 
@@ -120,20 +118,6 @@ class BuyScreen2 extends Component {
 
                     <Text>시즌</Text>
                     <View style={styles.row}>
-                        {this.state.year.map((year, index) => (
-                            <Button
-                                style={(index===this.state.selectedYear?styles.checked:styles.notChecked)}
-                                key={index}
-                                onPress={()=>{
-                                    this.setState({
-                                        selectedYear: index
-                                    })}}
-                            >
-                                <Text style={(index===this.state.selectedYear)?null:styles.notText}>{year.name}</Text>
-                            </Button>
-                        ))}
-                    </View>
-                    <View style={styles.row}>
                         {this.state.season.map((season, index) => (
                             <Button
                                 style={(index===this.state.selectedSeason?styles.checked:styles.notChecked)}
@@ -147,70 +131,14 @@ class BuyScreen2 extends Component {
                             </Button>
                         ))}
                     </View>
-                    <Text>구성상품</Text>
-                    <View style={styles.row}>
-                        {this.state.fullBox.map((fullBox, index) => (
-                            <Button
-                                style={(index===this.state.selectedFullBox?styles.checked:styles.notChecked)}
-                                key={index}
-                                onPress={()=>{
-                                    this.setState({
-                                        selectedFullBox: index
-                                    })}}
-                            >
-                                <Text style={(index===this.state.selectedFullBox)?null:styles.notText}>{fullBox.name}</Text>
-                            </Button>
-                        ))}
-                    </View>
-                    <Text>보증서</Text>
-                    <View style={styles.row}>
-                        {this.state.warantee.map((warantee, index) => (
-                            <Button
-                                style={(index===this.state.selectedWarantee?styles.checked:styles.notChecked)}
-                                key={index}
-                                onPress={()=>{
-                                    this.setState({
-                                        selectedWarantee: index
-                                    })}}
-                            >
-                                <Text style={(index===this.state.selectedWarantee)?null:styles.notText}>{warantee.name}</Text>
-                            </Button>
-                        ))}
-                    </View>
-                    <Text>구매</Text>
-                    <View style={styles.row}>
-                        {this.state.domestic.map((domestic, index) => (
-                            <Button
-                                style={(index===this.state.selectedDomestic?styles.checked:styles.notChecked)}
-                                key={index}
-                                onPress={()=>{
-                                    this.setState({
-                                        selectedDomestic: index
-                                    })}}
-                            >
-                                <Text style={(index===this.state.selectedDomestic)?null:styles.notText}>{domestic.name}</Text>
-                            </Button>
-                        ))}
-                    </View>
-                    <Text>환불</Text>
-                    <View style={styles.row}>
-                        {this.state.refund.map((refund, index) => (
-                            <Button
-                                style={(index===this.state.selectedRefund?styles.checked:styles.notChecked)}
-                                key={index}
-                                onPress={()=>{
-                                    this.setState({
-                                        selectedRefund: index
-                                    })}}
-                            >
-                                <Text style={(index===this.state.selectedRefund)?null:styles.notText}>{refund.name}</Text>
-                            </Button>
-                        ))}
-                    </View>
-
-
                 </Content>
-                <Button onPress={()=>this.checkIndex()}><Text>확인</Text></Button>
+                <Text>{this.state.maxPrice/10000} 만원</Text>
+                <Slider step={100000} minimumValue={100000} maximumValue={1000000} onValueChange={(value)=>{
+                    this.setState({
+                        maxPrice: value
+                    })
+                }}/>
+                <Button onPress={()=>{this.gotoBuyScreen3()}}><Text>확인</Text></Button>
             </Container>
         )
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {AsyncStorage, View} from 'react-native';
-import { AppLoading, Asset } from 'expo';
+import { AppLoading, Asset, Font } from 'expo';
 import { Container, Text, Content } from 'native-base';
 import HeaderComponent from '../../Components/HeaderComponent/HeaderComponent'
 import  styles from './Style';
@@ -28,15 +28,20 @@ class InitScreen extends Component {
     constructor(props){
         super(props);
         this.state = {
-            appReady:false
+            appReady:false,
 
         }
 
     }
 
+
     async _loadAssetsAsync() {
         const imageAssets = cacheImages([require('../../Assets/dress.png'),require('../../Assets/pic1.jpg'),
             require('../../Assets/pic2.jpg'),require('../../Assets/pic3.jpg')]);
+        await Font.loadAsync({
+            Roboto: require("native-base/Fonts/Roboto.ttf"),
+            Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf")
+        });
         await Promise.all(...imageAssets);
     }
 

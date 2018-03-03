@@ -1,5 +1,7 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
 import  commonStyle from '../index'
+const window = Dimensions.get('window');
 const styles = StyleSheet.create({
     wrapper:{
     },
@@ -23,7 +25,7 @@ const styles = StyleSheet.create({
     },
     image:{
         resizeMode: 'contain',
-        width:375
+        width:window.width
     }
 
 

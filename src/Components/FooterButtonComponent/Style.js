@@ -1,9 +1,10 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import  commonStyle from '../index'
+const window = Dimensions.get('window');
 const styles = StyleSheet.create({
     button1:{
         height: 55,
-        width:190,
+        width:window.width/2,
         backgroundColor:"white",
         borderColor: "transparent",
         borderWidth: 0,
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
     },
     button2:{
         height: 55,
-        width:190,
+        width:window.width/2,
         backgroundColor:commonStyle.PRIMARY_COLOR,
         borderColor: "transparent",
         borderWidth: 0,
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
         color:"white"
     },
     footer:{
-        flex:0.1,
+        width:window.width,
         flexDirection:"row",
         justifyContent:"center",
         alignItems:"center"

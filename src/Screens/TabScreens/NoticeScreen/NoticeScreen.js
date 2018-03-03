@@ -14,7 +14,6 @@ class NoticeScreen extends Component {
         super(props)
 
     }
-
     render() {
         return (
             <Container style={{backgroundColor:'white'}}>

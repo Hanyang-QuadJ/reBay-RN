@@ -27,13 +27,16 @@ class ItemScreen extends Component {
 
 
     componentWillMount(){
-        AsyncStorage.getItem("ACCESS_TOKEN").then(value => {this.props.dispatch(ItemActionCreator.getItem(value, 67)).then(
+        AsyncStorage.getItem("ACCESS_TOKEN").then(value => {this.props.dispatch(ItemActionCreator.getItem(value, 67)).then(value2 => {
+            console.log("하하");
+            }
+
         )});
     }
 
     componentWillReceiveProps(nextProps){
         if(nextProps.item !== null){
-            console.log("바뀐거!!!");
+            console.log(nextProps.item);
             this.setState({item: nextProps.item})
 
         }

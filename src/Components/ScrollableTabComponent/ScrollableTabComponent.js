@@ -6,6 +6,7 @@ import Swiper from 'react-native-swiper';
 import * as ScrollToTopCreator from '../../ActionCreators/ScrollToTopCreator';
 import {Constants} from 'expo'
 
+
 import {TabViewAnimated, TabBar} from 'react-native-tab-view';
 import {
     Animated,
@@ -16,7 +17,8 @@ import {
     Image,
     TouchableWithoutFeedback,
     RefreshControl,
-    ScrollView
+    ScrollView,
+    Platform
 } from "react-native";
 import * as ScrollToTopActionCreator from '../../ActionCreators/ScrollToTopCreator';
 import * as DefaultActionCreator from '../../ActionCreators/DefaultActionCreator';
@@ -25,6 +27,7 @@ import * as commonStyle from '../../Constants/commonStyle';
 const HEADER_HEIGHT = 170;
 const COLLAPSED_HEIGHT = 50;
 const SCROLLABLE_HEIGHT = HEADER_HEIGHT - COLLAPSED_HEIGHT;
+const AnimatedScrollView = Animated.createAnimatedComponent(ScrollView);
 
 
 const mapStateToProps = state => {
@@ -72,7 +75,10 @@ class ScrollableTabComponent extends Component {
 
 
     scrollToTop = () => {
-        this.flatListRef.scrollTo({x:0, y:0, animated: true});
+        this.scrollView.getNode().scrollTo({
+            y: 0,
+            animated: true,
+        });        // this.refs.scrollView.scrollTo({x: 0, y: 0, animated: true})
     };
 
 
@@ -153,24 +159,41 @@ class ScrollableTabComponent extends Component {
 
     _renderScene = ({route}) => {
         const translateY = this.state.scroll.interpolate({
-            inputRange: [0.001, SCROLLABLE_HEIGHT],
-            outputRange: [HEADER_HEIGHT, 0.001],
+            inputRange: [170, 190],
+            outputRange: [0, -170],
             extrapolate: 'clamp',
         });
         switch (route.key) {
             case 'first':
                 return <View>
-                    <Animated.View style={{height: translateY}}>
+                    <Animated.View style={{
 
+                        transform: [{translateY}]}}>
+                        <View style={{
+                            zIndex:-3,
+                            backgroundColor:"green",
+                        }}>
 
+                        </View>
                     </Animated.View>
-                    <ScrollView scrollEventThrottle={2}
-                                onScroll={Animated.event(
-                                    [{nativeEvent: {contentOffset: {y: this.state.scroll}}}],
-                                )}
-                                ref={(ref) => {
-                                    this.flatListRef = ref;
-                                }}>
+
+                    <AnimatedScrollView scrollEventThrottle={2}
+                                        contentContainerStyle={Platform.OS === 'ios' ? null: {paddingTop:170}}
+                                        contentInset={{top:170}}
+                                        refreshControl={
+                                            <RefreshControl
+                                                refreshing={this.state.refreshing}
+                                                progressViewOffset={170}
+                                                onRefresh={() => this.pullToRefresh()}/>
+
+                                        }
+                                        ref={c => (this.scrollView = c)}
+                                        onScroll={Animated.event(
+                                            [{nativeEvent: {contentOffset: {y: this.state.scroll}}}],
+                                            {useNativeDriver: true}
+                                        )}
+
+                    >
                         {this.props.data !== null ?
                             this.props.data.map((data, index) => {
                                 return (
@@ -180,7 +203,7 @@ class ScrollableTabComponent extends Component {
                                 )
                             })
                             : null}
-                    </ScrollView>
+                    </AnimatedScrollView>
 
 
                 </View>;

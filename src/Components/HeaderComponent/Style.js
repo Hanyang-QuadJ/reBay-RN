@@ -5,10 +5,20 @@ const styles = StyleSheet.create({
         backgroundColor: commonStyle.PRIMARY_COLOR,
 
     },
+    headerContainerAndroid:{
+        backgroundColor: commonStyle.PRIMARY_COLOR,
+        height:80
+
+    },
     headerContainer2:{
         backgroundColor: commonStyle.PRIMARY_COLOR,
         height:90
 
+    },
+    headerContainer2Android:{
+        backgroundColor: commonStyle.PRIMARY_COLOR,
+        justifyContent:'center',
+        height:110
     },
 
     headerText:{

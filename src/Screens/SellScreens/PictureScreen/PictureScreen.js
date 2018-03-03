@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Modal, AsyncStorage, View, Image, TouchableOpacity, Alert} from 'react-native';
-import {Container, Text, Content, Button, Footer, ActionSheet } from 'native-base';
+import {Modal, AsyncStorage, View, Image, TouchableOpacity, Alert, Text} from 'react-native';
+import {Container,  Content, Button, Footer, ActionSheet } from 'native-base';
 import * as BrandActionCreator from '../../../ActionCreators/BrandActionCreator'
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 import {ImagePicker} from 'expo'

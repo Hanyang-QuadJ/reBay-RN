@@ -91,13 +91,7 @@ class DetailScreen extends Component {
             refund,
             content,
             sub_content,
-            tags)).then(value => {
-                this.props.dispatch(ItemActionCreator.getItemPicture(token, value)).then(value2 => {
-                    console.log('사진');
-                    console.log(value2)
-                })
-
-        });
+            tags));
         await this.props.navigation.navigate('ItemStack');
 
     };

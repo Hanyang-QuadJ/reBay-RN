@@ -14,7 +14,7 @@ import {
 const initialState = {
     item_id:0,
     item:null,
-    picture:[],
+    picture:null,
 };
 
 const ItemReducer  = (state = initialState, action) => {

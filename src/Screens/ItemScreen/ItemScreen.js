@@ -12,7 +12,7 @@ const mapStateToProps = state => {
     return {
         item: state.ItemReducer.item,
         item_id: state.ItemReducer.item_id,
-
+        picture:[]
     };
 };
 
@@ -20,7 +20,8 @@ class ItemScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            item:[]
+            item:[],
+            picture:[]
 
         }
 
@@ -28,11 +29,16 @@ class ItemScreen extends Component {
 
 
     componentWillMount(){
-        AsyncStorage.getItem("ACCESS_TOKEN").then(value => {this.props.dispatch(ItemActionCreator.getItem(value, 74)).then(value2 =>
+        AsyncStorage.getItem("ACCESS_TOKEN").then(value => {this.props.dispatch(ItemActionCreator.getItem(value, this.props.item_id))
+            .then(value2 =>
             {
-
+                this.props.dispatch(ItemActionCreator.getItemPicture(value, this.props.item_id)).then(value3 => {
+                    console.log("picture array");
+                    console.log(value3)
+                })
             }
         )});
+
     }
 
 
@@ -46,7 +52,6 @@ class ItemScreen extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.item)
     }
 
     closeModal = () => {
@@ -67,8 +72,8 @@ class ItemScreen extends Component {
     }
 
     render() {
-        const { item } = this.props;
-        if(item != null){
+        const { item, picture } = this.props;
+        if(item != null && picture != null){
             return (
 
                 <Container style={{backgroundColor: 'white'}}>
@@ -77,10 +82,8 @@ class ItemScreen extends Component {
                         <Text>{item.username}</Text>
                         <Image style={{width:40, height:40}} source={{uri:item.profile_img}}/>
                         <Text>{item.item_name}</Text>
+                        
                         <Text>{item.price}</Text>
-
-
-
                     </Content>
                 </Container>
             )

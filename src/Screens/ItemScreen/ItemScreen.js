@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { AppLoading, Asset} from 'expo';
-import {AsyncStorage, Image, ActivityIndicator} from 'react-native';
+import {AsyncStorage, Image, ActivityIndicator, View} from 'react-native';
 import {connect} from 'react-redux';
 import {Container, Text, Content, Spinner} from 'native-base';
 import HeaderComponent from '../../Components/HeaderComponent/HeaderComponent'
@@ -12,7 +12,7 @@ const mapStateToProps = state => {
     return {
         item: state.ItemReducer.item,
         item_id: state.ItemReducer.item_id,
-        picture:[]
+        picture:state.ItemReducer.picture,
     };
 };
 
@@ -73,6 +73,7 @@ class ItemScreen extends Component {
 
     render() {
         const { item, picture } = this.props;
+        console.log(picture);
         if(item != null && picture != null){
             return (
 
@@ -82,7 +83,17 @@ class ItemScreen extends Component {
                         <Text>{item.username}</Text>
                         <Image style={{width:40, height:40}} source={{uri:item.profile_img}}/>
                         <Text>{item.item_name}</Text>
-                        
+
+                        {this.props.picture.map((picture, index) => {
+                                return (
+                                    <View key={picture.id}>
+                                        <Image style={{width:200, height:200}} source={{uri:picture.image_url}} />
+                                    </View>
+                                )
+                            })
+                        }
+
+
                         <Text>{item.price}</Text>
                     </Content>
                 </Container>

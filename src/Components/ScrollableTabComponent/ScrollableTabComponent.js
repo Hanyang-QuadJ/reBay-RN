@@ -246,7 +246,6 @@ class ScrollableTabComponent extends Component {
     };
 
     render() {
-        console.log(this.state.scroll);
 
         return (
             <TabViewAnimated

@@ -54,8 +54,10 @@ class PictureScreen extends Component {
     }
 
     parseBase = () => {
+
         let {base1, base2, base3, base4, base5, base6, base7, base8, base9} = this.state;
         let baseArray = [base1,base2,base3,base4, base5, base6, base7, base8, base9];
+
         function filter_array(arr) {
             arr = arr.filter(isEligible);
             return arr;
@@ -71,8 +73,9 @@ class PictureScreen extends Component {
 
 
 
-    goToBrand = () => {
-        const baseArray = this.parseBase();
+    goToBrand = async () => {
+        const baseArray =  await this.parseBase();
+
         this.props.navigation.navigate('Brand',{base64:baseArray});
 
         // if(baseArray.length <3 ){
@@ -99,14 +102,13 @@ class PictureScreen extends Component {
             },
 
             async buttonIndex =>  {
-                console.log(buttonIndex);
                 if(buttonIndex === 0){
                     let result = await ImagePicker.launchCameraAsync({
                         allowsEditing: true,
                         base64: true,
                         aspect: [4, 3],
                     });
-                    console.log(result);
+                    // console.log(result);
 
                     if (!result.cancelled) {
                         if (imageNumber === 1) {
@@ -149,16 +151,24 @@ class PictureScreen extends Component {
                         aspect: [4, 3],
                     });
 
-                    console.log(result);
 
                     if (!result.cancelled) {
                         if (imageNumber === 1) {
+                            // console.log("체크");
+                            // console.log(imageNumber);
                             this.setState({image1: result.uri, base1: result.base64});
                         }
                         else if (imageNumber === 2) {
+                            // console.log("체크");
+                            // console.log(imageNumber);
+                            // console.log(result.uri);
+
                             this.setState({image2: result.uri, base2: result.base64});
                         }
                         else if (imageNumber === 3) {
+                            // console.log("체크");
+                            // console.log(imageNumber);
+                            // console.log(result.uri)
                             this.setState({image3: result.uri, base3: result.base64});
                         }
                         else if (imageNumber === 4) {

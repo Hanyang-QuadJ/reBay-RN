@@ -8,7 +8,6 @@ import AppNavigation from './src/Navigation/AppNavigation';
 
 
 
-
 export default class App extends Component {
 
     render() {

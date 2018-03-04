@@ -60,21 +60,21 @@ class DetailScreen extends Component {
         let content = this.state.content;
         let sub_content = this.state.sub_content;
         let tags = this.parseTag();
-        console.log(price);
-        console.log(brand_id);
-        console.log(size);
-        console.log(season);
-        console.log(category_1);
-        console.log(category_2);
-        console.log(item_status);
-        console.log(fullbox);
-        console.log(warantee);
-        console.log(domestic);
-        console.log(refund);
-        console.log(content);
-        console.log(sub_content);
-        console.log(tags);
-        console.log(token);
+        // console.log(price);
+        // console.log(brand_id);
+        // console.log(size);
+        // console.log(season);
+        // console.log(category_1);
+        // console.log(category_2);
+        // console.log(item_status);
+        // console.log(fullbox);
+        // console.log(warantee);
+        // console.log(domestic);
+        // console.log(refund);
+        // console.log(content);
+        // console.log(sub_content);
+        // console.log(tags);
+        // console.log(token);
         await this.props.dispatch(ItemActionCreator.postItem(token,
             pic_list,
             item_name,

@@ -66,8 +66,8 @@ export const getItemPicture = (token, id) => {
                 }
             );
             let responseJson = await response.json();
-            dispatch({type: SUCCEED_TO_GET_ITEM_PICTURE, payload: responseJson});
-            return responseJson;
+            dispatch({type: SUCCEED_TO_GET_ITEM_PICTURE, payload: responseJson.result});
+            return responseJson.result;
         } catch (error) {
             dispatch({type: FAILED_TO_GET_ITEM_PICTURE, payload: {data: "NETWORK_ERROR"}});
             console.error(error);
@@ -96,9 +96,9 @@ export const postItem = (token,
                          tags) => {
     return async (dispatch) => {
         try {
-            console.log("^^^^^");
-            console.log(token);
-            console.log(price);
+            // console.log("^^^^^");
+            // console.log(token);
+            // console.log(price);
             await dispatch({type: START_TO_POST_ITEM});
             let response = await fetch(
                 ServerEndPoint2 + 'api/item/sell', {
@@ -129,7 +129,7 @@ export const postItem = (token,
                 }
             );
             let responseJson = await response.json();
-            console.log(responseJson);
+            // console.log(responseJson);
             await dispatch({type: SUCCEED_TO_POST_ITEM, payload: responseJson.item_id});
             return responseJson.item_id;
         } catch (error) {

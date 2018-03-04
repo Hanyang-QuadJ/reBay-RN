@@ -29,7 +29,6 @@ export const  defaultFetch = () => {
                 ServerEndPoint+'api/shuttle/vacation/week'
             );
             let responseJson = await response.json();
-            console.log(responseJson);
             await dispatch({type: SUCCEED_TO_FETCH, payload: responseJson.shuttleA, loading:false});
         } catch (error) {
             dispatch({type: FAILED_TO_FETCH, payload: {data: "NETWORK_ERROR"}});

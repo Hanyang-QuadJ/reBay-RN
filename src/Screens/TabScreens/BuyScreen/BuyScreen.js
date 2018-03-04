@@ -72,9 +72,9 @@ class BuyScreen extends Component {
 
 
     render() {
-        console.log("BuyScreen");
-        console.log(this.props.brand);
-        console.log(this.state.text);
+        // console.log("BuyScreen");
+        // console.log(this.props.brand);
+        // console.log(this.state.text);
         return (
             <Container>
                 <HeaderComponent title="구매하기" left="ios-close" right=""

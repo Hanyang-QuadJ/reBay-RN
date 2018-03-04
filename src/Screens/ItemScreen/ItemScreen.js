@@ -33,8 +33,8 @@ class ItemScreen extends Component {
             .then(value2 =>
             {
                 this.props.dispatch(ItemActionCreator.getItemPicture(value, this.props.item_id)).then(value3 => {
-                    console.log("picture array");
-                    console.log(value3)
+                    // console.log("picture array");
+                    // console.log(value3)
                 })
             }
         )});
@@ -45,7 +45,7 @@ class ItemScreen extends Component {
 
     componentWillReceiveProps(nextProps){
         if(nextProps.item !== null){
-            console.log(nextProps.item);
+            // console.log(nextProps.item);
             this.setState({item: nextProps.item})
 
         }
@@ -55,15 +55,7 @@ class ItemScreen extends Component {
     }
 
     closeModal = () => {
-        this.props.navigation.dispatch(
-            NavigationActions.reset({
-                index: 0,
-                key:null,
-                actions: [
-                    NavigationActions.navigate({ routeName: 'Home' })
-                ]
-            })
-        )
+        this.props.navigation.navigate('Home');
 
     };
 
@@ -73,7 +65,7 @@ class ItemScreen extends Component {
 
     render() {
         const { item, picture } = this.props;
-        console.log(picture);
+        // console.log(picture);
         if(item != null && picture != null){
             return (
 

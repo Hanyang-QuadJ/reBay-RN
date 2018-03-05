@@ -51,7 +51,7 @@ class BuyScreen2 extends Component {
     render() {
         return (
             <Container style={{backgroundColor:'white'}}>
-                <HeaderComponent title="default" left="" right="" />
+                <HeaderComponent title="default" onPressLeft={()=>this.props.navigation.goBack(null)} left="ios-closewe" right="" />
                 <Content>
 
                     {(this.props.navigation.state.params == null)?

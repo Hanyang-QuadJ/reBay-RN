@@ -18,7 +18,8 @@ import {
     TouchableWithoutFeedback,
     RefreshControl,
     ScrollView,
-    Platform
+    Platform,
+    InteractionManager
 } from "react-native";
 import * as ScrollToTopActionCreator from '../../ActionCreators/ScrollToTopCreator';
 import * as DefaultActionCreator from '../../ActionCreators/DefaultActionCreator';
@@ -66,11 +67,15 @@ class ScrollableTabComponent extends Component {
         }
     }
 
+
     componentWillMount() {
-        this.props.dispatch(DefaultActionCreator.defaultFetch());
-        this.props.navigation.setParams({
-            scrollToTop: this.scrollToTop,
+        InteractionManager.runAfterInteractions(() => {
+            this.props.dispatch(DefaultActionCreator.defaultFetch());
+            this.props.navigation.setParams({
+                scrollToTop: this.scrollToTop,
+            });
         });
+
     }
 
 

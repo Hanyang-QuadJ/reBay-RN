@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { AppLoading, Asset} from 'expo';
-import {AsyncStorage, Image, ActivityIndicator, View} from 'react-native';
+import {AsyncStorage, Image, ActivityIndicator, View, InteractionManager} from 'react-native';
 import {connect} from 'react-redux';
 import {Container, Text, Content, Spinner} from 'native-base';
 import HeaderComponent from '../../Components/HeaderComponent/HeaderComponent'
@@ -29,16 +29,17 @@ class ItemScreen extends Component {
 
 
     componentWillMount(){
-        AsyncStorage.getItem("ACCESS_TOKEN").then(value => {this.props.dispatch(ItemActionCreator.getItem(value, this.props.item_id))
-            .then(value2 =>
-            {
-                this.props.dispatch(ItemActionCreator.getItemPicture(value, this.props.item_id)).then(value3 => {
-                    // console.log("picture array");
-                    // console.log(value3)
-                })
-            }
-        )});
-
+        InteractionManager.runAfterInteractions(() => {
+            AsyncStorage.getItem("ACCESS_TOKEN").then(value => {this.props.dispatch(ItemActionCreator.getItem(value, this.props.item_id))
+                .then(value2 =>
+                    {
+                        this.props.dispatch(ItemActionCreator.getItemPicture(value, this.props.item_id)).then(value3 => {
+                            // console.log("picture array");
+                            // console.log(value3)
+                        })
+                    }
+                )});
+        })
     }
 
 
@@ -55,8 +56,17 @@ class ItemScreen extends Component {
     }
 
     closeModal = () => {
-        this.props.navigation.navigate('Home');
-
+        InteractionManager.runAfterInteractions(() => {
+            this.props.navigation.dispatch(
+                NavigationActions.reset({
+                    index: 0,
+                    key:null,
+                    actions: [
+                        NavigationActions.navigate({ routeName: 'Home' })
+                    ]
+                })
+            )
+        });
     };
 
     componentDidUpdate() {

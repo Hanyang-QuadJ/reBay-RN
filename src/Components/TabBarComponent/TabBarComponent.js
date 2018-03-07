@@ -82,7 +82,7 @@ class TabBarComponent extends Component {
                                     )
                                 }
                                 else {
-                                    return navigation.navigate('SellStack');
+                                    return this.props.navigation.navigate('SellStack');
                                 }
 
                             });

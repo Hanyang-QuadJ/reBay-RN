@@ -36,7 +36,10 @@ class BuyScreen2 extends Component {
             });
         }
     }
-    gotoBuyScreen3 = () => {
+    goBack(){
+        this.props.navigation.goBack(null)
+    }
+    gotoBuyScreen3 () {
         this.props.navigation.navigate('BuyScreen3',{
             category:this.state.category[this.state.selectedCategory].name,
             detailCategory:this.state.category[this.state.selectedCategory].detailCategory[this.state.selectedDetailCategory].name,
@@ -51,7 +54,7 @@ class BuyScreen2 extends Component {
     render() {
         return (
             <Container style={{backgroundColor:'white'}}>
-                <HeaderComponent title="default" onPressLeft={()=>this.props.navigation.goBack(null)} left="ios-closewe" right="" />
+                <HeaderComponent title="default" onPressLeft={this.goBack.bind(this)} left="ios-close" right="" />
                 <Content>
 
                     {(this.props.navigation.state.params == null)?
@@ -138,7 +141,7 @@ class BuyScreen2 extends Component {
                         maxPrice: value
                     })
                 }}/>
-                <Button onPress={()=>{this.gotoBuyScreen3()}}><Text>확인</Text></Button>
+                <Button onPress={this.gotoBuyScreen3.bind(this)}><Text>확인</Text></Button>
             </Container>
         )
 

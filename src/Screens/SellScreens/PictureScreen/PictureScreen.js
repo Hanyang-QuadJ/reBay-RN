@@ -42,9 +42,10 @@ class PictureScreen extends Component {
         }
 
 
+
     }
 
-    closeModal = () => {
+    closeModal () {
         this.props.navigation.goBack(null);
 
     };
@@ -53,7 +54,7 @@ class PictureScreen extends Component {
 
     }
 
-    parseBase = () => {
+    parseBase    ()  {
 
         let {base1, base2, base3, base4, base5, base6, base7, base8, base9} = this.state;
         let baseArray = [base1,base2,base3,base4, base5, base6, base7, base8, base9];
@@ -73,7 +74,7 @@ class PictureScreen extends Component {
 
 
 
-    goToBrand = async () => {
+    async goToBrand () {
         const baseArray =  await this.parseBase();
 
         this.props.navigation.navigate('Brand',{base64:baseArray});
@@ -93,7 +94,7 @@ class PictureScreen extends Component {
     };
 
 
-    imagePicker = async (imageNumber) => {
+    async imagePicker (imageNumber)  {
         ActionSheet.show(
             {
                 options: BUTTONS,
@@ -204,7 +205,7 @@ class PictureScreen extends Component {
 
         return (
             <Container style={{backgroundColor: 'white'}}>
-                <HeaderComponent title="사진등록" left="ios-close" right="" onPressLeft={() => this.closeModal()}/>
+                <HeaderComponent title="사진등록" left="ios-close" right="" onPressLeft={this.closeModal.bind(this)}/>
                 <View style={styles.container}>
                     <View style={styles.progress}>
                     </View>
@@ -213,57 +214,57 @@ class PictureScreen extends Component {
                     </View>
                     <View style={styles.rowContainer}>
                         <View style={styles.row}>
-                            <TouchableOpacity onPress={() => this.imagePicker(1)}>
+                            <TouchableOpacity onPress={this.imagePicker.bind(this,1)}>
                                 {image1 === null ?
                                     <Image style={styles.image} source={require('../../../Assets/pic1.jpg')}/> :
                                     image1 && <Image source={{uri: image1}} style={styles.image}/>}
                             </TouchableOpacity>
 
-                            <TouchableOpacity onPress={() => this.imagePicker(2)}>
+                            <TouchableOpacity onPress={this.imagePicker.bind(this,2)}>
                                 {image2 === null ?
                                     <Image style={styles.image} source={require('../../../Assets/pic1.jpg')}/> :
                                     image2 && <Image source={{uri: image2}} style={styles.image}/>}
                             </TouchableOpacity>
 
-                            <TouchableOpacity onPress={() => this.imagePicker(3)}>
+                            <TouchableOpacity onPress={this.imagePicker.bind(this,3)}>
                                 {image3 === null ?
                                     <Image style={styles.image} source={require('../../../Assets/pic1.jpg')}/> :
                                     image3 && <Image source={{uri: image3}} style={styles.image}/>}
                             </TouchableOpacity>
                         </View>
                         <View style={styles.row}>
-                            <TouchableOpacity onPress={() => this.imagePicker(4)}>
+                            <TouchableOpacity onPress={this.imagePicker.bind(this,4)}>
                                 {image4 === null ?
                                     <Image style={styles.image} source={require('../../../Assets/pic1.jpg')}/> :
                                     image4 && <Image source={{uri: image4}} style={styles.image}/>}
                             </TouchableOpacity>
 
-                            <TouchableOpacity onPress={() => this.imagePicker(5)}>
+                            <TouchableOpacity onPress={this.imagePicker.bind(this,5)}>
                                 {image5 === null ?
                                     <Image style={styles.image} source={require('../../../Assets/pic1.jpg')}/> :
                                     image5 && <Image source={{uri: image5}} style={styles.image}/>}
                             </TouchableOpacity>
 
-                            <TouchableOpacity onPress={() => this.imagePicker(6)}>
+                            <TouchableOpacity onPress={this.imagePicker.bind(this,6)}>
                                 {image6 === null ?
                                     <Image style={styles.image} source={require('../../../Assets/pic1.jpg')}/> :
                                     image6 && <Image source={{uri: image6}} style={styles.image}/>}
                             </TouchableOpacity>
                         </View>
                         <View style={styles.row}>
-                            <TouchableOpacity onPress={() => this.imagePicker(7)}>
+                            <TouchableOpacity onPress={this.imagePicker.bind(this,7)}>
                                 {image7 === null ?
                                     <Image style={styles.image} source={require('../../../Assets/pic1.jpg')}/> :
                                     image7 && <Image source={{uri: image7}} style={styles.image}/>}
                             </TouchableOpacity>
 
-                            <TouchableOpacity onPress={() => this.imagePicker(8)}>
+                            <TouchableOpacity onPress={this.imagePicker.bind(this,8)}>
                                 {image8 === null ?
                                     <Image style={styles.image} source={require('../../../Assets/pic1.jpg')}/> :
                                     image8 && <Image source={{uri: image8}} style={styles.image}/>}
                             </TouchableOpacity>
 
-                            <TouchableOpacity onPress={() => this.imagePicker(9)}>
+                            <TouchableOpacity onPress={this.imagePicker.bind(this,9)}>
                                 {image9 === null ?
                                     <Image style={styles.image} source={require('../../../Assets/pic1.jpg')}/> :
                                     image9 && <Image source={{uri: image9}} style={styles.image}/>}
@@ -271,9 +272,8 @@ class PictureScreen extends Component {
                         </View>
                     </View>
                 </View>
-                <FooterButtonComponent onPress={()=>this.goToBrand()} leftText="임시저장" rightText="다음으로"/>
+                <FooterButtonComponent onPress={this.goToBrand.bind(this)} leftText="임시저장" rightText="다음으로"/>
             </Container>
-
         )
 
     }

@@ -63,7 +63,7 @@ class HomeScreen extends Component {
 
     }
 
-    _handleIndexChange = index => this.setState({index});
+    _handleIndexChange = (index) => this.setState({index});
     _renderHeader = props => {
         return (
             <View>
@@ -85,6 +85,7 @@ class HomeScreen extends Component {
         }
     };
 
+
     render() {
 
 
@@ -101,8 +102,6 @@ class HomeScreen extends Component {
                     onIndexChange={this._handleIndexChange}
                     initialLayout={initialLayout}
                 />
-
-
             </Container>
         )
     }

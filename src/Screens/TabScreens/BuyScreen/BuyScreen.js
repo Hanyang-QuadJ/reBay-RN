@@ -52,10 +52,7 @@ class BuyScreen extends Component {
         }
     }
 
-    closeModal = () => {
-        this.props.navigation.goBack(null);
 
-    };
 
     filterBySearchBar(text) {
         const brands = [];
@@ -70,6 +67,24 @@ class BuyScreen extends Component {
             currentBrand: brands
         });
     }
+    _keyExtractor = (item, index) => item.id;
+
+
+    _onPressItem = (item) => {
+
+
+    };
+
+    _renderItem = ({item}) => (
+        <TouchableOpacity
+            onPress={() => {
+                this.props.navigation.navigate('BuyStack', {
+                    brandID: item.id,
+                    brandName: item.brand_name
+                })
+            }}><Text>{item.brand_name}</Text>
+        </TouchableOpacity>
+    );
 
 
     render() {
@@ -93,13 +108,9 @@ class BuyScreen extends Component {
                                            onChangeText={(text) => this.filterBySearchBar(text)}/>
                                 </Item>
                                 <FlatList
-                                    keyExtractor={item => item.id}
+                                    keyExtractor={this._keyExtractor}
                                     data={this.state.currentBrand}
-                                    renderItem={({item}) => <TouchableOpacity
-                                        onPress={() => this.props.navigation.navigate('BuyStack', {
-                                            brandID: item.id,
-                                            brandName: item.brand_name
-                                        })}><Text>{item.brand_name}</Text></TouchableOpacity>}
+                                    renderItem={this._renderItem}
                                 />
                                 <Footer>
                                     <Button full>

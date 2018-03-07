@@ -51,6 +51,29 @@ class BrandScreen extends Component {
         });
     }
 
+    _keyExtractor = (item, index) => item.id;
+
+
+    _onPressItem = (item) => {
+
+
+    };
+
+    _renderItem = ({item}) => (
+        <TouchableOpacity
+            id={item.id}
+            onPress={() => {
+                this.props.navigation.navigate('Filter', {
+                    brandID: item.id,
+                    brandName: item.brand_name,
+                    base64:this.props.navigation.state.params.base64
+                })
+            }}><Text>{item.brand_name}</Text>
+        </TouchableOpacity>
+    );
+
+
+
 
 
     render() {
@@ -64,9 +87,9 @@ class BrandScreen extends Component {
                         <Input placeholder='Rounded Textbox' onChangeText={(text) => this.filterBySearchBar(text)}/>
                     </Item>
                     <FlatList
-                        keyExtractor={item => item.id}
+                        keyExtractor={this._keyExtractor}
                         data={this.state.currentBrand}
-                        renderItem={({item}) => <TouchableOpacity onPress={()=>this.props.navigation.navigate('Filter',{brandID:item.id,brandName:item.brand_name, base64:base64})}><Text>{item.brand_name}</Text></TouchableOpacity>}
+                        renderItem={this._renderItem}
                     />
                 </Content>
                 <FooterButtonComponent leftText="임시저장" rightText="다음으로"/>

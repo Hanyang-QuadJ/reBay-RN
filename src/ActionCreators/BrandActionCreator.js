@@ -25,7 +25,7 @@ export const getBrand = (token) => {
                 }
             );
             let responseJson = await response.json();
-            console.log(responseJson);
+            // console.log(responseJson);
             await dispatch({type: SUCCEED_TO_GET_BRAND, payload: responseJson});
         } catch (error) {
             dispatch({type: FAILED_TO_GET_BRAND, payload: {data: "NETWORK_ERROR"}});

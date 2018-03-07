@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, TouchableOpacity, FlatList, AsyncStorage} from 'react-native'
+import {View, TouchableOpacity, FlatList, AsyncStorage, InteractionManager} from 'react-native'
 import { connect } from 'react-redux';
 import { Container, Text, Content, Button, Item, Input } from 'native-base';
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
@@ -23,10 +23,11 @@ class BrandScreen extends Component {
 
     }
     componentWillMount(){
-        AsyncStorage.getItem("ACCESS_TOKEN").then(token => {
-            this.props.dispatch(BrandActionCreator.getBrand(token));
+        InteractionManager.runAfterInteractions(() => {
+            AsyncStorage.getItem("ACCESS_TOKEN").then(token => {
+                this.props.dispatch(BrandActionCreator.getBrand(token));
+            });
         });
-
     }
     componentWillReceiveProps(nextProps){
         if(nextProps.brand != null){

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {AsyncStorage, View, FlatList, TouchableOpacity, ActivityIndicator} from 'react-native';
+import {AsyncStorage, View, FlatList, TouchableOpacity, ActivityIndicator, InteractionManager} from 'react-native';
 import {Col, Row, Grid} from 'react-native-easy-grid';
 import {
     Container,
@@ -37,10 +37,11 @@ class BuyScreen extends Component {
     }
 
     componentWillMount() {
-        AsyncStorage.getItem("ACCESS_TOKEN").then(token => {
-            this.props.dispatch(BrandActionCreator.getBrand(token));
+        InteractionManager.runAfterInteractions(()=>{
+            AsyncStorage.getItem("ACCESS_TOKEN").then(token => {
+                this.props.dispatch(BrandActionCreator.getBrand(token));
+            });
         });
-
     }
 
     componentWillReceiveProps(nextProps) {
@@ -72,13 +73,12 @@ class BuyScreen extends Component {
 
 
     render() {
-        console.log("BuyScreen");
-        console.log(this.props.brand);
-        console.log(this.state.text);
+        // console.log("BuyScreen");
+        // console.log(this.props.brand);
+        // console.log(this.state.text);
         return (
             <Container>
-                <HeaderComponent title="구매하기" left="ios-close" right=""
-                                 onPressLeft={() => this.closeModal()}/>
+                <HeaderComponent title="구매하기" left="" right=""/>
                 {
                     (this.state.currentBrand == null) ?
                         (<Content><ActivityIndicator

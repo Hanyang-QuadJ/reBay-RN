@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { AppLoading, Asset} from 'expo';
-import {AsyncStorage, Image, ActivityIndicator, View} from 'react-native';
+import {AsyncStorage, Image, ActivityIndicator, View, InteractionManager} from 'react-native';
 import {connect} from 'react-redux';
 import {Container, Text, Content, Spinner} from 'native-base';
 import HeaderComponent from '../../Components/HeaderComponent/HeaderComponent'
@@ -29,23 +29,24 @@ class ItemScreen extends Component {
 
 
     componentWillMount(){
-        AsyncStorage.getItem("ACCESS_TOKEN").then(value => {this.props.dispatch(ItemActionCreator.getItem(value, this.props.item_id))
-            .then(value2 =>
-            {
-                this.props.dispatch(ItemActionCreator.getItemPicture(value, this.props.item_id)).then(value3 => {
-                    console.log("picture array");
-                    console.log(value3)
-                })
-            }
-        )});
-
+        InteractionManager.runAfterInteractions(() => {
+            AsyncStorage.getItem("ACCESS_TOKEN").then(value => {this.props.dispatch(ItemActionCreator.getItem(value, this.props.item_id))
+                .then(value2 =>
+                    {
+                        this.props.dispatch(ItemActionCreator.getItemPicture(value, this.props.item_id)).then(value3 => {
+                            // console.log("picture array");
+                            // console.log(value3)
+                        })
+                    }
+                )});
+        })
     }
 
 
 
     componentWillReceiveProps(nextProps){
         if(nextProps.item !== null){
-            console.log(nextProps.item);
+            // console.log(nextProps.item);
             this.setState({item: nextProps.item})
 
         }
@@ -55,16 +56,17 @@ class ItemScreen extends Component {
     }
 
     closeModal = () => {
-        this.props.navigation.dispatch(
-            NavigationActions.reset({
-                index: 0,
-                key:null,
-                actions: [
-                    NavigationActions.navigate({ routeName: 'Home' })
-                ]
-            })
-        )
-
+        InteractionManager.runAfterInteractions(() => {
+            this.props.navigation.dispatch(
+                NavigationActions.reset({
+                    index: 0,
+                    key:null,
+                    actions: [
+                        NavigationActions.navigate({ routeName: 'Home' })
+                    ]
+                })
+            )
+        });
     };
 
     componentDidUpdate() {
@@ -73,7 +75,7 @@ class ItemScreen extends Component {
 
     render() {
         const { item, picture } = this.props;
-        console.log(picture);
+        // console.log(picture);
         if(item != null && picture != null){
             return (
 

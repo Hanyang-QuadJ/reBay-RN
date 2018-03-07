@@ -18,7 +18,8 @@ import {
     TouchableWithoutFeedback,
     RefreshControl,
     ScrollView,
-    Platform
+    Platform,
+    InteractionManager
 } from "react-native";
 import * as ScrollToTopActionCreator from '../../ActionCreators/ScrollToTopCreator';
 import * as DefaultActionCreator from '../../ActionCreators/DefaultActionCreator';
@@ -66,11 +67,15 @@ class ScrollableTabComponent extends Component {
         }
     }
 
+
     componentWillMount() {
-        this.props.dispatch(DefaultActionCreator.defaultFetch());
-        this.props.navigation.setParams({
-            scrollToTop: this.scrollToTop,
+        InteractionManager.runAfterInteractions(() => {
+            this.props.dispatch(DefaultActionCreator.defaultFetch());
+            this.props.navigation.setParams({
+                scrollToTop: this.scrollToTop,
+            });
         });
+
     }
 
 
@@ -83,8 +88,8 @@ class ScrollableTabComponent extends Component {
 
 
     componentDidMount() {
-        if(Platform.OS==='ios'){
-            this.scrollView.getNode().scrollTo({animated:false, y:-170});
+        if (Platform.OS === 'ios') {
+            this.scrollView.getNode().scrollTo({animated: false, y: -170});
         }
 
 
@@ -109,15 +114,15 @@ class ScrollableTabComponent extends Component {
 
     _renderHeader = props => {
         let translateY;
-        if(Platform.OS === 'ios'){
-                translateY = this.state.scroll.interpolate({
+        if (Platform.OS === 'ios') {
+            translateY = this.state.scroll.interpolate({
                 inputRange: [-170, SCROLLABLE_HEIGHT],
                 outputRange: [0, -SCROLLABLE_HEIGHT],
                 extrapolate: 'clamp',
             });
         }
-        else{
-                translateY = this.state.scroll.interpolate({
+        else {
+            translateY = this.state.scroll.interpolate({
                 inputRange: [0.001, SCROLLABLE_HEIGHT],
                 outputRange: [0.001, -SCROLLABLE_HEIGHT],
                 extrapolate: 'clamp',
@@ -183,18 +188,19 @@ class ScrollableTabComponent extends Component {
                 return <View>
                     <Animated.View style={{
 
-                        transform: [{translateY}]}}>
+                        transform: [{translateY}]
+                    }}>
                         <View style={{
-                            zIndex:-3,
-                            backgroundColor:"green",
+                            zIndex: -3,
+                            backgroundColor: "green",
                         }}>
 
                         </View>
                     </Animated.View>
 
                     <AnimatedScrollView scrollEventThrottle={1}
-                                        contentContainerStyle={Platform.OS === 'ios' ? null : {paddingTop:170}}
-                                        contentInset={{top:170}}
+                                        contentContainerStyle={Platform.OS === 'ios' ? null : {paddingTop: 170}}
+                                        contentInset={{top: 170}}
                                         refreshControl={
                                             <RefreshControl
                                                 refreshing={this.state.refreshing}

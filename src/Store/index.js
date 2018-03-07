@@ -16,7 +16,6 @@ const middleware = createReactNavigationReduxMiddleware(
 
 const createStoreWithMiddleware = applyMiddleware(
     thunkMiddleware, // Middleware for dispatch()
-    loggerMiddleware,
     middleware,
     // Middleware for loging
 )(createStore);

@@ -17,9 +17,9 @@ export const FAILED_TO_POST_ITEM = "FAILED_TO_POST_ITEM";
 export const SUCCEED_TO_POST_ITEM = "SUCCEED_TO_POST_ITEM";
 
 //아이템 걸러서 여러개 가져오기
-export const START_TO_POST_ITEMS = "START_TO_POST_ITEM";
-export const FAILED_TO_POST_ITEMS = "FAILED_TO_POST_ITEM";
-export const SUCCEED_TO_POST_ITEMS = "SUCCEED_TO_POST_ITEM";
+export const START_TO_POST_ITEMS = "START_TO_POST_ITEMS";
+export const FAILED_TO_POST_ITEMS = "FAILED_TO_POST_ITEMS";
+export const SUCCEED_TO_POST_ITEMS = "SUCCEED_TO_POST_ITEMS";
 
 const ACCESS_TOKEN = "ACCESS_TOKEN";
 
@@ -162,7 +162,7 @@ export const postItems = (token, category_1, category_2, item_status, season, ma
                         max_price: max_price,
                         min_price: min_price,
                         index: index,
-                    }),
+                    })
                 }
             );
             let responseJson = await response.json();

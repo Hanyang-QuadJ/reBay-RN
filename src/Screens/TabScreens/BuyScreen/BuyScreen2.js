@@ -5,6 +5,7 @@ import {Container, Text, Content, Item, Input, Form, Button, Badge, Header, Foot
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 import jsonData from '../../../Constants/data'
 import  styles from './Style';
+import {NavigationActions} from "react-navigation";
 
 const mapStateToProps = state => {
     return {
@@ -37,7 +38,18 @@ class BuyScreen2 extends Component {
         }
     }
     goBack(){
-        this.props.navigation.goBack(null)
+        this.props.navigation.dispatch(
+            NavigationActions.reset({
+                index: 0,
+                key: null,
+                actions: [
+                    NavigationActions.navigate({routeName: 'Home',
+
+                    })
+                ]
+            })
+        );
+        this.props.navigation.navigate('Buy');
     }
     gotoBuyScreen3 () {
         this.props.navigation.navigate('BuyScreen3',{

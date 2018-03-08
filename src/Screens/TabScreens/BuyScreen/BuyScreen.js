@@ -23,6 +23,7 @@ import {
 import HeaderComponent from '../../../Components/HeaderComponent/HeaderComponent'
 import styles from './Style';
 import * as BrandActionCreator from "../../../ActionCreators/BrandActionCreator";
+import {NavigationActions} from "react-navigation";
 
 const mapStateToProps = state => {
     return {
@@ -37,7 +38,7 @@ class BuyScreen extends Component {
     }
 
     componentWillMount() {
-        InteractionManager.runAfterInteractions(()=>{
+        InteractionManager.runAfterInteractions(() => {
             AsyncStorage.getItem("ACCESS_TOKEN").then(token => {
                 this.props.dispatch(BrandActionCreator.getBrand(token));
             });
@@ -53,7 +54,6 @@ class BuyScreen extends Component {
     }
 
 
-
     filterBySearchBar(text) {
         const brands = [];
         if (this.props.brand != null) {
@@ -67,6 +67,7 @@ class BuyScreen extends Component {
             currentBrand: brands
         });
     }
+
     _keyExtractor = (item, index) => item.id;
 
 
@@ -78,10 +79,19 @@ class BuyScreen extends Component {
     _renderItem = ({item}) => (
         <TouchableOpacity
             onPress={() => {
-                this.props.navigation.navigate('BuyStack', {
-                    brandID: item.id,
-                    brandName: item.brand_name
-                })
+                this.props.navigation.dispatch(
+                    NavigationActions.reset({
+                        index: 0,
+                        params: {
+                            brandID: item.id,
+                            brandName: item.brand_name
+                        },
+                        key: null,
+                        actions: [
+                            NavigationActions.navigate({routeName: 'BuyStack'})
+                        ]
+                    })
+                );
             }}><Text>{item.brand_name}</Text>
         </TouchableOpacity>
     );
